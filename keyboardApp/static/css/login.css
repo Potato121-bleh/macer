@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+img{
+    width: 100%;
+}
+
+body{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-repeat: repeat-x;
+    /* background: url(/macerShop/frontendApp/static/img/keyboard.jpeg); */
+    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.876)) , url(/macerShop/frontendApp/static/img/bck\ 2.jpeg);
+    /* backdrop-filter: blur(1px); */
+    /* background-size: cover; */
+    
+    /* background-repeat: no-repeat;
+    background-attachment: fixed; */
+}
+.wrapper{
+    border-radius: 15px;
+    /* background-color: rgb(89, 89, 89); */
+    width: 420px;
+    padding: 30px 40px;
+    border: 2px solid rgba(255, 255, 255, 0.713);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 40px rgba(168, 153, 153, 0.258);
+}
+.wrapper h1{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 10px;
+}
+.wrapper .input-box{
+    width: 100%;
+    height: 50px;
+    margin: 29px 0px;
+}
+.input-box input{
+    margin-left: 10px;
+    width: 95%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid rgba(225, 225, 225, 0.541);
+    border-radius: 20px;
+    padding: 20px 20px 20px;
+}
+.input-box input{
+    color: white;
+}
+.input-box input::placeholder {
+    color: white;
+}
+.wrapper box-icon{
+    border: solid black;
+    position: fixed;
+    right: 26%;
+}
+.wrapper .remember-forgot{
+    color: white;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.remember-forgot a{
+    color: white;
+    margin-right:10px;
+    text-decoration: none;
+}
+.remember-forgot input{
+    margin-left: 10px;
+}
+.remember-forgot a:hover{
+
+    text-decoration: underline;
+}
+.wrapper .register-link{
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+.wrapper .btn{
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    width: 98%;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-left: 5px;   
+    cursor: pointer;
+    font-weight: 400;
+}
+.remember-forgot a{
+    margin-bottom: 10px;
+}
+.register-link p a{
+    color: white;
+}
+.register-link p:hover{
+    text-decoration: underline;
+}
+.under-thing{
+    margin-bottom: 5px;
+}

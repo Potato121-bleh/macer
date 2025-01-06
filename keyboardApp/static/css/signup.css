@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body{
+    /* background: linear-gradient(rgba(0, 0, 0, 0.367),rgba(0, 0, 0, 0.888)) , url(/macerShop/frontendApp/static/img/bck\ 2.jpeg); */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    border: solid green;
+}
+.container{
+    color: white;
+    background-color: rgb(69, 69, 69);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    /* background-color: rgb(89, 89, 89); */
+    width: 420px;
+    padding: 30px 40;
+    /* border: 2px solid rgba(255, 255, 255, 0.395); */
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0.1);
+}
+.form-signup{
+    height: 100%;
+    /* border: solid green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+label{
+    font-size: 1.2rem;
+}
+.input-box{
+    /* background-color: yellow; */
+    padding: 10px;
+    width: 100%;
+}
+.input-box input{
+    background-color: rgba(101, 101, 101, 0);
+    color: white;
+    border: 1px solid white;
+    padding-left: 10px;
+    background-color: none;
+    border-radius: 15px;
+    width: 100%;
+    height: 2.5rem;
+    outline: none;
+}
+.form-signup h1{
+    text-align: center;
+    font-weight: 600;
+}
+.btn-signup button{
+    margin: 10px;
+    background-color: rgb(209, 209, 209);
+    color: white;
+    font-weight: 800;
+    font-size: 1.2rem;
+    height: 2rem;
+    width: 9rem;
+    border: none;
+    border-radius: 15px;
+}
+.already-haveacc{
+    margin: 10px;
+}
+.already-haveacc a{
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+}
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form img{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+}
+form .background-h1{
+    color: rgb(149, 149, 149);
+    font-size: 8.7rem;
+    position: absolute;
+    z-index: -1;
+}
