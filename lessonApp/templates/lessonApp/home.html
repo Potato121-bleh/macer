@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block title %}
+<title>Home</title>
+{% endblock %} {% block cssfile %} {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+<script></script>
+{% endblock %} {% block contentZz %}
+<ul style="list-style: none">
+    <li>
+        <label>Id: </label>
+        <input type="number" />
+    </li>
+    <li>
+        <label>Name: </label>
+        <input type="text" />
+    </li>
+    <li>
+        <label>Place of Birth: </label>
+        <input type="text" />
+    </li>
+    <li>
+        <label>Date of Birth: </label>
+        <input type="date" />
+    </li>
+    <li>
+        <label>Skill: </label>
+        <input type="text" />
+    </li>
+</ul>
+<ul style="margin-top: 30px; list-style: none">
+    <li>Id: 0007689</li>
+    <li>Name: Ly Sochetra</li>
+    <li>Place of Birth: hospital</li>
+    <li>Date of Birth: N/A</li>
+    <li>Skill: Web developer</li>
+</ul>
+{% endblock %}
