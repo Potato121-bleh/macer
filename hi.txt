@@ -1,1 +1,8 @@
 hello it me kimly
+hello bro it me tra
+
+git add .
+git commit -m 'name'
+git pull 
+(resolve conflict)
+git push -u origin master
