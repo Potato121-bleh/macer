@@ -27,9 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Database Router
+DATABASE_ROUTERS = ["src.db_router.Router_db"]
+
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'lessonApp.apps',
-    'keyboardApp' 
+    'lessonApp.apps.LessonappConfig',
+    'keyboardApp.apps.KeyboardappConfig',
+    'appApi.apps.AppapiConfig'
 ]
 
 MIDDLEWARE = [
@@ -79,6 +82,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'lessonAppDB': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'lessonAppDB.sqlite3'
+    },
+    'keyboardAppDB': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'keybaordAppDB.sqlite3'
     }
 }
 
