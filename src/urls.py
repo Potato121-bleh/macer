@@ -22,5 +22,6 @@ from django.conf.urls import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("lessonApp/", include("lessonApp.urls")),
-    path("keyboardApp/", include("keyboardApp.urls"))
+    path("keyboardApp/", include("keyboardApp.urls")),
+    path("api/", include("appApi.urls"))
 ]
