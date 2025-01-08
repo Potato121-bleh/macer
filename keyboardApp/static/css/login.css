@@ -1,3 +1,4 @@
+/*{% load static %} */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 *{
     margin: 0;
@@ -10,28 +11,24 @@ img{
 }
 
 body{
-    background-color: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     background-repeat: repeat-x;
-    /* background: url(/macerShop/frontendApp/static/img/keyboard.jpeg); */
-    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.876)) , url(/macerShop/frontendApp/static/img/bck\ 2.jpeg);
-    /* backdrop-filter: blur(1px); */
-    /* background-size: cover; */
-    
-    /* background-repeat: no-repeat;
-    background-attachment: fixed; */
+    background: linear-gradient(rgba(13, 13, 13, 0.188),rgba(10, 10, 10, 0.734)) , url(../img/bck\ 2.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 .wrapper{
     border-radius: 15px;
-    /* background-color: rgb(89, 89, 89); */
+    background-color: rgba(14, 14, 14, 0.181);
     width: 420px;
     padding: 30px 40px;
-    border: 2px solid rgba(255, 255, 255, 0.713);
+    border: 2px solid rgba(255, 255, 255, 0.244);
     backdrop-filter: blur(5px);
-    box-shadow: 0 0 40px rgba(168, 153, 153, 0.258);
+    box-shadow: 0 0 40px rgba(255, 253, 253, 0.34);
 }
 .wrapper h1{
     color: white;
@@ -70,7 +67,7 @@ body{
     color: white;
     font-size: 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 .remember-forgot a{
     color: white;

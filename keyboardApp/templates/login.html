@@ -1,10 +1,11 @@
+<!-- {% load static %} -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/macerShop/frontendApp/static/css/login.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
 </head>
 <body>
    <div class="wrapper">
@@ -17,16 +18,13 @@
        <input type="password" placeholder="Passowrd">
     </div>
     <div class="under-thing">
-       <div class="remember-forgot">
-          <label>
-           <input type="checkbox" placeholder="remember">Remember me</label>
-          </label> 
-          <a href="#">Forgot passowrd</a>
-       </div>    
        <button type="submit" class="btn">Login</button>
+       <div class="remember-forgot">
+          <a href="#">Forgot passowrd?</a>
+         </div>    
        <div class="register-link">
           <p>Don't have an account?
-            <a href="/macerShop/frontendApp/templates/signup.html">Sign Up</a>
+            <a href="./signup">Sign Up</a>
           </p> 
        </div>
        </form> 
