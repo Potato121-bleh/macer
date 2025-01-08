@@ -8,60 +8,51 @@ body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 header {
-  background-color: rgb(50, 50, 50);
-  /* border: solid green; */
+  background-color: rgb(255, 255, 255);
+  border: solid rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 4px;
+  padding: 30px;
 }
 nav {
   /* border: solid rgb(102, 229, 245); */
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 30px;
+  width: 100%;
 }
-/* .navbar-header{
-  display: flex;
-  align-items: center;
-  border: solid yellow;
-} */
 nav h2 {
   /* border: solid red; */
   text-transform: uppercase;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 2.5rem;
   padding-left: 50px;
+  font-weight: 900;
 }
 .head-link {
-  /* border: solid red; */
   list-style-type: none;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  /* margin-right: 25rem; */
-  /* align-items: center;*/
-  /* justify-content: center; */
 }
 .head-link .search-bar {
-  width: 70vh;
-  color: rgb(255, 255, 255);
-  background-color: rgba(51, 49, 49, 0);
+  width: 60vh;
+  color: rgb(0, 0, 0);
+  background-color: rgba(124, 124, 124, 0);
   height: 5.1vh;
-  border: 1.9px solid rgb(255, 255, 255);
+  border: 1px solid rgb(201, 200, 200);
   border-radius: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 .login-signup {
   /* border: solid white; */
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 }
 .li-login a {
   text-transform: uppercase;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: rgb(255, 255, 255);
+  color: rgb(11, 11, 11);
   text-decoration: none;
   font-size: 0.7rem;
   font-weight: 700;
@@ -70,7 +61,7 @@ nav h2 {
   /* border: solid yellow; */
   text-transform: uppercase;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: rgb(255, 255, 255);
+  color: rgb(1, 1, 1);
   text-decoration: none;
   font-size: 0.7rem;
   font-weight: 700;
@@ -80,14 +71,14 @@ nav h2 {
   margin: 50px;
 }
 .search-bar span {
-  padding-left: 10px;
+  padding-right: 10px;
 }
 .search-bar .search-input::placeholder {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 .search-bar .search-input {
   padding-left: 10px;
-  color: white;
+  color: rgb(0, 0, 0);
   outline: none;
   border: none;
   width: 100%;
@@ -100,6 +91,7 @@ nav h2 {
   text-transform: uppercase;
   font-weight: 600;
   color: rgb(0, 0, 0);
+  
   background-color: rgb(255, 255, 255);
   border: none;
   margin-right: 5px;
@@ -108,27 +100,31 @@ nav h2 {
 }
 /*----------Aside----------*/
 aside {
-  /* background-color: rgb(149, 179, 255); */
-  /* outline: 2px solid rgb(231, 231, 231); */
-  /* height: 20rem; */
-  /* margin: 10px; */
-  /* margin-left: 20px; */
+  /* background-color: rgb(246, 246, 246); */
+  border: 1px solid rgb(240, 240, 240);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   display: flex;
   justify-content: flex-start;
   width: 25%;
   margin-left: 20px;
 }
-aside .aside-list {
+.container aside {
+  /* background-color: pink; */
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  margin-left: 150px;
+  /* border: solid rgb(255, 49, 49); */
 }
 .aside-list h2 {
+  font-size: 1.4rem;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
 }
 .aside-list label {
   /* background-color: pink; */
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 .aside-list input {
   margin: 10px;
@@ -140,103 +136,60 @@ form label {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   /* margin-left: 20px; */
   /* justify-content: space-between; */
-  border: solid rgb(87, 249, 0);
-}
-.container aside {
-  border: solid rgb(255, 49, 49);
+  /* border: solid rgb(87, 249, 0); */
 }
 .container-grid {
-  /* margin-top: 10px; */
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  /* border: solid rgb(255, 225, 0); */
   /* padding-left: 4rem; */
-  border: solid rgb(255, 225, 0);
   /* border: solid rgb(245, 57, 88); */
 }
 /*----------Grid Boxes----------*/
 
 .box {
-  width: 25%;
-
-  border: 1px solid rgb(217, 217, 217);
+  width: 250px;
+  height: 210px;
+  background-color: rgb(255, 254, 254);
   display: flex;
-  flex-wrap: wrap;
-  /* flex-direction: column; */
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  margin: 5px;
+  margin: 15px;
   padding: 20px;
-}
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 10px;}
 .box .shape-in-Grid {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
 }
 .box h2 {
-  font-size: 20px;
-  font-weight: 850;
+  font-size: 15px;
+  font-weight: 800;
   font-family: "Montserrat", serif;
-}
-/* .shape-in-Grid .image-one{
-  width: 60%;
-} */
-.shape-in-Grid img {
-  border: solid rgb(55, 55, 55);  
-  margin-bottom: 10px;
-  width: 200px;
-}
-.detail-container {
-  /* border: solid pink; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* align-items: center; */
-  /* margin: 10px; */
-}
-.keyboard-detail {
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-}
-.keyboard-detail .detail {
-  font-size: 10px;
   text-align: center;
 }
-.container-price {
-  /* border: solid pink; */
-  /* color: white; */
-  /* background-color: rgb(85, 26, 181); */
-  border-radius: 5px;
+.shape-in-Grid img {
+  width: 220px;
+  /* rotate: -5deg; */
+}
+.detail-container .long-ph{
+  text-align: center;
+  font-size: 10px;
+}
+.detail-price{
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: row;
 }
-.price-shape .price-only {
-}
-.price-shape p {
+.detail-price .price{
   font-size: 15px;
-  text-transform: uppercase;
+  font-weight: bold;
+  margin: 2px;
 }
-.container-price span .price {
-  font-size: 15px;
-}
-/* .shape-in-Grid .shape-one{
-  background-color: pink;
-  margin: 5px;
-  width: 110px;
-  height: 110px;
-}.shape-in-Grid .shape-two{
-  background-color: rgb(255, 112, 136);
-  width: 110px;
-  height: 110px;
-} */
 @media screen and (max-width: 1500px) {
   .box {
     display: flex;

@@ -1,10 +1,12 @@
+<!-- {% load static %} -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="/macerShop/frontendApp/static/css/signup.css">
+    <link rel="stylesheet" href="/macer/keyboardApp/templates/signup.html">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}" />
 </head>
 <body>
     <Form>
@@ -18,11 +20,11 @@
                     <input type="text" placeholder="" required id="">
                 </div>
                 <div class="input-box">
-                    <label>Email</label>
+                    <label>NickName</label>
                     <input type="text" placeholder="">
                 </div>
                 <div class="input-box">
-                    <label>Phone Number</label>
+                    <label>Email</label>
                     <input type="text" placeholder="" required>
                 </div>
                 <div class="input-box">
@@ -34,7 +36,7 @@
                 </div>
                 <div class="already-haveacc">
                     <p>Already have account?
-                        <a href="/macerShop/frontendApp/templates/login.html">Login</a>
+                        <a href="./login">Login</a>
                     </p>
                 </div>
             </div>
