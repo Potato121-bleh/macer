@@ -146,21 +146,14 @@ aside{
   justify-content: flex-start;
   margin: 15px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 10px;
-  border: solid goldenrod;
+  /* border: solid goldenrod; */
 }
 .box .shape-in-Grid {
-  border: solid yellow;
+  /* border: solid yellow; */
   text-align: center;
 }
-.shape-in-Grid img {
+.shape-in-Grid .keyboard-one{
   width: 220px;
-  /* rotate: -5deg; */
-}
-.detail-container{
-  display: flex;
-  flex-direction: column;
-  /* border: solid black; */
-  /* margin: 10px; */
 }
 .box h2 {
   text-align: center;
@@ -169,19 +162,53 @@ aside{
   font-family: "Montserrat", sans-serif ;
   color: rgb(82, 2, 151);
 }
+.detail-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid black;
+  height: 100%;
+  /* margin: 10px; */
+}
 .detail-container .long-ph{
-  font-size: 13px;
+  font-size: 11px;
   color: rgb(0, 0, 0);
+  text-align: center;
 }
 .price-head{
-  border: solid black;
+  /* border: solid black; */
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 40%;
+  width: 90%;
 }
 .detail-price{
   display: flex;
+  border: solid black;
 }
-.detail-price .price{
-
-  font-weight: bold;
+.detail-price .price-text{
+  font-size: 12px;
+}
+.detail-color .rgb-color{
+  /* font-weight: bold; */
+  font-size: 12px;
+}
+.detail-color .rgb{
+  /* font-weight: bold; */
+}
+.icon-connection{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-connection .icon-bluetooth{
+  width: 15px;
+  color: white;
+}
+.icon-connection .icon-usb{
+  width: 15px;
+  color: white;
 }
 /* responsive somrab rub ng box */
 /* @media screen and (max-width: 1500px) {
