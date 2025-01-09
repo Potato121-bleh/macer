@@ -210,21 +210,7 @@ aside{
   width: 15px;
   color: white;
 }
-/* responsive somrab rub ng box */
-/* @media screen and (max-width: 1500px) {
-  .box {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-  }
-} */
-/* @media (max-width: 900px) {
-  .box {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-  }
-} */
+
 @media (max-width: 610px) {
   .shape-in-Grid {
     display: flex;
@@ -287,4 +273,3 @@ aside{
     height: 30px;
   }
 }
-/* responsive somrab rub ng box */

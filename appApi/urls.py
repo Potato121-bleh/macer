@@ -3,7 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    path("keyboardApp/auth/login", views.auth_user),
-    # path("keyboardApp/auth/validation")
+    path("keyboardApp/auth/login", views.auth_user)
 ]
 
