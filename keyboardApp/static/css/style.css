@@ -11,30 +11,46 @@ header {
   background-color: rgb(255, 255, 255);
   border: solid rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 4px;
-  padding: 30px;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 nav {
-  /* border: solid rgb(102, 229, 245); */
+  /* border: solid rgb(91, 91, 91); */
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
+  height: 80%;
+}
+@media screen and (max-width:890px) {
+  header nav{
+    display: flex;
+    flex-direction: column;
+  }
 }
 nav h2 {
+  font-family: 'Montserrat', sans-serif;
   /* border: solid red; */
   text-transform: uppercase;
-  color: rgb(0, 0, 0);
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 2.5rem;
+  color: rgb(84, 84, 84);
+  /* text-shadow:rgba(0, 0, 0, 0.4) 1px 2px 2px;; */
+  font-size: 2rem;
   padding-left: 50px;
   font-weight: 900;
+}
+@media screen and (max-width:890px) {
+  nav h2{
+    font-size: 1.5rem;
+  }
 }
 .head-link {
   list-style-type: none;
   display: flex;
 }
 .head-link .search-bar {
-  width: 60vh;
+  width: 45rem;
   color: rgb(0, 0, 0);
   background-color: rgba(124, 124, 124, 0);
   height: 5.1vh;
@@ -81,65 +97,36 @@ nav h2 {
   color: rgb(0, 0, 0);
   outline: none;
   border: none;
-  width: 100%;
+  width: 120%;
   background-color: rgba(250, 235, 215, 0);
   /* padding-left: 10px; */
 }
-.search-bar .btnSearch {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: rgb(0, 0, 0);
-  
-  background-color: rgb(255, 255, 255);
+.container{
+  display: flex;
+  padding-left: 120px;
+  padding-top: 40px;
+}
+aside{
+  /* border: solid rgb(242, 88, 88); */
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 400px;
+}
+.aside-container{
+  /* border: solid rgb(16, 13, 13); */
+  height: 50%;
+}
+.aside-container button{
+  background-color: rgb(213, 213, 213);
   border: none;
-  margin-right: 5px;
-  height: 30px;
   border-radius: 5px;
+  width: 90px;
+  height: 35px;
+  margin: 2px;
 }
-/*----------Aside----------*/
-aside {
-  /* background-color: rgb(246, 246, 246); */
-  border: 1px solid rgb(240, 240, 240);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  display: flex;
-  justify-content: flex-start;
-  width: 25%;
-  margin-left: 20px;
-}
-.container aside {
-  /* background-color: pink; */
-  display: flex;
-  justify-content: center;
-  margin-left: 150px;
-  /* border: solid rgb(255, 49, 49); */
-}
-.aside-list h2 {
-  font-size: 1.4rem;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 900;
-}
-.aside-list label {
-  /* background-color: pink; */
-  font-size: 1.2rem;
-}
-.aside-list input {
-  margin: 10px;
-}
-form label {
-  color: grey;
-}
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin-top: 2.5rem;
-  /* margin-left: 20px; */
-  /* justify-content: space-between; */
-  /* border: solid rgb(87, 249, 0); */
+.aside-container h1{
+  color: rgb(63, 63, 63);
 }
 .container-grid {
   width: 100%;
@@ -147,63 +134,70 @@ form label {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  /* border: solid rgb(255, 225, 0); */
-  /* padding-left: 4rem; */
-  /* border: solid rgb(245, 57, 88); */
 }
 /*----------Grid Boxes----------*/
-
 .box {
   width: 250px;
   height: 210px;
+  border: 1px solid rgb(218, 217, 217);
   background-color: rgb(255, 254, 254);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 15px;
-  padding: 20px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 10px;}
-.box .shape-in-Grid {
-  display: flex;
-  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 10px;
+  border: solid goldenrod;
 }
-.box h2 {
-  font-size: 15px;
-  font-weight: 800;
-  font-family: "Montserrat", serif;
+.box .shape-in-Grid {
+  border: solid yellow;
   text-align: center;
 }
 .shape-in-Grid img {
   width: 220px;
   /* rotate: -5deg; */
 }
-.detail-container .long-ph{
+.detail-container{
+  display: flex;
+  flex-direction: column;
+  /* border: solid black; */
+  /* margin: 10px; */
+}
+.box h2 {
   text-align: center;
-  font-size: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif ;
+  color: rgb(82, 2, 151);
+}
+.detail-container .long-ph{
+  font-size: 13px;
+  color: rgb(0, 0, 0);
+}
+.price-head{
+  border: solid black;
 }
 .detail-price{
   display: flex;
-  flex-direction: row;
 }
 .detail-price .price{
-  font-size: 15px;
+
   font-weight: bold;
-  margin: 2px;
 }
-@media screen and (max-width: 1500px) {
+/* responsive somrab rub ng box */
+/* @media screen and (max-width: 1500px) {
   .box {
     display: flex;
     flex-direction: column;
     width: 40%;
   }
-}
-@media (max-width: 850px) {
+} */
+/* @media (max-width: 900px) {
   .box {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 70%;
   }
-}
+} */
 @media (max-width: 610px) {
   .shape-in-Grid {
     display: flex;
@@ -211,9 +205,59 @@ form label {
     flex-direction: column;
   }
 }
-/* @media only screen and (max-width: 620px) {
-  /* For mobile phones: */
-/* header, nav, .navbar-header .nav-link {
-    width: 100%;
+@media (max-width:1000px) {
+  .nav{
+    width: 30%;
+  }
+}
+@media (max-width:990px) {
+  .shape-in-Grid img{
+    width: 90%;
+  }
+}
+/* search bar resonponsive */
+@media (max-width:1400px) {
+  .head-link .search-bar{
+    width:40rem;
+  }
+}
+@media (max-width:1390px) {
+  .head-link .search-bar{
+    width:25rem;
+  }
+}
+@media (max-width:1400px) {
+  .head-link .search-bar{
+    width:22rem;
+  }
+}
+@media (max-width:1190px) {
+  .head-link .search-bar{
+    width:15rem;
+  }
+}
+@media (max-width:890px) {
+  .head-link .search-bar{
+    width:20rem;
+    height: 30px;
+  }
+}
+/* @media (max-width:860px) {
+  .head-link .search-bar{
+    width:18rem;
+    height: 30px;
   }
 } */
+@media (max-width:700px) {
+  .head-link .search-bar{
+    width:14rem;
+    height: 30px;
+  }
+}
+@media (max-width:600px) {
+  .head-link .search-bar{
+    width:10rem;
+    height: 30px;
+  }
+}
+/* responsive somrab rub ng box */
