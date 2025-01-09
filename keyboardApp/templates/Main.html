@@ -14,6 +14,29 @@
     <!-- for open server tomda -->
   </head>
 <body>
+  <script>
+
+      // function getCSRFToken() {
+      //    return document.querySelector('[name=csrfmiddlewaretoken]').value;
+      // }
+
+      const handleQueryData = async () => {
+        try{
+          const resp = await fetch("http://127.0.0.1:8000/api/keyboardApp/auth/validation", {
+            method: "GET",
+            credentials: "same-origin"
+          })
+          
+          userData = await resp.json()
+          console.log("user data here: ")
+          console.log(userData)
+        } catch (err) {console.error(err)}
+
+      }
+
+      handleQueryData()
+
+  </script>
   <header>
     <nav>
       <!-- <div class="navbar-header"> -->
