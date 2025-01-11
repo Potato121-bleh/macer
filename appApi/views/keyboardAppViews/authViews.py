@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, HttpRequest
 from django.views.decorators.http import require_http_methods
 from keyboardApp.models import User_info as keyboardApp_user_info
+from appApi.util import get_JWT_key
 from .middlewareViews import Crediential_validate_middleware
 from cryptography.hazmat.primitives import serialization
 import json
@@ -51,3 +52,18 @@ def auth_user(request: HttpRequest):
         return JsonResponse({"Message": "Failed to prepare the access token", "ErrorKey": err}, status=500)
 
     return response
+
+
+def auth_validate_user(request: HttpRequest):
+    jwtToken = request.COOKIES.get("auth_token")
+    if not jwtToken:
+        return JsonResponse({"Error_message": "cookie not found"}, status=401)
+    try:
+        token_payload = jwt.decode(
+            jwt=jwtToken,
+            key=get_JWT_key("public_key"),
+            algorithms=["RS256"]
+            )
+    except Exception as err:
+        return JsonResponse({"Error_Message": "cookie not recongise", "Dev_Message": err})
+    return JsonResponse({"Data": token_payload})

@@ -1,1 +1,1 @@
-from .keyboardAppViews import auth_user
+from .keyboardAppViews import auth_user, auth_validate_user
