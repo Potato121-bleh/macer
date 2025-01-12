@@ -3,10 +3,9 @@ from django.http import HttpRequest, JsonResponse
 from keyboardApp.models import User_info as keyboardApp_user_info
 
 
-
+# 
 def Crediential_validate_middleware(view_func):
     def test_operation(request: HttpRequest):
-        print("nice")
         try:
             requestData = json.loads(request.body)
         except Exception as err:
@@ -28,3 +27,11 @@ def Crediential_validate_middleware(view_func):
 
         return view_func(request)
     return test_operation
+
+
+def Crediential_cookie_validation_middleware(view_func):
+    
+    def validate_the_cookie(request):
+        print("Hi")
+        
+    return validate_the_cookie

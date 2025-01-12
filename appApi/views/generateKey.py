@@ -30,4 +30,3 @@ def generateJWTKey():
 
     print("Key successfully Generated")
 
-generateJWTKey()
