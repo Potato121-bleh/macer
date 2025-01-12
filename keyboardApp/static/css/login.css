@@ -71,7 +71,7 @@ form{
 }
 .wrapper .remember-forgot{
     color: white;
-    font-size: 15px;
+    font-size: 14px;
     display: flex;
     justify-content: center;
 }
@@ -90,6 +90,7 @@ form{
 .wrapper .register-link{
     color: rgb(255, 255, 255);
     text-align: center;
+    font-size: 14px;
 }
 .wrapper .btn{
     font-weight: 900;
@@ -107,9 +108,11 @@ form{
 }
 .remember-forgot a{
     margin-bottom: 10px;
+    font-size: 14px;
 }
 .register-link p a{
     color: white;
+    font-size: 14px;
 }
 .register-link p:hover{
     text-decoration: underline;
