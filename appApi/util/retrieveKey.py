@@ -1,3 +1,4 @@
+from typing import Literal
 from django.http import HttpResponse, JsonResponse
 from dotenv import load_dotenv
 from cryptography.hazmat.primitives import serialization
@@ -5,7 +6,17 @@ import os
 import base64
 
 
-def get_JWT_key(key_name):
+def get_JWT_key(key_name: Literal["public_key", "private_key"]):
+    """ 
+    Retrieve key based on what has been passed via argument 
+    
+    Parameters:
+        key_name (str): Must be the following value: "private_key" or "public_key"
+    
+    Return:
+        key (str): avaliable for jwt token
+
+    """
     load_dotenv()
     if key_name == "private_key" or key_name == "public_key":
         if key_name == "private_key":
