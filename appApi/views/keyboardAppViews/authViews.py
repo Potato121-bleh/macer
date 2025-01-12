@@ -27,15 +27,14 @@ def auth_user(request: HttpRequest):
             password=None
             )
         
-        print("private key here: ")
-        print(private_key)
         jwtPayload = {
             "user_id": queried_user.user_id,
             "user_name": queried_user.user_name,
             "user_nickname": queried_user.user_nickname,
-            "user_balance": queried_user.user_balance,
-            "exp": datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=1)
+            "user_balance": float(queried_user.user_balance),
+            "exp": (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=1)).timestamp()
         }
+        print(jwtPayload)
 
         jwToken = jwt.encode(
             payload=jwtPayload,
@@ -43,10 +42,7 @@ def auth_user(request: HttpRequest):
             algorithm="RS256"
         )
 
-        resp_message = {
-            "Message": "Authentication success"
-        }
-        response = JsonResponse(resp_message)
+        response = JsonResponse({ "Message": "Authentication success"})
         response.set_cookie("auth_token", jwToken, httponly=True, samesite="Lax", max_age=3600)
     except Exception as err:
         return JsonResponse({"Message": "Failed to prepare the access token", "ErrorKey": err}, status=500)
@@ -54,6 +50,7 @@ def auth_user(request: HttpRequest):
     return response
 
 
+@require_http_methods(["GET", "OPTIONS"])
 def auth_validate_user(request: HttpRequest):
     jwtToken = request.COOKIES.get("auth_token")
     if not jwtToken:

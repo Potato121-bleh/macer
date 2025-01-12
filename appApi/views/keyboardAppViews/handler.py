@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpRequest, JsonResponse
 from django.db import connections, transaction
+from django.views.decorators.http import require_http_methods
 from .middlewareViews import Cookie_validation_middleware
 from keyboardApp.models import User_info, Transaction, Store_item
 
@@ -13,7 +14,7 @@ import json
     #         [2, 19]
     #         ]
     # }
-
+@require_http_methods(["POST", "OPTIONS"])
 @Cookie_validation_middleware
 def user_transaction(request: HttpRequest):
     """
@@ -66,17 +67,14 @@ def user_transaction(request: HttpRequest):
     return JsonResponse({"Message": "Transaction complete", "flag": "1"}, status=200)
 
 
-
-#@Cookie_validation_middleware
+@require_http_methods(["GET", "OPTIONS"])
+@Cookie_validation_middleware
 def retrieve_item_info(request):
-    #jwt_token = getattr(request, "user_info")
     try:
         retireve_item = Store_item.objects.all()
         item_json_format = []
-        print(retireve_item)
         for i in retireve_item:
             item_json_format.append(i.tojson())
-        print(item_json_format)
         return JsonResponse({"item_data": item_json_format})
     except Exception as err:
         return JsonResponse({"Error_Message": "something went wrong", "Dev_Message": err})

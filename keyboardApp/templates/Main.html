@@ -1,608 +1,171 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Main Page</title>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search">
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-  <!-- <link rel="stylesheet" href="{% static 'templates/ ' %}"> -->
-  <!-- for open server tomda -->
-</head>
-<body>
-  <header>
-    <nav>
-      <h2 class="guest-nav" id="usernickname-text-id">Guest</h2>
-      <ul class="nav-link">
-        <div class="head-link">
-          <li>
-            <div class="search-bar">
-              <input class="search-input" type="text" placeholder="Search" />
-              <span class="material-symbols-outlined">search</span>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Main Page</title>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search"
+        />
+        {% load static %}
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{% static 'css/style.css' %}"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{% static 'css/style.css' %}"
+        />
+        <!-- <link rel="stylesheet" href="{% static 'templates/ ' %}"> -->
+        <!-- for open server tomda -->
+    </head>
+    <body>
+        <header>
+            <nav>
+                <h2 class="guest-nav" id="usernickname-text-id">Guest</h2>
+                <ul class="nav-link">
+                    <div class="head-link">
+                        <li>
+                            <div class="search-bar">
+                                <input
+                                    class="search-input"
+                                    type="text"
+                                    placeholder="Search"
+                                />
+                                <span class="material-symbols-outlined"
+                                    >search</span
+                                >
+                            </div>
+                        </li>
+                        <div class="login-signup">
+                            <li class="li-login">
+                                <a href="./login"> Login</a>
+                            </li>
+                            <li class="li-signup">
+                                <a href="./signup">Sign Up</a>
+                            </li>
+                            <li>
+                                <img
+                                    class="icon-shopping"
+                                    src="{% static 'img/shopping-cart2.png' %}"
+                                    alt=""
+                                />
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <img class="brand-img" src="{% static 'img/brand.webp' %}" alt="" />
+            <div class="container-grid">
+                <ul
+                    style="padding: 0; display: flex; flex-wrap: wrap"
+                    id="main-box-id"
+                ></ul>
             </div>
-          </li>
-          <div class="login-signup">
-            <li class="li-login"><a href="./login"> Login</a></li>
-            <li class="li-signup"><a href="./signup">Sign Up</a></li>
-            <li><img class="icon-shopping" src="{% static 'img/shopping-cart2.png' %}" alt=""></li>
-          </div>
         </div>
-      </ul>
-      </div>
-    </nav>
-  </header>
-  <div class="container">
-    <img class="brand-img" src="{% static 'img/brand.webp' %}" alt="">
-    <div class="container-grid">
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/Universal.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-Universal">Series One X Universal</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">35$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/dragonball.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-Universal">dragon ball</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">40$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/naruto2.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-Universal">dark naruto</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">50$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/doremon.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-Universal"> series one x doremon</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">30$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/kuromi.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-kuromi">Series One X Kuromi</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">20$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/chingchang.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-kuromi">ching chang key</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">45$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/Untitled-2.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-kuromi">Series One X Naruto</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">50$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/Untitled-3.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-kuromi">sakura bear</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">40$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/Untitled-6.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-kuromi">sakura maiden</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">40$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/Untitled-4.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-kuromi">Blue Bamboo</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">35$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/Untitled-5.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-kuromi">world tour tokyo</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">35$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/onepiece1.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-kuromi">blue one piece</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">20$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/onepiece2.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-kuromi">rgb one piece</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">50$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/brownmocha.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-kuromi">brown matcha bear</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">38$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>          
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/greenmatcha.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-kuromi">green matcha bear</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">38$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="shape-in-Grid">
-          <img class="keyboard-pic" src="{% static 'img/traditonal.png' %}" alt="">
-        </div>
-        <div class="detail-container">
-          <h2 class="series-one-x-kuromi">akko traditional</h2>
-          <p class="long-ph">Mechanical Blue Switch | Hot Swappable</p>
-          <div class="price-head">
-            <div class="detail-price">
-              <p class="price">Price:</p>
-              <p class="price-dollars">27$</p>
-            </div>
-            <div class="detail-color">
-              <p class="rgb-color">Color:</p>
-              <p class="rgb">Per Key RGB</p>
-            </div>
-          </div>
-          <div class="brand-logo">
-            <img src="{% static 'img/brand.webp' %}" alt="">
-          </div>
-          <div class="icon-connection">
-            <div class="icon-one">
-              <img class="icon-bluetooth" src="{% static 'img/bluetooth.png' %}" alt="">
-            </div>
-            <div class="icon-two">
-              <img class="icon-usb" src="{% static 'img/usb.png' %}" alt="">
-            </div>
-          </div>
-          <div class="btn-addcart">
-            <button class="add-cart">Add To Cart</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Javascript area -->
-  <script>
-    // function getCSRFToken() {
-    //    return document.querySelector('[name=csrfmiddlewaretoken]').value;
-    // }
-
-    const handleQueryData = async () => {
-        let userNicknameTextEle = document.getElementById(
-            'usernickname-text-id'
-        )
-        try {
-            const resp = await fetch(
-                'http://127.0.0.1:8000/api/keyboardApp/auth/validation',
-                {
-                    method: 'GET',
-                    credentials: 'same-origin',
+        <!-- Javascript area -->
+        <script>
+            const handleItemData = async () => {
+                try {
+                    let mainBoxContainerEle =
+                        document.getElementById('main-box-id')
+                    const itemDataResp = await fetch(
+                        'http://127.0.0.1:8000/api/keyboardApp/retrieve-item-data',
+                        { credentials: 'same-origin' }
+                    )
+                    queriedData = await itemDataResp.json()
+                    dynamicBoxHTMLEle = queriedData.item_data
+                        .map(
+                            (element) => `
+                      <li class="box">
+                          <div class="shape-in-Grid">
+                            <img
+                                class="keyboard-pic"
+                                src="{% static 'img/keyboard' %}${element.item_id}.png"
+                                alt=""
+                            />
+                          </div>
+                          <div class="detail-container">
+                            <h2 class="series-one-x-kuromi">${element.item_name}</h2>
+                            <p class="long-ph">
+                                ${element.item_description}
+                            </p>
+                            <div class="price-head">
+                                <div class="detail-price">
+                                    <p class="price">Price:</p>
+                                    <p class="price-dollars">${element.item_price}$</p>
+                                </div>
+                                <div class="detail-color">
+                                    <p class="rgb-color">Color:</p>
+                                    <p class="rgb">${element.item_key_color}</p>
+                                </div>
+                            </div>
+                            <div class="brand-logo">
+                                <img src="{% static 'img/brand.webp' %}" alt="" />
+                            </div>
+                            <div class="icon-connection">
+                                <div class="icon-one">
+                                    <img
+                                        class="icon-bluetooth"
+                                        src="{% static 'img/bluetooth.png' %}"
+                                        alt=""
+                                    />
+                                </div>
+                                <div class="icon-two">
+                                    <img
+                                        class="icon-usb"
+                                        src="{% static 'img/usb.png' %}"
+                                        alt=""
+                                    />
+                                </div>
+                            </div>
+                            <div class="btn-addcart">
+                                <button class="add-cart">Add To Cart</button>
+                            </div>
+                          </div>
+                      </li>
+                    `
+                        )
+                        .join('')
+                    mainBoxContainerEle.innerHTML = dynamicBoxHTMLEle
+                } catch (err) {
+                    console.log(err)
                 }
-            )
-            if(resp.status !== 200){
-              throw new Error("failed to validate the user");
-              
+            }
+            handleItemData()
+
+            const handleQueryData = async () => {
+                let userNicknameTextEle = document.getElementById(
+                    'usernickname-text-id'
+                )
+                try {
+                    const resp = await fetch(
+                        'http://127.0.0.1:8000/api/keyboardApp/auth/validation',
+                        {
+                            method: 'GET',
+                            credentials: 'same-origin',
+                        }
+                    )
+                    if (resp.status !== 200) {
+                        throw new Error('failed to validate the user')
+                    }
+
+                    userData = await resp.json()
+                    console.log('user data here: ')
+                    console.log(userData)
+                    userNicknameTextEle.innerText = userData.Data.user_nickname
+                } catch (err) {
+                    console.error(err)
+                }
             }
 
-            userData = await resp.json()
-            console.log('user data here: ')
-            console.log(userData)
-            userNicknameTextEle.innerText = userData.Data.user_nickname
-        } catch (err) {
-            console.error(err)
-        }
-    }
-
-    handleQueryData()
-</script>
-</body>
-
+            handleQueryData()
+        </script>
+    </body>
 </html>

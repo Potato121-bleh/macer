@@ -16,7 +16,7 @@ def Crediential_validate_middleware(view_func):
         try:
             requestData = json.loads(request.body)
         except Exception as err:
-            print(err)
+            return JsonResponse({"Error_Message": "failed to load user request", "Dev_Message": err}, status=400)
         if requestData["username"] and requestData["password"]:
             # perform database query
             queried_user = keyboardApp_user_info.objects.filter(user_name=requestData["username"])
@@ -45,6 +45,8 @@ def Cookie_validation_middleware(view_func):
     """
     def validate_the_cookie(request: HttpRequest):
         jwt_token = request.COOKIES.get("auth_token")
+        print("------------------------------------------------------------")
+        print(jwt_token)
         if not jwt_token:
             return JsonResponse({"Error_Message": "cookie not found"}, status=401)
         try:

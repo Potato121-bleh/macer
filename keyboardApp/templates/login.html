@@ -1,68 +1,89 @@
 <!-- {% load static %} -->
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login</title>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{% static 'css/login.css' %}"
+        />
+    </head>
 
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Login</title>
-   <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
-</head>
+    <body>
+        <script>
+            console.log('JS is done')
+            function getCSRFToken() {
+                return document.querySelector('[name=csrfmiddlewaretoken]')
+                    .value
+            }
 
-<body>
-   <script>
-      console.log("JS is done")
-      function getCSRFToken() {
-         return document.querySelector('[name=csrfmiddlewaretoken]').value;
-      }
+            async function testFetch() {
+                let usernameInputElement = document.getElementById(
+                    'userinput-username-id'
+                )
+                let userpasswordInputElement = document.getElementById(
+                    'userinput-password-id'
+                )
+                console.log()
+                console.log('TEST')
+                console.log({
+                    username: usernameInputElement.value,
+                    password: userpasswordInputElement.value,
+                })
+                let resp = await fetch(
+                    'http://127.0.0.1:8000/api/keyboardApp/auth/login',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': getCSRFToken(),
+                        },
+                        body: JSON.stringify({
+                            username: usernameInputElement.value,
+                            password: userpasswordInputElement.value,
+                        }),
+                    }
+                )
+                console.log(getCSRFToken())
 
-      async function testFetch() {
-         let usernameInputElement = document.getElementById("userinput-username-id")
-         let userpasswordInputElement = document.getElementById("userinput-password-id")
-         console.log("TEST")
-         let resp = await fetch("http://127.0.0.1:8000/api/keyboardApp/auth/login", {
-            method: "POST",
-            headers: {
-               "Content-Type": "application/json",
-               "X-CSRFToken": getCSRFToken()
-            },
-            body: JSON.stringify({
-               username: usernameInputElement.value,
-               password: userpasswordInputElement.value
-            })
-         })
-         console.log(getCSRFToken())
-
-         let data = await resp.json()
-         console.log(data)
-      }
-
-
-   </script>
-   <div class="wrapper">
-      <div>
-         {% csrf_token %}
-         <h1>Login</h1>
-         <div class="input-box">
-            <input type="text" placeholder="Username" id="userinput-username-id">
-         </div>
-         <div class="input-box">
-            <input type="password" placeholder="Passowrd" id="userinput-password-id">
-         </div>
-         <div class="under-thing">
-            <button class="btn" onclick="testFetch()">Login</button>
-            <div class="remember-forgot">
-               <a href="#">Forgot passowrd?</a>
+                let data = await resp.json()
+                console.log(data)
+            }
+        </script>
+        <div class="wrapper">
+            <div>
+                {% csrf_token %}
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input
+                        type="text"
+                        placeholder="Username"
+                        id="userinput-username-id"
+                    />
+                </div>
+                <div class="input-box">
+                    <input
+                        type="password"
+                        placeholder="Passowrd"
+                        id="userinput-password-id"
+                    />
+                </div>
+                <div class="under-thing">
+                    <button class="btn" onclick="testFetch()">Login</button>
+                    <div class="remember-forgot">
+                        <a href="#">Forgot passowrd?</a>
+                    </div>
+                    <div class="register-link">
+                        <p>
+                            Don't have an account?
+                            <a href="./signup">Sign Up</a>
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="register-link">
-               <p>Don't have an account?
-                  <a href="./signup">Sign Up</a>
-               </p>
-            </div>
-            </form>
-         </div>
-      </div>
-
-</body>
-
+        </div>
+    </body>
 </html>
