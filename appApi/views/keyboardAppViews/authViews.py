@@ -64,3 +64,9 @@ def auth_validate_user(request: HttpRequest):
     except Exception as err:
         return JsonResponse({"Error_Message": "cookie not recongise", "Dev_Message": err})
     return JsonResponse({"Data": token_payload})
+
+
+def auth_logout(request):
+    logout_response = JsonResponse({"Message": "Logout Successfully"}, status=200)
+    logout_response.delete_cookie("auth_token")
+    return logout_response

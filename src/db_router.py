@@ -4,7 +4,7 @@ class Router_db:
 
     def db_for_write(self, model, **hint):
         if model._meta.app_label == "lessonApp":
-            return "lessonAppDB",
+            return "lessonAppDB"
         elif model._meta.app_label == "keyboardApp":
             return "keyboardAppDB"
         else:
@@ -13,7 +13,7 @@ class Router_db:
 
     def db_for_read(self, model, **hint):
         if model._meta.app_label == "lessonApp":
-            return "lessonAppDB",
+            return "lessonAppDB"
         elif model._meta.app_label == "keyboardApp":
             return "keyboardAppDB"
         else:

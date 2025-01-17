@@ -21,10 +21,10 @@ def user_transaction(request: HttpRequest):
     nice
     """
 
-    request_data = list(json.loads(request.body))
+    request_data = json.loads(request.body)
     jwt_payload = getattr(request, "user_info")
 
-    sql_statement = "INSERT INTO Transaction (transaction_user_id, item_id) VALUES "
+    sql_statement = "INSERT INTO keyboardApp_transaction (transaction_user_id, item_id) VALUES "
 
     # check whether the price is met the requirement
     transaction_price = 0
@@ -32,28 +32,44 @@ def user_transaction(request: HttpRequest):
         transaction_price += i[1]
 
     try:
-        user_balance = User_info.objects.raw("SELECT user_balance FROM User_info WHERE user_id=%s", [jwt_payload["user_id"]])
+        user_balance_query = User_info.objects.raw("SELECT * FROM keyboardApp_user_info WHERE user_id=%s", [jwt_payload["user_id"]])
+        user_balance = user_balance_query[0].user_balance
+        print(user_balance)
         if user_balance < transaction_price:
             return JsonResponse({"Error_Message": "Insufficient balance"}, status=400)
         user_balance -= transaction_price
     except Exception as err:
         return JsonResponse({"Error_Message": "Something went wrong", "Dev_Message": err})
 
-
+    print(request_data)
     for i in request_data["item_data"]:
-        prep_str = "(" + jwt_payload["user_id"] + i[0] + ")"
+        prep_str = "( " + str(jwt_payload["user_id"]) + " , " + str(i[0]) + " ) ,"
+        print(prep_str)
         sql_statement += prep_str
-    
+    sql_statement_arr = sql_statement.split(" ")
+    print("BEFORE POP")
+    print(sql_statement_arr)
+    popped_val = sql_statement_arr.pop()
+    print("PPPPPPPPPPPPPPPPPPP")
+    print(sql_statement)
+    print(popped_val)
+    print(sql_statement_arr)
+    sql_statement_format = " ".join(sql_statement_arr)
+    print("It DONE")
+    print(sql_statement_format)
     try:
         with connections["keyboardAppDB"].cursor() as db_cursor:
             transaction.set_autocommit(autocommit=False)
 
-            db_cursor.execute(sql_statement)
-            if db_cursor.rowcount != len(request_data):
+            db_cursor.execute(sql_statement_format)
+            print("ROW COUNT")
+            print(db_cursor.rowcount)
+            print(len(request_data["item_data"]))
+            if db_cursor.rowcount != len(request_data["item_data"]):
                 transaction.rollback()
                 raise SystemError("row affected are weird")
             
-            db_cursor.execute("UPDATE User_info SET user_balance = %s WHERE user_id = %s", [user_balance, jwt_payload["user_id"]])
+            db_cursor.execute("UPDATE keyboardApp_user_info SET user_balance = %s WHERE user_id = %s", [user_balance, jwt_payload["user_id"]])
             if db_cursor.rowcount != 1:
                 transaction.rollback()
                 raise SystemError("row affected are weird")
@@ -68,7 +84,6 @@ def user_transaction(request: HttpRequest):
 
 
 @require_http_methods(["GET", "OPTIONS"])
-@Cookie_validation_middleware
 def retrieve_item_info(request):
     try:
         retireve_item = Store_item.objects.all()

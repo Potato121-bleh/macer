@@ -34,11 +34,9 @@ class Store_item(models.Model):
 
 class Transaction(models.Model):
     transaction_id         = models.AutoField(primary_key=True)
-    transaction_user_id    = models.ForeignKey("User_info", on_delete=models.CASCADE, related_name="user_transaction" )
-    item_id                = models.ForeignKey("Store_item", on_delete=models.CASCADE, related_name="bought_by")
+    transaction_user    = models.ForeignKey("User_info", on_delete=models.CASCADE, related_name="user_transaction" )
+    item                = models.ForeignKey("Store_item", on_delete=models.CASCADE, related_name="bought_by")
 
 
-    def __str__(self):
-        return f"Transaction(transaction_id: {self.transaction_id}, transaction_user_id: {self.transaction_user_id}, item_id: {self.item_id}, price: {self.price})"
-
-
+    # def __str__(self):
+    #     return f"Transaction(transaction_id: {self.transaction_id}, transaction_user_id: {self.transaction_user}, item_id: {self.item})"
