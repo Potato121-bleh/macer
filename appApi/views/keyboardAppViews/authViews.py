@@ -34,8 +34,10 @@ def auth_user(request: HttpRequest):
             "user_balance": float(queried_user.user_balance),
             "exp": (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=1)).timestamp()
         }
+        print("Data IS HERE")
         print(jwtPayload)
-
+        print(private_key)
+        
         jwToken = jwt.encode(
             payload=jwtPayload,
             key=private_key,
@@ -56,6 +58,7 @@ def auth_validate_user(request: HttpRequest):
     if not jwtToken:
         return JsonResponse({"Error_message": "cookie not found"}, status=401)
     try:
+
         token_payload = jwt.decode(
             jwt=jwtToken,
             key=get_JWT_key("public_key"),

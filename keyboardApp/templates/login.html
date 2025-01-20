@@ -49,13 +49,14 @@
                         }
                     )
                     let data = await resp.json()
+                    window.location.href = '/keyboardApp/home'
                 } catch (err) {
                     alert(
                         'Something went wrong, failed to validate your crediential, Please try again'
                     )
                     console.log(err)
                 }
-                window.location.href = '/keyboardApp/home'
+                
             }
         </script>
         <div class="wrapper">
