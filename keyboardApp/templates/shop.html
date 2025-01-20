@@ -13,7 +13,7 @@
         <link
             rel="stylesheet"
             type="text/css"
-            href="{% static 'css/style.css' %}"
+            href="{% static 'css/shop.css' %}"
         />
         <link
             rel="stylesheet"
@@ -22,64 +22,39 @@
         />
     </head>
     <body style="position: relative">
-        {% csrf_token %}
-        <header>
-            <nav>
-                <h2 class="guest-nav" id="usernickname-text-id">Guest</h2>
-                <ul class="nav-link">
-                    <div class="head-link">
-                        <li>
-                            <div class="search-bar">
-                                <input
-                                    class="search-input"
-                                    type="text"
-                                    placeholder="Search"
-                                />
-                                <span class="material-symbols-outlined"
-                                    >search</span
-                                >
-                            </div>
-                        </li>
-                        <div class="login-signup">
-                            <li class="li-login" id="login-btn-id">
-                                <a href="./login"> Login</a>
-                            </li>
-                            <li class="li-signup" id="signup-btn-id">
-                                <a href="./signup">Sign Up</a>
-                            </li>
-                            <li class="li-signup" id="logout-btn-id">
-                                <a
-                                    onclick="handleLogout()"
-                                    href="/keyboardApp/home"
-                                    >Logout</a
-                                >
-                            </li>
-                            <li style="position: relative">
-                                <img
-                                    class="icon-shopping"
-                                    src="{% static 'img/shopping-cart2.png' %}"
-                                    alt=""
-                                    role="button"
-                                    style="cursor: pointer"
-                                    onclick="handleCartCheckout()"
-                                />
-                                <div class="cart-counter-con">
-                                    <p
-                                        id="cart-counter-id"
-                                        style="font-size: 13px"
-                                    >
-                                        0
-                                    </p>
-                                </div>
-                            </li>
-                        </div>
-                    </div>
-                </ul>
-            </nav>
-        </header>
+        {% csrf_token %} {% include 'navigation/header.html' %}
+
+        <ul class="shop-sidebar-main-con">
+            <li class="shop-sidebar-element-con">
+                <button
+                    class="brand-option-btn"
+                    onclick="handleItemData('alpha')"
+                >
+                    Alpha
+                </button>
+            </li>
+            <li class="shop-sidebar-element-con">
+                <button
+                    class="brand-option-btn"
+                    onclick="handleItemData('akko')"
+                >
+                    Akko
+                </button>
+            </li>
+            <li class="shop-sidebar-element-con">
+                <button
+                    class="brand-option-btn"
+                    onclick="handleItemData('logitech')"
+                >
+                    Logitech
+                </button>
+            </li>
+        </ul>
 
         <div class="container">
-            <img class="brand-img" src="{% static 'img/brand.webp' %}" alt="" />
+            <div id="logo-img-con-id">
+                <!-- <img class="brand-img" src="{% static 'img/brand.webp' %}" alt="" /> -->
+            </div>
             <div class="container-grid">
                 <ul
                     style="
@@ -129,8 +104,55 @@
             </div>
         </section>
 
+        <!-- test new img  -->
+        <li class="box">
+            <div class="shape-in-Grid">
+                <img
+                    class="keyboard-pic"
+                    src="{% static 'img/testimg' %}.png"
+                    alt=""
+                />
+            </div>
+            <div class="detail-container">
+                <h2 class="series-one-x-kuromi">test keyboard</h2>
+                <p class="long-ph">test decriptions</p>
+                <div class="price-head">
+                    <div class="detail-price">
+                        <p class="price">Price:</p>
+                        <p class="price-dollars">40</p>
+                    </div>
+                    <div class="detail-color">
+                        <p class="rgb-color">Color:</p>
+                        <p class="rgb">RGB</p>
+                    </div>
+                </div>
+                <div class="brand-logo">
+                    <img src="{% static 'img/brand.webp' %}" alt="" />
+                </div>
+                <div class="icon-connection">
+                    <div class="icon-one">
+                        <img
+                            class="icon-bluetooth"
+                            src="{% static 'img/bluetooth.png' %}"
+                            alt=""
+                        />
+                    </div>
+                    <div class="icon-two">
+                        <img
+                            class="icon-usb"
+                            src="{% static 'img/usb.png' %}"
+                            alt=""
+                        />
+                    </div>
+                </div>
+                <div class="btn-addcart">
+                    <button class="add-cart">Add To Cart</button>
+                </div>
+            </div>
+        </li>
+
         <!-- Javascript area -->
-        <script>
+        <!-- <script>
             let checkoutInfoDetail = []
             let checkoutTransactionDetial = []
             let cartArr = [] // [1, 30]  [2, 35]
@@ -226,8 +248,17 @@
                     let mainBoxContainerEle =
                         document.getElementById('main-box-id')
                     const itemDataResp = await fetch(
-                        'http://127.0.0.1:8000/api/keyboardApp/retrieve-item-data',
-                        { credentials: 'same-origin' }
+                        'http://127.0.0.1:8000/api/keyboardApp/retrieve_item_with_brand',
+                        {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRFToken': getCSRFToken(),
+                            },
+                            body: JSON.stringify({
+                                brandName: 'alpha',
+                            }),
+                        }
                     )
                     queriedData = await itemDataResp.json()
                     dynamicBoxHTMLEle = queriedData.item_data
@@ -330,7 +361,17 @@
                 try {
                     userInfo = await handleQueryData()
                     const itemDataResp = await fetch(
-                        'http://127.0.0.1:8000/api/keyboardApp/retrieve-item-data'
+                        'http://127.0.0.1:8000/api/keyboardApp/retrieve_item_with_brand',
+                        {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRFToken': getCSRFToken(),
+                            },
+                            body: JSON.stringify({
+                                brandName: 'alpha',
+                            }),
+                        }
                     )
                     queriedData = await itemDataResp.json()
                     for (let i = 0; i < cartArr.length; i++) {
@@ -451,6 +492,12 @@
                     console.log(err)
                 }
             }
+        
+        </> -->
+
+        <script>
+            const staticImg = "{% static 'img/' %}"
         </script>
+        <script src="{% static 'js/shop.js' %}"></script>
     </body>
 </html>

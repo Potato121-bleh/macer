@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <h2 class="guest-nav" id="usernickname-text-id">Guest</h2>
+                <ul class="nav-link">
+                    <div class="head-link">
+                        <li>
+                            <div class="search-bar">
+                                <input
+                                    class="search-input"
+                                    type="text"
+                                    placeholder="Search"
+                                />
+                                <span class="material-symbols-outlined"
+                                    >search</span
+                                >
+                            </div>
+                        </li>
+                        <div class="login-signup">
+                            <li class="li-login" id="login-btn-id">
+                                <a href="./login"> Login</a>
+                            </li>
+                            <li class="li-signup" id="signup-btn-id">
+                                <a href="./signup">Sign Up</a>
+                            </li>
+                            <li class="li-signup" id="logout-btn-id">
+                                <a
+                                    onclick="handleLogout()"
+                                    href="/keyboardApp/home"
+                                    >Logout</a
+                                >
+                            </li>
+                            <li style="position: relative">
+                                <img
+                                    class="icon-shopping"
+                                    src="{% static 'img/shopping-cart2.png' %}"
+                                    alt=""
+                                    role="button"
+                                    style="cursor: pointer"
+                                    onclick="handleCartCheckout()"
+                                />
+                                <div class="cart-counter-con">
+                                    <p
+                                        id="cart-counter-id"
+                                        style="font-size: 13px"
+                                    >
+                                        0
+                                    </p>
+                                </div>
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+            </nav>
+        </header>
+    </body>
+</html>

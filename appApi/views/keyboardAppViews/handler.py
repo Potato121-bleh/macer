@@ -94,3 +94,18 @@ def retrieve_item_info(request):
     except Exception as err:
         return JsonResponse({"Error_Message": "something went wrong", "Dev_Message": err})
 
+
+@require_http_methods(["POST", "OPTIONS"])
+def retrieve_item_with_brand(request: HttpRequest):
+    try:
+        request_data = json.loads(request.body)
+        data_list = []
+        if not request_data["brandName"]:
+            return JsonResponse({"Error_Message": "failed to query data, Please make sure you include brand name"}, status=400)
+        queried_data = Store_item.objects.raw("SELECT * FROM keyboardApp_store_item WHERE item_brand = %s", [request_data["brandName"]])
+        for queried_data_element in queried_data:
+            data_list.append(queried_data_element.tojson())
+        return JsonResponse({"item_data": data_list})
+    except Exception as e:
+        return JsonResponse({"Error_Message": "failed to query data, Please make sure you include brand name", "Dev_Message": e}, status=500)
+    
