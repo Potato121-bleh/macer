@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="{% static 'css/navigationCss/testheader.css' %}"
+        />
+    </head>
+    <body>
+        {% load static %}
+        <!DOCTYPE html>
+        <html lang="en">
+            <head>
+                <meta charset="UTF-8" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0"
+                />
+                <title>Document</title>
+                <link
+                    rel="stylesheet"
+                    href="{% static 'css/navigationCss/header.css' %}"
+                />
+            </head>
+            <body>
+                <header class="header-navbar-main-con">
+                    <nav class="header-navbar-sub-con">
+                        <div class="header-navbar-left-con">
+                            <h2 class="guest-nav" id="usernickname-text-id">
+                                Guest
+                            </h2>
+                        </div>
+
+                        <ul class="navbar-page-con">
+                            <li
+                                class="navbar-page-element"
+                                id="navbar-home-label-id"
+                            >
+                                Home
+                            </li>
+                            <li
+                                class="navbar-page-element"
+                                id="navbar-shop-label-id"
+                            >
+                                Shop
+                            </li>
+                            <li
+                                class="navbar-page-element"
+                                id="navbar-aboutus-label-id"
+                            >
+                                About Us
+                            </li>
+                        </ul>
+
+                        <ul class="nav-link">
+                            <div class="head-link">
+                                <div class="login-signup">
+                                    <li class="li-login" id="login-btn-id">
+                                        <a href="./login"> Login</a>
+                                    </li>
+                                    <li class="li-signup" id="signup-btn-id">
+                                        <a href="./signup">Sign Up</a>
+                                    </li>
+                                    <li class="li-signup" id="logout-btn-id">
+                                        <a
+                                            onclick="handleLogout()"
+                                            href="/keyboardApp/home"
+                                            >Logout</a
+                                        >
+                                    </li>
+                                    <li style="position: relative">
+                                        <img
+                                            class="icon-shopping"
+                                            src="{% static 'img/shopping-cart2.png' %}"
+                                            alt=""
+                                            role="button"
+                                            style="cursor: pointer"
+                                            onclick="handleCartCheckout()"
+                                        />
+                                        <div class="cart-counter-con">
+                                            <p
+                                                id="cart-counter-id"
+                                                style="font-size: 13px"
+                                            >
+                                                0
+                                            </p>
+                                        </div>
+                                    </li>
+                                </div>
+                            </div>
+                        </ul>
+                    </nav>
+                </header>
+                <script>
+                    console.log(window.location.pathname)
+
+                    switch (window.location.pathname) {
+                        case '/keyboardApp/home':
+                            let homeLabel = document.getElementById(
+                                'navbar-home-label-id'
+                            )
+                            homeLabel.style.backgroundColor = '#b1b1b161'
+                            break
+                        case '/keyboardApp/shop':
+                            let shopLabel = document.getElementById(
+                                'navbar-shop-label-id'
+                            )
+                            shopLabel.style.backgroundColor = '#b1b1b161'
+                            break
+                        case '/keyboardApp/about':
+                            let AboutLabel = document.getElementById(
+                                'navbar-aboutus-label-id'
+                            )
+                            AboutLabel.style.backgroundColor = '#b1b1b161'
+                            break
+                        default:
+                            break
+                    }
+                </script>
+            </body>
+        </html>
+    </body>
+</html>

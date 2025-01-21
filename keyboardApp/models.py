@@ -14,7 +14,7 @@ class User_info(models.Model):
 
 class Store_item(models.Model):
     item_id     = models.AutoField(primary_key=True)
-    item_name   = models.CharField(max_length=50, default="N/A")
+    item_name   = models.CharField(max_length=50, unique=True,default="N/A")
     item_description = models.CharField(max_length=50, default="N/A")
     item_key_color = models.CharField(max_length=50, default="N/A")
     item_price  = models.DecimalField(max_digits=10, decimal_places=2)

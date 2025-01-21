@@ -5,25 +5,35 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="{% static 'css/navigationCss/header.css' %}"
+        />
     </head>
     <body>
-        <header>
-            <nav>
-                <h2 class="guest-nav" id="usernickname-text-id">Guest</h2>
+        <header class="header-navbar-main-con">
+            <nav class="header-navbar-sub-con">
+                <div class="header-navbar-left-con">
+                    <h2 class="guest-nav" id="usernickname-text-id">Guest</h2>
+                </div>
+
+                <ul class="navbar-page-con">
+                    <li class="navbar-page-element" id="navbar-home-label-id">
+                        Home
+                    </li>
+                    <li class="navbar-page-element" id="navbar-shop-label-id">
+                        Shop
+                    </li>
+                    <li
+                        class="navbar-page-element"
+                        id="navbar-aboutus-label-id"
+                    >
+                        About Us
+                    </li>
+                </ul>
+
                 <ul class="nav-link">
                     <div class="head-link">
-                        <li>
-                            <div class="search-bar">
-                                <input
-                                    class="search-input"
-                                    type="text"
-                                    placeholder="Search"
-                                />
-                                <span class="material-symbols-outlined"
-                                    >search</span
-                                >
-                            </div>
-                        </li>
                         <div class="login-signup">
                             <li class="li-login" id="login-btn-id">
                                 <a href="./login"> Login</a>
@@ -61,5 +71,31 @@
                 </ul>
             </nav>
         </header>
+        <script>
+            console.log(window.location.pathname)
+
+            switch (window.location.pathname) {
+                case '/keyboardApp/home':
+                    let homeLabel = document.getElementById(
+                        'navbar-home-label-id'
+                    )
+                    homeLabel.style.backgroundColor = '#b1b1b161'
+                    break
+                case '/keyboardApp/shop':
+                    let shopLabel = document.getElementById(
+                        'navbar-shop-label-id'
+                    )
+                    shopLabel.style.backgroundColor = '#b1b1b161'
+                    break
+                case '/keyboardApp/about':
+                    let AboutLabel = document.getElementById(
+                        'navbar-aboutus-label-id'
+                    )
+                    AboutLabel.style.backgroundColor = '#b1b1b161'
+                    break
+                default:
+                    break
+            }
+        </script>
     </body>
 </html>

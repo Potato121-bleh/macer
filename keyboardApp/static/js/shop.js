@@ -149,6 +149,8 @@ const handleItemData = async (brand) => {
                             </div>
                             
                             <ul class="detail-bottom-section" style="list-style: none" >
+
+
                                 <li class="brand-logo">
                                     <img src="${
                                         staticImg +
@@ -157,6 +159,9 @@ const handleItemData = async (brand) => {
                                         'Logo.png'
                                     }" alt="${brand + 'Logo.png'}" />
                                 </li>
+
+
+
                                 <li class="icon-connection">
                                     <div class="icon-one">
                                         <img
@@ -173,6 +178,9 @@ const handleItemData = async (brand) => {
                                         />
                                     </div>
                                 </li>
+
+
+
                                 <li class="btn-addcart">
                                     <button class="add-cart" onclick="handleAddtoCart(${
                                         element.item_id
@@ -180,7 +188,10 @@ const handleItemData = async (brand) => {
                     element.item_price
                 })" >Add To Cart</button>
                                 </li>
-                            <ul/>
+
+
+                                
+                            </ul>
                           </div>
                       </li>
                     `
@@ -356,8 +367,4 @@ const handleTransaction = async () => {
         )
         console.log(err)
     }
-}
-
-const renderItemAdapter = (brand) => {
-    console.log(brand)
 }
