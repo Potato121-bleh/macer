@@ -4,33 +4,56 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
 <script></script>
 {% endblock %} {% block contentZz %}
-<ul style="list-style: none">
-    <li>
-        <label>Id: </label>
-        <input type="number" />
-    </li>
-    <li>
-        <label>Name: </label>
-        <input type="text" />
-    </li>
-    <li>
-        <label>Place of Birth: </label>
-        <input type="text" />
-    </li>
-    <li>
-        <label>Date of Birth: </label>
-        <input type="date" />
-    </li>
-    <li>
-        <label>Skill: </label>
-        <input type="text" />
-    </li>
+
+<ul
+    style="
+        list-style: none;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        border: solid;
+        width: 100%;
+    "
+>
+    {% for i in data %}
+
+    <ul
+        style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 0;
+            border: solid;
+            width: 250px;
+            height: 250px;
+            margin: 10px;
+        "
+    >
+        <li style="list-style: none; width: 65%; height: 65%">
+            <img
+                style="width: 100%; height: 100%"
+                src="{{i.item_img}}"
+                alt="cat img"
+            />
+        </li>
+        <li style="text-align: center; list-style: none">
+            <h1 style="font-size: 15px">{{ i.item_name }}</h1>
+        </li>
+        <li
+            style="
+                width: 80%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            "
+        >
+            <p style="margin: 0">{{ i.item_price }}</p>
+            <button style="font-size: 10px; height: 30px">Add to card</button>
+        </li>
+    </ul>
+
+    {% endfor %}
 </ul>
-<ul style="margin-top: 30px; list-style: none">
-    <li>Id: 0007689</li>
-    <li>Name: Ly Sochetra</li>
-    <li>Place of Birth: hospital</li>
-    <li>Date of Birth: N/A</li>
-    <li>Skill: Web developer</li>
-</ul>
+
 {% endblock %}

@@ -14,13 +14,14 @@ class User_info(models.Model):
 
 class Store_item(models.Model):
     item_id     = models.AutoField(primary_key=True)
-    item_name   = models.CharField(max_length=50, default="N/A")
+    item_name   = models.CharField(max_length=50, unique=True,default="N/A")
     item_description = models.CharField(max_length=50, default="N/A")
     item_key_color = models.CharField(max_length=50, default="N/A")
     item_price  = models.DecimalField(max_digits=10, decimal_places=2)
+    item_brand = models.CharField(max_length=50, default="N/A")
 
     def __str__(self):
-        return f"Store_item(item_id: {self.item_id}, item_name: {self.item_name}, item_description: {self.item_description}, item_key_color: {self.item_key_color}, item_price: {self.item_price})"
+        return f"Store_item(item_id: {self.item_id}, item_name: {self.item_name}, item_description: {self.item_description}, item_key_color: {self.item_key_color}, item_price: {self.item_price}, item_brand: {self.item_brand} )"
     
     def tojson(self):
         return {
@@ -28,7 +29,8 @@ class Store_item(models.Model):
             "item_name": str(self.item_name), 
             "item_description": str(self.item_description), 
             "item_key_color": str(self.item_key_color), 
-            "item_price": float(self.item_price)
+            "item_price": float(self.item_price),
+            "item_brand": str(self.item_brand)
         }
 
 

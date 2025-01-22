@@ -20,6 +20,7 @@ class Item_storage(models.Model):
 
     def __str__(self):
         return f"Item_storage(item_id: {self.item_id}, item_name: {self.item_name}, item_price: {self.item_price}, item_img: {self.item_img})"
+    
 
 
 class Item_storage_car(models.Model):

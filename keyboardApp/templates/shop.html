@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Main Page</title>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search"
+        />
+        {% load static %}
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{% static 'css/shop.css' %}"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{% static 'css/checkoutPopup.css' %}"
+        />
+    </head>
+    <body style="position: relative;">
+        {% csrf_token %}
+        <!-- {% include 'navigation/header.html' %} -->
+        {% include 'navigation/testheader.html' %}
+        <ul class="shop-sidebar-main-con">
+            <li class="shop-sidebar-element-con">
+                <button
+                    class="brand-option-btn"
+                    onclick="handleItemData('alpha')"
+                >
+                    Alpha
+                </button>
+            </li>
+            <li class="shop-sidebar-element-con">
+                <button
+                    class="brand-option-btn"
+                    onclick="handleItemData('akko')"
+                >
+                    Akko
+                </button>
+            </li>
+            <li class="shop-sidebar-element-con">
+                <button
+                    class="brand-option-btn"
+                    onclick="handleItemData('logitech')"
+                >
+                    Logitech
+                </button>
+            </li>
+        </ul>
+
+        <div class="container">
+            <div id="logo-img-con-id">
+                <!-- <img class="brand-img" src="{% static 'img/brand.webp' %}" alt="" /> -->
+            </div>
+            <div class="container-grid">
+                <ul
+                    style="
+                        padding: 0;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-around;
+                    "
+                    id="main-box-id"
+                ></ul>
+            </div>
+        </div>
+
+        <section
+            class="checkout-dialog-main-con"
+            id="checkout-dialog-main-con-id"
+        >
+            <div class="checkout-dialog-sub-con">
+                <h1 class="checkout-dialog-title">Checkout</h1>
+                <ul class="checkout-dialog-content-con">
+                    <ul class="checkout-transaction-info-main-con">
+                        <li class="checkout-dialog-info-title">Your Info</li>
+                        <li id="checkout-dialog-your-info-wrapper-id"></li>
+                        <li class="checkout-dialog-info-title">
+                            Transaction Details
+                        </li>
+                        <li id="checkout-dialog-transaction-wrapper-id"></li>
+                    </ul>
+
+                    <li class="checkout-dialog-divider"></li>
+
+                    <div class="checkout-cart-info-main-con">
+                        <p class="checkout-dialog-info-title">Your Cart</p>
+                        <ul
+                            style="padding: 0"
+                            class="checkout-dialog-cart-content"
+                            id="checkout-dialog-cart-content-id"
+                        ></ul>
+                        <button
+                            class="checkout-dialog-order-btn"
+                            onclick="handleTransaction()"
+                        >
+                            Order
+                        </button>
+                    </div>
+                </ul>
+            </div>
+        </section>
+
+        <script>
+            const staticImg = "{% static 'img/' %}"
+        </script>
+        <script src="{% static 'js/shop.js' %}"></script>
+    </body>
+</html>
