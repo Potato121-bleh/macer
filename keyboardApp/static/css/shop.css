@@ -465,7 +465,7 @@ body {
 }
 .toggle-scale-card-detail {
   z-index: 3;
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 
 

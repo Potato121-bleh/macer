@@ -1,0 +1,48 @@
+*{
+  font-family: sans-serif;
+}
+.container-body{
+  border: solid;
+  height: 100vh;
+}
+.container-banner{
+  border: solid rgb(196, 196, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+article{
+  padding: 0;
+}
+.con-element-article{
+  height: 40%;
+  border: solid;
+  display: flex;
+  flex-direction: column;
+}
+.img-banner img{
+  width: 40vw;
+}
+.macerkeyboard{
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.choose-your-favorite{
+  font-size: 5vw;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.paragraph-under-keyboard-console p{
+  font-size: 1vw;
+  color: rgb(0, 0, 0);
+}
+.macerbranding{
+  position:absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  color: rgb(232, 232, 232);
+  font-size: 25vw;
+  text-transform: uppercase;
+}

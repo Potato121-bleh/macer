@@ -135,6 +135,8 @@ nav {
   }
   .nav-link{
     /* border: solid yellow; */
+    margin-right: 15px;
+    padding-right: 10px;
     width: auto;
     position: relative;
     z-index: 2;
