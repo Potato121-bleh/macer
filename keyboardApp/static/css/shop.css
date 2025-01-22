@@ -152,9 +152,9 @@ body {
 
 /*----------Grid Boxes----------*/
 
-/* .brand-img{
+.brand-img{
   width: 40%;
-} */
+}
 
 .container{
   display: flex;
