@@ -21,10 +21,8 @@
             href="{% static 'css/checkoutPopup.css' %}"
         />
     </head>
-    <body style="position: relative;">
-        {% csrf_token %}
-        <!-- {% include 'navigation/header.html' %} -->
-        {% include 'navigation/testheader.html' %}
+    <body style="position: relative; overflow-x: hidden">
+        {% csrf_token %} {% include 'navigation/header.html' %}
         <ul class="shop-sidebar-main-con">
             <li class="shop-sidebar-element-con">
                 <button
@@ -58,6 +56,7 @@
             </div>
             <div class="container-grid">
                 <ul
+                    class="main-box-con"
                     style="
                         padding: 0;
                         display: flex;
@@ -111,3 +110,94 @@
         <script src="{% static 'js/shop.js' %}"></script>
     </body>
 </html>
+
+<!-- construction site -->
+<!-- <li class="box" id="box-id2">
+                        <div class="box-sub-con" id="sub-box-id2">
+                            <ul class="box-left-con">
+                                <div class="shape-in-Grid">
+                                    <img
+                                        class="keyboard-pic"
+                                        src="
+                                            {% static 'img/keyboardImg/keyboard1.png' %}"
+                                        alt=""
+                                    />
+                                </div>
+                                <div class="detail-container">
+                                    <h2 class="series-one-x-kuromi">
+                                        item_name
+                                    </h2>
+                                    <p class="long-ph">description</p>
+                                    <div class="price-head">
+                                        <div class="detail-price">
+                                            <p class="price">Price:</p>
+                                            <p class="price-dollars">
+                                                item_price
+                                            </p>
+                                        </div>
+                                        <div class="detail-color">
+                                            <p class="rgb-color">Color:</p>
+                                            <p class="rgb">key_color</p>
+                                        </div>
+                                    </div>
+
+                                    <ul
+                                        class="detail-bottom-section"
+                                        style="list-style: none"
+                                    >
+                                        <li>
+                                            <button
+                                                class="detail-bottom-btn"
+                                                onclick="handleDetailSwitchAnimate(2, true)"
+                                            >
+                                                More Details
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="detail-bottom-btn">
+                                                Add to cart
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </ul>
+
+                            <ul class="box-right-con">
+                                <li class="box-right-title">
+                                    3068B Mochi & Dango
+                                </li>
+                                <ul class="box-right-description">
+                                    <li>5-Pin Hot-swappable</li>
+                                    <li>RGB Backlit</li>
+                                    <li>
+                                        Gaming Socket with up to 2000 Cycles
+                                    </li>
+                                </ul>
+                                <li class="box-right-price">88$</li>
+                                <li class="box-right-color">
+                                    Color:
+                                    <span class="box-right-span"
+                                        >Mochi & Dango</span
+                                    >
+                                </li>
+                                <li class="box-right-availability">
+                                    Availability:
+                                    <span class="box-right-availability-span">
+                                        In Stock
+                                    </span>
+                                </li>
+                                <li class="box-right-brand">
+                                    <span class="box-right-span">Akko</span>
+                                    <span class="box-right-span">Keyboard</span>
+                                </li>
+                                <button
+                                    class="box-right-back-btn"
+                                    onclick="handleDetailSwitchAnimate(2, false)"
+                                >
+                                    Back
+                                </button>
+                            </ul>
+                        </div>
+                    </li> -->
+
+<!-- end here -->
