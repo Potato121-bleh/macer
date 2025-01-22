@@ -1,50 +1,48 @@
-
+*{
+  font-family: sans-serif;
+}
 .container-body{
-    height: 100vh;
-    font-family: sans-serif;
-  }
-  .container-banner{
-    /* border: solid; */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .banner-img{
-    width: 45%;
-  }
-  article{
-    /* border: solid; */
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .macer-top-logo{
-    margin-left: 13px;
-    color: rgb(0, 0, 0);
-    font-size: 1.5vw;
-    letter-spacing: 2px;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-  .keyboard-console h1{
-    /* border: solid; */
-    text-transform: uppercase;
-    font-size: 5vw;
-    margin-bottom: 10px;
-    color: rgb(0, 0, 0);
-    font-weight: 700;
-  }
-  .paragraph-under-keyboard-console p{
-    font-size: 1vw;
-    color: rgb(0, 0, 0);
-  }
-  .macerbranding{
-    position:absolute;
-    z-index: -1;
-    left: 0;
-    top: 0;
-    color: rgb(232, 232, 232);
-    font-size: 25vw;
-    text-transform: uppercase;
-  }
+  border: solid;
+  height: 100vh;
+}
+.container-banner{
+  border: solid rgb(196, 196, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+article{
+  padding: 0;
+}
+.con-element-article{
+  height: 40%;
+  border: solid;
+  display: flex;
+  flex-direction: column;
+}
+.img-banner img{
+  width: 40vw;
+}
+.macerkeyboard{
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.choose-your-favorite{
+  font-size: 5vw;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.paragraph-under-keyboard-console p{
+  font-size: 1vw;
+  color: rgb(0, 0, 0);
+}
+.macerbranding{
+  position:absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  color: rgb(232, 232, 232);
+  font-size: 25vw;
+  text-transform: uppercase;
+}
