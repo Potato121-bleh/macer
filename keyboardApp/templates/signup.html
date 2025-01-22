@@ -1,42 +1,47 @@
-<!-- {% load static %} -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="/macer/keyboardApp/templates/signup.html">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}" />
-</head>
-<body>
-    <Form>
-        <!-- <h1 class="background-h1">MYKEYBOARD</h1> -->
-        <!-- <img src="/macerShop/frontendApp/static/img/keyboard.jpeg" alt=""> -->
-        <div class="container">
-            <div class="form-signup">
-                <h1>Sign Up</h1>
-                <div class="input-box">
-                    <label>Username</label>
-                    <input type="text" placeholder="" required id="">
-                </div>
-                <div class="input-box">
-                    <label>NickName</label>
-                    <input type="text" placeholder="">
-                </div>
-                <div class="input-box">
-                    <label class="password">Password</label>
-                    <input type="text" placeholder="" required>
-                </div>
-                <div class="btn-signup">
-                    <button>Sign Up</button>
-                </div>
-                <div class="already-haveacc">
-                    <p>Already have account?
-                        <a href="./login">Login</a>
-                    </p>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sign Up</title>
+        <!-- <link rel="stylesheet" href="/macer/keyboardApp/templates/signup.html"> -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{% static 'css/signup.css' %}"
+        />
+    </head>
+    <body>
+        <form>
+            <!-- <h1 class="background-h1">MYKEYBOARD</h1> -->
+            <!-- <img src="/macerShop/frontendApp/static/img/keyboard.jpeg" alt=""> -->
+            <div class="container">
+                <div class="form-signup">
+                    <h1>Sign Up</h1>
+                    <div class="input-box">
+                        <label>Username</label>
+                        <input type="text" placeholder="" required id="" />
+                    </div>
+                    <div class="input-box">
+                        <label>NickName</label>
+                        <input type="text" placeholder="" />
+                    </div>
+                    <div class="input-box">
+                        <label class="password">Password</label>
+                        <input type="text" placeholder="" required />
+                    </div>
+                    <div class="btn-signup">
+                        <button>Sign Up</button>
+                    </div>
+                    <div class="already-haveacc">
+                        <p>
+                            Already have account?
+                            <a href="./login">Login</a>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </Form>
-</body>
+        </form>
+    </body>
 </html>

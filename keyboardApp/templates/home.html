@@ -1,17 +1,34 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <link
-    rel="stylesheet"
-    type="text/css"
-    href="{% static 'css/shop.css' %}"
-/> -->
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logitech</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/homePage.css' %}"/>
+  </head>
+  <body>
     {% include 'navigation/testheader.html' %}
-</body>
+    <div class="container-body">
+      <div class="container-banner">
+        <article>
+          <div class="macer-article">
+            <h1 class="macer-top-logo">Macer Keyboard</h1>
+          </div>
+          <div class="keyboard-console">
+            <h1>choose your <br/>favorite</h1>
+          </div>
+          <div class="paragraph-under-keyboard-console">
+            <p>
+              Shop wired, wireless keyboards and consoles. Choose from <br/>the
+              mechanical, ergonomic, comfort, portable, Bluetooth®,<br/>
+              multi-device, and multi-OS product range.
+            </p>
+          </div>
+        </article>
+        <span><h1 class="macerbranding">macer</h1></span>
+        <img class="banner-img" src="{% static 'img/banner-img.png' %}" alt="">
+      </div>
+    </div>
+  </body>
 </html>
