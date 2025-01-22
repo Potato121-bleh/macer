@@ -152,9 +152,9 @@ body {
 
 /*----------Grid Boxes----------*/
 
-.brand-img{
+/* .brand-img{
   width: 40%;
-}
+} */
 
 .container{
   display: flex;
@@ -264,7 +264,7 @@ body {
   display: flex;
   /* border: solid yellow; */
 }
-.icon-connection{
+/* .icon-connection{
   position: absolute;
   bottom: 7px;
   left: 35%;
@@ -284,8 +284,8 @@ body {
   width: 12px;
   color: white;
   margin-left: 3px;
-}
-.add-cart{
+} */
+/* .add-cart{
   text-transform: uppercase;
   color: white;
   font-size: 8px;
@@ -297,14 +297,14 @@ body {
   right: 0px;
   bottom: 8px;
   cursor: pointer;
-}
-.brand-logo img{
+} */
+/* .brand-logo img{
   width: 30px;
   position: absolute;
   left: 0px;
   bottom: 7px;
   border-radius: 5px;
-}
+} */
 .brand-logo h4{
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
@@ -361,6 +361,116 @@ body {
   transform: scale(1.04);
   background: #b1b1b161;
 }
+
+
+/* bottom card section  */
+ 
+.detail-bottom-section {
+  width: 100%;
+  margin-top: 15px;
+  display: flex
+;
+  padding: 0;
+  list-style: none;
+  justify-content: space-between;
+}
+
+.detail-bottom-btn {
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+
+
+
+.main-box-con {
+  margin-bottom: 10%;
+}
+
+.box {
+  display: flex
+  ;
+      flex-direction: row;
+    overflow: hidden;
+    transition: all 700ms ease-in-out;
+}
+
+.box-sub-con {
+  transition: all 700ms ease-in-out;
+  display: flex;
+}
+
+.box-left-con {
+  display: flex
+;
+    flex-direction: column;
+    align-items: center;
+  width: 250px;
+  height: auto;
+  padding: 0;
+}
+
+.box-right-con {
+  list-style: none;
+  padding: 15px;
+  width: 250px;
+  color: gray;
+}
+
+.box-right-title {
+  font-weight: bold;
+  color: black;
+}
+
+.box-right-description {
+  margin-top: 7px;
+    margin-bottom: 7px;
+    font-size: 12px;
+}
+
+
+.box-right-price {
+  font-weight: bold;
+    color: green;
+}
+
+.box-right-availability-span{
+  font-weight: bold;
+  color: green;
+}
+
+.box-right-span{
+  font-weight: bold;
+  color: black;
+}
+
+.box-right-back-btn {
+  margin-top: 15px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+
+
+/* Class for toggle */
+
+.toggle-slide-card-detail {
+  transform: translateX(-250px);
+}
+.toggle-scale-card-detail {
+  z-index: 3;
+  transform: scale(1.5);
+}
+
+
+
+
 
 /* responsive somrab rub ng box */
 @media (max-width: 610px) {

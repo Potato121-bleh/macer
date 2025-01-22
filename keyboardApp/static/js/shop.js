@@ -116,85 +116,110 @@ const handleItemData = async (brand) => {
         let dynamicBoxHTMLEle = queriedData.item_data
             .map(
                 (element) => `
-                      <li class="box">
-                          <div class="shape-in-Grid">
-                            <img
-                                class="keyboard-pic"
-                                src="${
-                                    staticImg +
-                                    'keyboardImg/' +
-                                    ('keyboard' + element.item_id)
-                                }.png"
-                                alt=""
-                            />
-                          </div>
-                          <div class="detail-container">
-                            <h2 class="series-one-x-kuromi">${
-                                element.item_name
-                            }</h2>
-                            <p class="long-ph">
-                                ${element.item_description}
-                            </p>
-                            <div class="price-head">
-                                <div class="detail-price">
-                                    <p class="price">Price:</p>
-                                    <p class="price-dollars">${
-                                        element.item_price
-                                    }$</p>
+
+                <li class="box" id="${'box-id' + element.item_id}">
+                        <div class="box-sub-con" id="${
+                            'sub-box-id' + element.item_id
+                        }">
+                            <ul class="box-left-con">
+                                <div class="shape-in-Grid">
+                                    <img
+                                        class="keyboard-pic"
+                                        src="${
+                                            staticImg +
+                                            'keyboardImg/' +
+                                            ('keyboard' + element.item_id)
+                                        }.png"
+                                        alt="${brand + 'img'}"
+                                    />
                                 </div>
-                                <div class="detail-color">
-                                    <p class="rgb-color">Color:</p>
-                                    <p class="rgb">${element.item_key_color}</p>
+                                <div class="detail-container">
+                                    <h2 class="series-one-x-kuromi">
+                                        ${element.item_name}
+                                    </h2>
+                                    <p class="long-ph">${
+                                        element.item_description
+                                    }</p>
+                                    <div class="price-head">
+                                        <div class="detail-price">
+                                            <p class="price">Price:</p>
+                                            <p class="price-dollars">
+                                            ${element.item_price}$
+                                            </p>
+                                        </div>
+                                        <div class="detail-color">
+                                            <p class="rgb-color">Color:</p>
+                                            <p class="rgb">${
+                                                element.item_key_color
+                                            }</p>
+                                        </div>
+                                    </div>
+
+                                    <ul
+                                        class="detail-bottom-section"
+                                        style="list-style: none"
+                                    >
+                                        <li>
+                                            <button
+                                                class="detail-bottom-btn"
+                                                onclick="handleDetailSwitchAnimate(${
+                                                    element.item_id
+                                                }, true)"
+                                            >
+                                                More Details
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button class="detail-bottom-btn">
+                                                Add to cart
+                                            </button>
+                                        </li>
+                                    </ul>
                                 </div>
-                            </div>
-                            
-                            <ul class="detail-bottom-section" style="list-style: none" >
-
-
-                                <li class="brand-logo">
-                                    <img src="${
-                                        staticImg +
-                                        'companylogo/' +
-                                        brand +
-                                        'Logo.png'
-                                    }" alt="${brand + 'Logo.png'}" />
-                                </li>
-
-
-
-                                <li class="icon-connection">
-                                    <div class="icon-one">
-                                        <img
-                                            class="icon-bluetooth"
-                                            src="${staticImg + 'bluetooth.png'}"
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div class="icon-two">
-                                        <img
-                                            class="icon-usb"
-                                            src="${staticImg + 'usb.png'}"
-                                            alt=""
-                                        />
-                                    </div>
-                                </li>
-
-
-
-                                <li class="btn-addcart">
-                                    <button class="add-cart" onclick="handleAddtoCart(${
-                                        element.item_id
-                                    }, ${
-                    element.item_price
-                })" >Add To Cart</button>
-                                </li>
-
-
-                                
                             </ul>
-                          </div>
-                      </li>
-                    `
+
+                            <ul class="box-right-con">
+                                <li class="box-right-title">
+                                    ${element.item_name}
+                                </li>
+                                <ul class="box-right-description">
+                                    <li>5-Pin Hot-swappable</li>
+                                    <li>RGB Backlit</li>
+                                    <li>
+                                        Gaming Socket with up to 2000 Cycles
+                                    </li>
+                                </ul>
+                                <li class="box-right-price">${
+                                    element.item_price
+                                }$</li>
+                                <li class="box-right-color">
+                                    Color:
+                                    <span class="box-right-span"
+                                        >${element.item_key_color}</span
+                                    >
+                                </li>
+                                <li class="box-right-availability">
+                                    Availability:
+                                    <span class="box-right-availability-span">
+                                        In Stock
+                                    </span>
+                                </li>
+                                <li class="box-right-brand">
+                                    <span class="box-right-span">${brand}</span>
+                                    <span class="box-right-span">Keyboard</span>
+                                </li>
+                                <button
+                                    class="box-right-back-btn"
+                                    onclick="handleDetailSwitchAnimate(${
+                                        element.item_id
+                                    }, false)"
+                                >
+                                    Back
+                                </button>
+                            </ul>
+                        </div>
+                    </li>
+                     `
             )
             .join('')
         mainBoxContainerEle.innerHTML = dynamicBoxHTMLEle
@@ -368,3 +393,102 @@ const handleTransaction = async () => {
         console.log(err)
     }
 }
+
+const handleDetailSwitchAnimate = (id, slideFlag) => {
+    let subBoxEleScript = 'sub-box-id' + id
+    let boxEleScript = 'box-id' + id
+    console.log(subBoxEleScript)
+    let subBoxEle = document.getElementById(subBoxEleScript)
+    let boxEle = document.getElementById(boxEleScript)
+    let allBoxEle = document.querySelectorAll('.box')
+    let allSubBoxEle = document.querySelectorAll('.box-sub-con')
+    console.log(subBoxEle)
+    //toggle-scale-card-detail
+
+    allBoxEle.forEach((element) => {
+        element.classList.remove('toggle-scale-card-detail')
+    })
+    allSubBoxEle.forEach((element) => {
+        element.classList.remove('toggle-slide-card-detail')
+    })
+
+    if (slideFlag) {
+        boxEle.classList.add('toggle-scale-card-detail')
+        subBoxEle.classList.add('toggle-slide-card-detail')
+    } else {
+        subBoxEle.classList.remove('toggle-slide-card-detail')
+        boxEle.classList.remove('toggle-scale-card-detail')
+    }
+}
+
+//       <li class="box">
+//           <div class="shape-in-Grid">
+//             <img
+//                 class="keyboard-pic"
+//                 src="${
+//                     staticImg +
+//                     'keyboardImg/' +
+//                     ('keyboard' + element.item_id)
+//                 }.png"
+//                 alt=""
+//             />
+//           </div>
+//           <div class="detail-container">
+//             <h2 class="series-one-x-kuromi">${
+//                 element.item_name
+//             }</h2>
+//             <p class="long-ph">
+//                 ${element.item_description}
+//             </p>
+//             <div class="price-head">
+//                 <div class="detail-price">
+//                     <p class="price">Price:</p>
+//                     <p class="price-dollars">${
+//                         element.item_price
+//                     }$</p>
+//                 </div>
+//                 <div class="detail-color">
+//                     <p class="rgb-color">Color:</p>
+//                     <p class="rgb">${element.item_key_color}</p>
+//                 </div>
+//             </div>
+
+//             <ul class="detail-bottom-section" style="list-style: none" >
+
+//                 <li class="brand-logo">
+//                     <img src="${
+//                         staticImg +
+//                         'companylogo/' +
+//                         brand +
+//                         'Logo.png'
+//                     }" alt="${brand + 'Logo.png'}" />
+//                 </li>
+
+//                 <li class="icon-connection">
+//                     <div class="icon-one">
+//                         <img
+//                             class="icon-bluetooth"
+//                             src="${staticImg + 'bluetooth.png'}"
+//                             alt=""
+//                         />
+//                     </div>
+//                     <div class="icon-two">
+//                         <img
+//                             class="icon-usb"
+//                             src="${staticImg + 'usb.png'}"
+//                             alt=""
+//                         />
+//                     </div>
+//                 </li>
+
+//                 <li class="btn-addcart">
+//                     <button class="add-cart" onclick="handleAddtoCart(${
+//                         element.item_id
+//                     }, ${
+//     element.item_price
+// })" >Add To Cart</button>
+//                 </li>
+
+//             </ul>
+//           </div>
+//       </li>

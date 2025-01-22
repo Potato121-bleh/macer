@@ -1,3 +1,8 @@
+body {
+  /* font-family: monospace; */
+  font-family: sans-serif;
+}
+
 .header-navbar-main-con {
     background-color: rgb(255, 255, 255);
     border: solid rgb(255, 255, 255);
