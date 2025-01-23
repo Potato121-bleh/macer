@@ -1,36 +1,39 @@
-*{
-  font-family: sans-serif;
-}
 .container-body{
-  border: solid;
   height: 100vh;
+  max-width: 100%;
 }
 .container-banner{
-  border: solid rgb(196, 196, 0);
+  /* height: 90%; */
+  /* border: 10px solid rgb(82, 31, 20); */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-article{
-  padding: 0;
+.container-banner img{
+  width: 45%;
+  /* transform: rotate(5deg); */
 }
-.con-element-article{
-  height: 40%;
-  border: solid;
+article{
+  /* border: solid; */
+  /* width: 20%; */
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
-.img-banner img{
-  width: 40vw;
-}
-.macerkeyboard{
-  font-size: 16px;
-  text-transform: uppercase;
+.macer-top-logo{
+  margin-left: 13px;
+  color: rgb(0, 0, 0);
+  font-size: 1vw;
   letter-spacing: 2px;
-}
-.choose-your-favorite{
-  font-size: 5vw;
+  font-weight: 700;
   text-transform: uppercase;
+}
+.choose-your-favorite h1{
+  text-transform: uppercase;
+  font-size: 3.2vw;
+  margin-bottom: 10px;
+  color: rgb(0, 0, 0);
   font-weight: 700;
 }
 .paragraph-under-keyboard-console p{
@@ -38,6 +41,7 @@ article{
   color: rgb(0, 0, 0);
 }
 .macerbranding{
+  overflow: hidden;
   position:absolute;
   z-index: -1;
   left: 0;

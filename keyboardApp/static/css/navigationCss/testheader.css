@@ -5,7 +5,7 @@ body{
   margin: 0;
 }
 .guest-nav{
-  font-size: 20px;
+  font-size: 15px;
   margin-left: 40px;
   padding-left: 20px;
   text-transform: uppercase;
@@ -30,12 +30,12 @@ body{
   align-items: center;
   text-transform: uppercase;
   width: 45rem;
-  height: 9vh;
-  font-size: 15px;
+  height: 5vh;
+  font-size: 12px;
 }
 .navbar-page-element{
-  width: 100px;
-  height: 40px;
+  width: 95px;
+  height: 30px;
   border-radius: 5px;
   display: flex;
   align-items: center;
