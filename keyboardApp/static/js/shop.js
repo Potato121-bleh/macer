@@ -2,10 +2,6 @@ let checkoutInfoDetail = []
 let checkoutTransactionDetial = []
 let cartArr = [] // [1, 30]  [2, 35]
 let cartRenderArr = []
-let userNicknameTextEle = document.getElementById('usernickname-text-id')
-let loginBtnEle = document.getElementById('login-btn-id')
-let signupBtnEle = document.getElementById('signup-btn-id')
-let logoutBtnEle = document.getElementById('logout-btn-id')
 let queryParameter = new URLSearchParams(window.location.search)
 
 const getCSRFToken = () => {
@@ -73,9 +69,6 @@ const handleAddtoCart = (id, price) => {
     cartArr.push(prepData)
     cartCounterEle.innerText = cartArr.length
 }
-
-//logo-img-con-id
-//   <img class="brand-img" src="{% static 'img/brand.webp' %}" alt="" />
 
 const handleItemData = async (brand) => {
     console.log('it trigger item_data')
@@ -229,38 +222,6 @@ const handleItemData = async (brand) => {
 }
 handleItemData('alpha')
 
-const handleQueryData = async () => {
-    let userNicknameTextEle = document.getElementById('usernickname-text-id')
-    try {
-        const resp = await fetch(
-            'http://127.0.0.1:8000/api/keyboardApp/auth/validation',
-            {
-                method: 'GET',
-                credentials: 'same-origin',
-            }
-        )
-        if (resp.status !== 200) {
-            throw new Error('failed to validate the user')
-        }
-
-        userData = await resp.json()
-
-        userNicknameTextEle.innerText = userData.Data.user_nickname
-        logoutBtnEle.style.display = 'flex'
-        loginBtnEle.style.display = 'none'
-        signupBtnEle.style.display = 'none'
-        return userData.Data
-    } catch (err) {
-        alert('Please login to use locked feature')
-        console.log(err)
-        loginBtnEle.style.display = 'flex'
-        signupBtnEle.style.display = 'flex'
-        logoutBtnEle.style.display = 'none'
-        return
-    }
-}
-handleQueryData()
-
 // This function trigger when user click on cart
 const handleCartCheckout = async () => {
     console.log('IT CLICK')
@@ -348,19 +309,6 @@ const handleCartCheckout = async () => {
     toggleCheckoutDialog(true)
 }
 
-const handleLogout = async () => {
-    try {
-        let logoutResp = await fetch(
-            'http://127.0.0.1:8000/api/keyboardApp/auth/logout',
-            { credentials: 'same-origin' }
-        )
-        alert('log out successfully')
-    } catch (err) {
-        alert('Failed to log out, Please try again')
-        console.log(err)
-    }
-}
-
 const handleTransaction = async () => {
     try {
         console.log("HERE I'M ABOUT TO SEND TO TRANSACTION")
@@ -420,75 +368,3 @@ const handleDetailSwitchAnimate = (id, slideFlag) => {
         boxEle.classList.remove('toggle-scale-card-detail')
     }
 }
-
-//       <li class="box">
-//           <div class="shape-in-Grid">
-//             <img
-//                 class="keyboard-pic"
-//                 src="${
-//                     staticImg +
-//                     'keyboardImg/' +
-//                     ('keyboard' + element.item_id)
-//                 }.png"
-//                 alt=""
-//             />
-//           </div>
-//           <div class="detail-container">
-//             <h2 class="series-one-x-kuromi">${
-//                 element.item_name
-//             }</h2>
-//             <p class="long-ph">
-//                 ${element.item_description}
-//             </p>
-//             <div class="price-head">
-//                 <div class="detail-price">
-//                     <p class="price">Price:</p>
-//                     <p class="price-dollars">${
-//                         element.item_price
-//                     }$</p>
-//                 </div>
-//                 <div class="detail-color">
-//                     <p class="rgb-color">Color:</p>
-//                     <p class="rgb">${element.item_key_color}</p>
-//                 </div>
-//             </div>
-
-//             <ul class="detail-bottom-section" style="list-style: none" >
-
-//                 <li class="brand-logo">
-//                     <img src="${
-//                         staticImg +
-//                         'companylogo/' +
-//                         brand +
-//                         'Logo.png'
-//                     }" alt="${brand + 'Logo.png'}" />
-//                 </li>
-
-//                 <li class="icon-connection">
-//                     <div class="icon-one">
-//                         <img
-//                             class="icon-bluetooth"
-//                             src="${staticImg + 'bluetooth.png'}"
-//                             alt=""
-//                         />
-//                     </div>
-//                     <div class="icon-two">
-//                         <img
-//                             class="icon-usb"
-//                             src="${staticImg + 'usb.png'}"
-//                             alt=""
-//                         />
-//                     </div>
-//                 </li>
-
-//                 <li class="btn-addcart">
-//                     <button class="add-cart" onclick="handleAddtoCart(${
-//                         element.item_id
-//                     }, ${
-//     element.item_price
-// })" >Add To Cart</button>
-//                 </li>
-
-//             </ul>
-//           </div>
-//       </li>

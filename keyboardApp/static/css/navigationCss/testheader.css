@@ -3,11 +3,11 @@
 }
 body{
   margin: 0;
+  overflow-x: hidden;
 }
 .guest-nav{
   font-size: 15px;
-  margin-left: 40px;
-  padding-left: 20px;
+  margin-left: 30px;
   text-transform: uppercase;
 }
 .header-navbar-main-con{
@@ -15,6 +15,7 @@ body{
   background-color: rgb(33, 33, 33);
 }
 .header-navbar-sub-con{
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -29,9 +30,10 @@ body{
   justify-content: space-between;
   align-items: center;
   text-transform: uppercase;
-  width: 45rem;
+  width: 485px;
   height: 5vh;
   font-size: 12px;
+  padding: 0px;
 }
 .navbar-page-element{
   width: 95px;
@@ -40,26 +42,47 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 .navbar-page-con .navbar-page-element:hover{
   background-color: rgb(57, 57, 57);
 }
+
+.li-login {
+  margin-left: 10px;
+    display: flex
+;
+    margin-right: 10px;
+}
+
+.li-signup {
+  width: 65px;
+    margin-left: 10px;
+    display: flex
+;
+    margin-right: 10px;
+}
+
 .li-login a{
   color: rgb(255, 255, 255);
   text-decoration: underline 0.15em rgba(255, 255, 255, 0);
   text-underline-offset: 0.2em;
   transition: text-decoration-color 300ms, text-underline-offset 300ms;
 }
+
 .li-signup a{
   color: rgb(255, 255, 255);
   text-decoration: underline 0.15em rgba(255, 255, 255, 0);
   text-underline-offset: 0.2em;
   transition: text-decoration-color 300ms, text-underline-offset 300ms;
 }
+
 .navbar-page-con a:hover{
   text-decoration-color: rgb(255, 255, 255);
   text-underline-offset: 0.2em;
 }
+
 .icon-add-cart{
   margin-right: 20px;
   background-color: white;
@@ -70,13 +93,178 @@ body{
   width: 50px;
   height: 35px;
 }
+
 .icon-shopping{
   width: 20px;
 }
+
 .cart-counter-con #cart-counter-id{
   color: black;
   margin-left: 5px;
 }
+
 .navbar-about-element{
   width: 120px;
+}
+
+.header-navbar-right-con {
+  display: flex;
+}
+
+.header-menu-icon-con {
+  position: relative;
+  padding: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    list-style: none;
+}
+
+.header-dialog-main-con {
+  display: none;
+  position: absolute;
+  width: 185px;
+  height: 260px;
+  padding: 15px;
+  top: 67px;
+  right: 18px;
+  border-radius: 10px;
+  background-color: #8c8c8c5c;
+  transform: translateX(230px);
+  transition: all 500ms ease-in-out;
+  backdrop-filter: blur(9px);
+}
+
+.header-menu-icon-con i{
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.header-menu-icon-hoverboard {
+  display: none;
+  position: absolute;
+  width: 30px;
+  height: 26px;
+  background-color: #80808000;
+  cursor: pointer;
+}
+
+.header-dialog-sub-con {
+  margin: 0;
+  color: #ffffff;
+  list-style: none;
+  padding: 0;
+  height: 100%;
+  font-weight: lighter;
+}
+
+.header-dialog-title {
+  text-align: center;
+    margin: 10px;
+}
+
+#dialog-usernickname-text-id {
+  font-weight: bold;
+}
+
+.header-dialog-navigation-con {
+  list-style: none;
+  padding: 0;
+}
+
+.header-dialog-navigation-con li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  height: 30px;
+  border-radius: 7px;
+  margin: 5px;
+  font-size: 13px;
+  background-color: #a7a7a7;
+    box-shadow: 2px 3px 4px #000000a1;
+    cursor: pointer;
+}
+
+.header-dialog-auth-control-con {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding: 0;
+}
+
+.header-dialog-auth-control-con li {
+  padding: 6px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  color: black;
+  border-radius: 5px;
+  font-size: 12px;
+  background-color: #a7a7a7;
+  box-shadow: 2px 3px 4px #000000a1;
+  color: white;
+  cursor: pointer;
+}
+
+.header-dialog-account-con {
+  list-style: none;
+  padding: 0;
+}
+
+.header-dialog-account-title {
+  padding: 8px;
+  font-size: 11px;
+}
+
+.header-dialog-account-detail-con {
+  list-style: none;
+    padding: 0;
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+}
+
+.header-dialog-account-left-con {
+  display: flex;
+  width: auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#header-dialog-user-icon {
+  font-size: 13px;
+  margin-left: 5px;
+}
+
+#dialog-username-text-id {
+  margin: 0;
+  margin-left: 7px;
+}
+
+
+/* transform: translateX(230px); */
+
+
+/* FOR ADD ON  */
+.open-menu-dialog {
+  transform: translateX(0px);
+}
+
+@media (max-width: 800px) {
+  .navbar-page-con {
+    display: none
+  }
+  .header-menu-icon-con {
+    display: flex;
+  }
+
+  .header-dialog-main-con {
+    display: block;
+  }
+
+  
 }
