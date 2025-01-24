@@ -11,6 +11,10 @@ let userNicknameTextEle = document.getElementById('usernickname-text-id')
 switch (window.location.pathname) {
     case '/keyboardApp/home':
         let homeLabel = document.getElementById('navbar-home-label-id')
+        let pizzaIcon = document.getElementById('pizza-icon-id')
+        let headerCon = document.getElementById('header-navbar-main-con-id')
+        headerCon.style.backgroundColor = 'transparent'
+        pizzaIcon.style.width = '22px'
         homeLabel.style.backgroundColor = '#b1b1b161'
         break
     case '/keyboardApp/shop':
@@ -48,11 +52,19 @@ const handleToggleMenu = () => {
     let menuHoverBoard = document.getElementById(
         'header-menu-icon-hoverboard-id'
     )
+    let menuChildEle = document.querySelectorAll(
+        '.header-navbar-custom-burger-icon-element'
+    )
+    console.log(menuChildEle[0].className)
     let pizzaIcon = document.getElementById('pizza-icon-id')
     menuHoverBoard.style.display = 'block' // Open up the block on main source
     menuEle.classList.add('open-menu-dialog') // Open dialog
     document.addEventListener('click', function handleCheckTarget(e) {
-        if (!menuEle.contains(e.target) && e.target !== pizzaIcon) {
+        if (
+            !menuEle.contains(e.target) &&
+            e.target !== pizzaIcon &&
+            e.target.className != 'header-navbar-custom-burger-icon-element'
+        ) {
             // Check to make sure it not source and inside dialog
             console.log('The the element u clicked is not contained in dialog')
             menuEle.classList.remove('open-menu-dialog')

@@ -474,10 +474,9 @@ body {
 
 
 /* responsive somrab rub ng box */
-@media (max-width: 610px) {
+/* @media (max-width: 610px) {
   .shape-in-Grid {
     display: flex;
-    /* flex-wrap: wrap; */
     flex-direction: column;
   }
 }
@@ -486,7 +485,6 @@ body {
     width: 90%;
   }
 }
-/* search bar resonponsive */
 @media (max-width:990px){
   .head-link .search-bar {
     width: 25rem;
@@ -510,7 +508,6 @@ body {
 @media (max-width:700px) {
   .head-link .search-bar{
     width:16rem;
-    /* height: 35px; */
   }
 }
 @media (max-width:600px) {
@@ -523,7 +520,6 @@ body {
   nav{
     display: flex;
     flex-direction: column;
-    /* border: solid black; */
     justify-content: center;
     align-items: center;
     padding-left: 1.3rem;
@@ -534,4 +530,4 @@ body {
     padding-left: 1rem;
     font-size: 20px;
   }
-}
+} */

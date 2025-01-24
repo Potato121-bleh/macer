@@ -11,7 +11,7 @@
         />
     </head>
     <body>
-        <header class="header-navbar-main-con">
+        <header class="header-navbar-main-con" id="header-navbar-main-con-id">
             <nav class="header-navbar-sub-con">
                 <div class="header-navbar-left-con">
                     <h2 class="guest-nav" id="usernickname-text-id">Guest</h2>
@@ -37,6 +37,7 @@
                         >
                             About Us
                         </li>
+
                         <li class="li-login" id="login-btn-id">
                             <a href="./login"> Login</a>
                         </li>
@@ -49,12 +50,31 @@
                     </ul>
 
                     <ul class="header-menu-icon-con">
-                        <i
-                            class="fa-solid fa-pizza-slice"
+                        <!-- <i
+                            class="fa-solid fa-keyboard"
                             role="button"
                             onclick="handleToggleMenu()"
                             id="pizza-icon-id"
-                        ></i>
+                        ></i> -->
+                        <ul
+                            class="header-navbar-custom-burger-icon-con"
+                            role="button"
+                            onclick="handleToggleMenu()"
+                            id="pizza-icon-id"
+                        >
+                            <li
+                                class="header-navbar-custom-burger-icon-element"
+                                onclick="handleToggleMenu()"
+                            ></li>
+                            <li
+                                class="header-navbar-custom-burger-icon-element"
+                                onclick="handleToggleMenu()"
+                            ></li>
+                            <li
+                                class="header-navbar-custom-burger-icon-element"
+                                onclick="handleToggleMenu()"
+                            ></li>
+                        </ul>
                         <li
                             class="header-menu-icon-hoverboard"
                             id="header-menu-icon-hoverboard-id"
