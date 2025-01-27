@@ -64,9 +64,13 @@ const assignDynamicData = (userInfo) => {
 
 // When we click on add to cart on card
 const handleAddtoCart = (id, price) => {
+    console.log('it triggered add to cart')
+    console.log(id)
+    console.log(price)
     let cartCounterEle = document.getElementById('cart-counter-id')
     let prepData = [id, price]
     cartArr.push(prepData)
+    console.log(cartArr.length)
     cartCounterEle.innerText = cartArr.length
 }
 
@@ -163,7 +167,10 @@ const handleItemData = async (brand) => {
                                             </button>
                                         </li>
                                         <li>
-                                            <button class="detail-bottom-btn">
+                                            <button class="detail-bottom-btn" 
+                                            onclick="handleAddtoCart(${
+                                                element.item_id
+                                            }, ${element.item_price})">
                                                 Add to cart
                                             </button>
                                         </li>
@@ -241,6 +248,8 @@ const handleCartCheckout = async () => {
             }
         )
         queriedData = await itemDataResp.json()
+        console.log('Cart here:')
+        console.log(cartArr)
         for (let i = 0; i < cartArr.length; i++) {
             for (let j = 0; j < queriedData.item_data.length; j++) {
                 if (cartArr[i][0] == queriedData.item_data[j].item_id) {
