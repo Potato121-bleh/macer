@@ -4,13 +4,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Logitech</title>
+    <title>Home</title>
     <link
       rel="stylesheet"
       type="text/css"
       href="{% static 'css/homePage.css' %}" />
   </head>
-  <body>
+  <body style="position: relative; overflow-x: hidden">
     {% include 'navigation/testheader.html' %}
     <div class="container-body">
       <div class="container-banner-one">
@@ -38,25 +38,65 @@
           src="{% static 'img/mechanical-video.mp4' %}" />
       </video>
     </div>
-    <div class="container-body-two">
-      <div class="container-banner">
-        <article>
-          <div class="macer-article">
-            <h1 class="macer-top-logo">Macer Keyboard</h1>
-          </div>
-          <div class="keyboard-console">
-            <h1>choose your <br/>favorite</h1>
-          </div>
-          <div class="paragraph-under-keyboard-console">
-            <p>
-              Shop wired, wireless keyboards and consoles. Choose from <br/>the
-              mechanical, ergonomic, comfort, portable, Bluetooth®,<br/>
-              multi-device, and multi-OS product range.
-            </p>
-          </div>
+    <div class="main-element-under-first-page">
+      <div class="con-element-under-first-page">
+        <article class="article-in-second-page">
+          <h1 class="h1-in-second-page">Macer</h1>
+          <h1 class="h1-in-second-page">keyboard</h1>
+          <p class="paragrah-in-second-page" style="color: white;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit earum doloribus ut nemo ex, consequatur totam quasi cumque perspiciatis sint?</p>
         </article>
-        <span><h1 class="macerbranding">macer</h1></span>
-        <!-- <img src="{% static 'img/lightblue-bk.png' %}" alt=""> -->
+      </div>
+        <img class="dark-bk" src="{% static 'img/dark-bk.jpg' %}" alt="">
+    </div>
+    <div class="about-in-home-page-main-element">
+      <div class="about-in-home-page-con-element">
+        <div class="about-in-home-page-kon-element">
+          <ul class="ul-in-about-element">
+            <li class="icon-for-about">
+              <img src="{% static 'img/free-shipping-icon.webp' %}" alt="" />
+            </li>
+            <li class="paragraph-in-about" style="color: white;">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perspiciatis ratione distinctio ducimus rem est aspernatur.
+            </li>
+          </ul>
+          <ul class="ul-in-about-element">
+            <li class="icon-for-about">
+              <img src="{% static 'img/free-shipping-icon.webp' %}" alt="" />
+            </li>
+            <li class="paragraph-in-about" style="color: white;">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perspiciatis ratione distinctio ducimus rem est aspernatur.
+            </li>
+          </ul>
+          <ul class="ul-in-about-element">
+            <li class="icon-for-about">
+              <img src="{% static 'img/free-shipping-icon.webp' %}" alt="" />
+            </li>
+            <li class="paragraph-in-about" style="color: white;">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perspiciatis ratione distinctio ducimus rem est aspernatur.
+            </li>
+          </ul>
+          <ul class="ul-in-about-element">
+            <li class="icon-for-about">
+              <img src="{% static 'img/free-shipping-icon.webp' %}" alt="" />
+            </li>
+            <li class="paragraph-in-about" style="color: white;">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perspiciatis ratione distinctio ducimus rem est aspernatur.
+            </li>
+          </ul>
+          <ul class="ul-in-about-element">
+            <li class="icon-for-about">
+              <img src="{% static 'img/free-shipping-icon.webp' %}" alt="" />
+            </li>
+            <li class="paragraph-in-about" style="color: white;">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perspiciatis ratione distinctio ducimus rem est aspernatur.
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </body>
