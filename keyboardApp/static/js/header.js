@@ -32,6 +32,7 @@ switch (window.location.pathname) {
 dialogLoginBtnEle.onclick = () => {
     window.location.href = '/keyboardApp/login'
 }
+
 dialogSignupBtnEle.onclick = () => {
     window.location.href = '/keyboardApp/signup'
 }
