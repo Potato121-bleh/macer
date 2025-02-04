@@ -1,173 +1,226 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css/about.css' %}" />
-  </head>
-  <body>
-    {% include 'navigation/testheader.html' %}
-    <div class="main-element">
-      <div class="con-element">
-        <h1 class="about-us">About Us</h1>
-        <p class="about-macer-keyboard">
-          At Macer, we beleive that keyboards are more than just tools - they're
-          an extension of who we are , how we work, and how we express
-          ourselves. Founded with a pssion for innovation and a commitment to
-          craftsmanships, Macer is dedicated to providing premium keyboards that
-          redefine the way you interact with technology.
-        </p>
-      </div>
-    </div>
-    <div class="main-container-section">
-      <div class="kon-container-element">
-        <div class="why-choose-macer-main-element" style="color: rgb(255, 255, 255)">
-          <!-- <div class="main-element-ruler-under-about">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>About</title>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{% static 'css/about.css' %}"
+        />
+    </head>
+    <body style="color: white">
+        {% include 'navigation/testheader.html' %}
+        <div class="main-element">
+            <div class="con-element">
+                <h1 class="about-us">About Us</h1>
+                <p class="about-macer-keyboard">
+                    At Macer, we beleive that keyboards are more than just tools
+                    - they're an extension of who we are , how we work, and how
+                    we express ourselves. Founded with a pssion for innovation
+                    and a commitment to craftsmanships, Macer is dedicated to
+                    providing premium keyboards that redefine the way you
+                    interact with technology.
+                </p>
+            </div>
+        </div>
+        <div class="main-container-section">
+            <div class="kon-container-element">
+                <div
+                    class="why-choose-macer-main-element"
+                    style="color: rgb(255, 255, 255)"
+                >
+                    <!-- <div class="main-element-ruler-under-about">
           <div class="ruler-under-about"></div>
         </div> -->
-          <h1 class="why-choose-macer-con-element" style="margin: 0; color: white;">
-            Why Choose Macer?
-          </h1>
-        </div>
-        <div class="container-of-section">
-        <section class="section-one">
-          <div class="kon-section-one">
-            <header class="header-one-in-section-one">
-              <h3
-                class="uncompromissing-quality"
-                style="color: white; margin: 0">
-                Uncompromissing Quality
-              </h3>
-            </header>
-            <p class="uncompromissing-quality-paragraph" style="color: white">
-              Every <b>@Macer</b> keyboard is meticulously engineered with
-              durable materials, ensuring they stand the test of time. From the
-              finest mechanical switches to customizable RGB lighting, we
-              prioritize quality in every detail.
-            </p>
-            <div class="akko-image">
-              <img
-                class="akko-section1"
-                src="{% static 'img/akko.jpg' %}"
-                alt="error" />
-              <h1 class="h1-in-akko-image">macer x akko</h1>
+                    <h1
+                        class="why-choose-macer-con-element"
+                        style="margin: 0; color: white"
+                    >
+                        Why Choose Macer?
+                    </h1>
+                </div>
+                <div class="container-of-section">
+                    <section class="section-one">
+                        <div class="kon-section-one">
+                            <header class="header-one-in-section-one">
+                                <h3
+                                    class="uncompromissing-quality"
+                                    style="color: white; margin: 0"
+                                >
+                                    Uncompromissing Quality
+                                </h3>
+                            </header>
+                            <p
+                                class="uncompromissing-quality-paragraph"
+                                style="color: white"
+                            >
+                                Every <b>@Macer</b> keyboard is meticulously
+                                engineered with durable materials, ensuring they
+                                stand the test of time. From the finest
+                                mechanical switches to customizable RGB
+                                lighting, we prioritize quality in every detail.
+                            </p>
+                            <div class="akko-image">
+                                <img
+                                    class="akko-section1"
+                                    src="{% static 'img/akko.jpg' %}"
+                                    alt="error"
+                                />
+                                <h1 class="h1-in-akko-image">macer x akko</h1>
+                            </div>
+                            <header
+                                class="header-two-in-section-one"
+                                style="color: rgb(255, 255, 255)"
+                            >
+                                <h3
+                                    class="customer-centric-approach"
+                                    style="margin: 0"
+                                >
+                                    Customer-Centric Approach
+                                </h3>
+                            </header>
+                            <p
+                                style="color: white"
+                                class="customer-centric-approach-paragraph"
+                            >
+                                At Macer, your satisfaction is our priority. We
+                                actively listen to your feedback and
+                                continuously improve to deliver products that
+                                exceed expectations
+                            </p>
+                            <img
+                                class="customer-centric-imgage"
+                                src="{% static 'img/Dmitrii Kharchenko.jpeg' %}"
+                                alt=""
+                                style="width: 95%; border-radius: 5px"
+                            />
+                        </div>
+                    </section>
+                    <section class="section-two">
+                        <div class="kon-section-two">
+                            <header
+                                class="header-two-in-section-one"
+                                style="color: white"
+                            >
+                                <h3
+                                    class="innovation-design-h3"
+                                    style="margin: 0"
+                                >
+                                    Innovative Designs
+                                </h3>
+                            </header>
+                            <p
+                                style="color: white"
+                                class="innovation-design-paragraph"
+                            >
+                                We stay ahead of trends to bring you modern,
+                                sleek designs that match your lifestyle. From
+                                compact layouts to full-sized keyboards, our
+                                collection caters to diverse preferences.
+                            </p>
+                            <div class="innovative-designs-main-element">
+                                <img
+                                    class="innovative-designs-image"
+                                    src="{% static 'img/Innovative Designs.jpeg' %}"
+                                    alt=""
+                                    style="width: 95%; border-radius: 5px"
+                                />
+                                <h1
+                                    class="innovation-h1"
+                                    style="
+                                        text-transform: uppercase;
+                                        color: white;
+                                    "
+                                >
+                                    Innovative Designs
+                                </h1>
+                            </div>
+                            <h3
+                                class="expert-help-desk-h1"
+                                style="
+                                    color: white;
+                                    font-size: 2rem;
+                                    margin-bottom: 0;
+                                "
+                            >
+                                Expert Help Desk
+                            </h3>
+                            <p
+                                class="expert-help-desk-text-paragraph"
+                                style="color: white; font-size: 20px"
+                            >
+                                Our <b>Macer Compay</b> provides the expert
+                                support helps minimize downtime and enable your
+                                teams to collaborate seamlessly. Our specialists
+                                have deep expertise in video collaboration and
+                                partner ecosystems like Microsoft, Zoom, and
+                                Google for quick issue resolution.
+                            </p>
+                            <img
+                                class="expert-desk"
+                                src="{% static 'img/expert-desk.jpeg' %}"
+                                alt=""
+                                style="width: 95%; border-radius: 5px"
+                            />
+                        </div>
+                    </section>
+                </div>
             </div>
-            <header
-              class="header-two-in-section-one"
-              style="color: rgb(255, 255, 255)">
-              <h3 class="customer-centric-approach" style="margin: 0">
-                Customer-Centric Approach
-              </h3>
-            </header>
-            <p style="color: white" class="customer-centric-approach-paragraph">
-              At Macer, your satisfaction is our priority. We actively listen to
-              your feedback and continuously improve to deliver products that
-              exceed expectations
-            </p>
-            <img
-              class="customer-centric-imgage"
-              src="{% static 'img/Dmitrii Kharchenko.jpeg' %}"
-              alt=""
-              style="width: 95%; border-radius: 5px" />
-          </div>
-        </section>
-        <section class="section-two">
-          <div class="kon-section-two">
-            <header class="header-two-in-section-one" style="color: white">
-              <h3 class="innovation-design-h3" style="margin: 0">
-                Innovative Designs
-              </h3>
-            </header>
-            <p style="color: white" class="innovation-design-paragraph">
-              We stay ahead of trends to bring you modern, sleek designs that
-              match your lifestyle. From compact layouts to full-sized
-              keyboards, our collection caters to diverse preferences.
-            </p>
-            <div class="innovative-designs-main-element">
-              <img
-                class="innovative-designs-image"
-                src="{% static 'img/Innovative Designs.jpeg' %}"
-                alt=""
-                style="width: 95%; border-radius: 5px" />
-              <h1
-                class="innovation-h1"
-                style="text-transform: uppercase; color: white">
-                Innovative Designs
-              </h1>
-            </div>
-            <h3
-              class="expert-help-desk-h1"
-              style="color: white; font-size: 2rem; margin-bottom: 0">
-              Expert Help Desk
-            </h3>
             <p
-              class="expert-help-desk-text-paragraph"
-              style="color: white; font-size: 20px">
-              Our <b>Macer Compay</b> provides the expert support helps minimize
-              downtime and enable your teams to collaborate seamlessly. Our
-              specialists have deep expertise in video collaboration and partner
-              ecosystems like Microsoft, Zoom, and Google for quick issue
-              resolution.
+                class="footer-of-section"
+                style="color: white; text-align: center; font-style: italic"
+            >
+                Your Gateway to the Ultimate Typing Experince with <b>@Macer</b>
             </p>
-            <img
-              class="expert-desk"
-              src="{% static 'img/expert-desk.jpeg' %}"
-              alt=""
-              style="width: 95%; border-radius: 5px" />
-          </div>
-        </section>
-      </div>
-    </div>
-      <p
-        class="footer-of-section"
-        style="color: white; text-align: center; font-style: italic">
-        Your Gateway to the Ultimate Typing Experince with <b>@Macer</b>
-      </p>
-      <div class="main-element-ruler-footer">
-        <div class="ruler-footer"></div>
-      </div>
-    </div>
-    <footer class="about-footer">
-      <div class="footer-main-element">
-        <h1 class="contact-us-h1">Contact Us</h1>
-        <div class="container-of-ul">
-          <ul class="main-element-of-ul">
-            <li class="about-icon">
-              <img
-                src="{% static 'img/about_icon/facebook.png' %}"
-                alt=""
-                style="width: 60px" />
-              <p class="paragraph-in-li">Macer</p>
-            </li>
-            <li class="about-icon">
-              <img
-                src="{% static 'img/about_icon/instagram.png' %}"
-                alt=""
-                style="width: 60px" />
-              <p class="paragraph-in-li">Macer_ig007</p>
-            </li>
-            <li class="about-icon">
-              <img
-                src="{% static 'img/about_icon/telegram.png' %}"
-                alt=""
-                style="width: 60px" />
-              <p class="paragraph-in-li">+855 12345678</p>
-            </li>
-            <li class="about-icon">
-              <img
-                src="{% static 'img/about_icon/phone-call.png' %}"
-                alt=""
-                style="width: 60px" />
-              <p class="paragraph-in-li">+855 12345678</p>
-            </li>
-          </ul>
+            <div class="main-element-ruler-footer">
+                <div class="ruler-footer"></div>
+            </div>
         </div>
-      </div>
-    </footer>
-  </body>
+        <section class="about-footer">
+            <div class="footer-main-element">
+                <h1 class="contact-us-h1">Contact Us</h1>
+                <div class="container-of-ul">
+                    <ul class="main-element-of-ul">
+                        <li class="about-icon">
+                            <img
+                                src="{% static 'img/about_icon/facebook.png' %}"
+                                alt=""
+                                style="width: 60px"
+                            />
+                            <p class="paragraph-in-li">Macer</p>
+                        </li>
+                        <li class="about-icon">
+                            <img
+                                src="{% static 'img/about_icon/instagram.png' %}"
+                                alt=""
+                                style="width: 60px"
+                            />
+                            <p class="paragraph-in-li">Macer_ig007</p>
+                        </li>
+                        <li class="about-icon">
+                            <img
+                                src="{% static 'img/about_icon/telegram.png' %}"
+                                alt=""
+                                style="width: 60px"
+                            />
+                            <p class="paragraph-in-li">+855 12345678</p>
+                        </li>
+                        <li class="about-icon">
+                            <img
+                                src="{% static 'img/about_icon/phone-call.png' %}"
+                                alt=""
+                                style="width: 60px"
+                            />
+                            <p class="paragraph-in-li">+855 12345678</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        {% include 'navigation/footer.html' %}
+    </body>
 </html>
