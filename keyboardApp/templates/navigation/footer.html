@@ -1,12 +1,84 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body style="position: relative; overflow-x: hidden">
-        {% include 'navigation/testheader.html' %}
-        <h1>Footer section here</h1>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+  </head>
+  <body style="position: relative; overflow-x: hidden">
+    <footer class="main-element-of-footer">
+      <div class="con-element-of-footer">
+        <div class="kon-element-of-footer">
+          <!-- <div class="footer-h1"><h3>Quick Access</h3></div> -->
+          <ul class="main-element-of-ul-footer-one">
+            <li class="footer-li-h3">
+              <h3 class="qick-access">Quick Access</h3>
+            </li>
+            <li class="footer-li"><p>Home</p></li>
+            <li class="footer-li"><p>Shop</p></li>
+            <li class="footer-li"><p>About</p></li>
+          </ul>
+          <ul class="main-element-of-ul-footer">
+            <li class="footer-li-h3"><h3 class="brands-h3">Brands</h3></li>
+            <li class="footer-li"><p>Alpha</p></li>
+            <li class="footer-li"><p>Akko</p></li>
+            <li class="footer-li"><p>Logitech</p></li>
+          </ul>
+          <ul class="main-element-of-ul-footer">
+            <li class="footer-li-h3"><h3 class="account-h3">Account</h3></li>
+            <li class="footer-li"><p>Sign Up</p></li>
+            <li class="footer-li"><p>Login</p></li>
+            <!-- <li class="footer-li"><p></p></li> -->
+          </ul>
+          <ul class="main-element-of-ul-footer">
+            <li class="footer-li-h3"><h3 class="customer-h3">Customer</h3></li>
+            <li class="footer-li"><p>Email Preferences</p></li>
+            <li class="footer-li"><p>Student Discount</p></li>
+            <li class="footer-li"><p>Return Policy</p></li>
+          </ul>
+          <div
+            class="main-element-of-ul-footer-with-logo-macer-paragraph-image-icon">
+            <ul class="main-element-of-ul-footer-with-logo">
+              <li
+                class="list-element-of-ul-footer-with-logo"
+                style="display: flex; justify-content: center">
+                <img
+                  class="macer-logo-in-list"
+                  src="{% static 'img/macer-logo.png' %}"
+                  alt="" />
+              </li>
+              <li>
+                <p class="main-element-of-ul-footer-with-logo-paragraph">
+                  The best Quality, Warranty and Responsiblity.
+                </p>
+              </li>
+            </ul>
+            <div class="find-us-on">
+              <h3 style="color: rgb(255, 255, 255)">Find us on</h3>
+            </div>
+            <ul class="main-element-of-ul-footer-with-logo-icon">
+              <li class="icon-for-footer">
+                <img
+                  src="{% static 'img/footericon/facebook-logo.png' %}"
+                  alt="" />
+              </li>
+              <li class="icon-for-footer">
+                <img
+                  src="{% static 'img/footericon/instargram.png' %}"
+                  alt="" />
+              </li>
+              <li class="icon-for-footer">
+                <img src="{% static 'img/footericon/telegram.png' %}" alt="" />
+              </li>
+              <li class="icon-for-footer">
+                <img src="{% static 'img/footericon/youtube.png' %}" alt="" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Lexend:wght@100..900&family=Montserrat:wght@100..900&family=Parkinsans:wght@300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.main-element-of-footer{
+    background-color: rgb(41, 41, 41);
+    height: 80vh;
+}
+.con-element-of-footer{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.kon-element-of-footer{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+.main-element-of-ul-footer-with-logo{
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+    /* color: rgb(125, 125, 125); */
+    width: 190px;
+    display: flex;
+    flex-direction: column;
+}
+.main-element-of-ul-footer-with-logo-paragraph{
+    color: rgb(125, 125, 125);
+    font-size: 15px;
+    text-align: center;
+    line-height: 17px;
+    margin: 0;
+}
+.contact-us-h3{
+    color: white;
+}
+.find-us-on h3{
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.main-element-of-ul-footer-with-logo-macer-paragraph-image-icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-element-of-ul-footer-with-logo-icon{
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.icon-for-footer img{
+    width: 20px;
+}
+.main-element-of-ul-footer-one{
+    list-style: none;
+    color: white;
+    padding-left: 0;
+    width: 190px;
+}
+.main-element-of-ul-footer{
+    list-style: none;
+    color: white;
+    padding-left: 0;
+    width: 190px;
+}
+.macer-logo-in-list{
+    width: 190px;
+    /* border: solid white; */
+}
+.footer-li-h3{
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.footer-li{
+    font-size: 14px;
+}

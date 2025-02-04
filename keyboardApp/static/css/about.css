@@ -26,12 +26,13 @@ body {
   justify-content: space-around;
   flex-wrap: wrap;
   margin-bottom: 65px;
-  width: 100%;
+  /* width: 95%; */
 }
 .container-of-section{
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  width: 100%;
 }
 .con-element {
   display: flex;
@@ -48,16 +49,15 @@ body {
 }
 .why-choose-macer-main-element {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  width: 100%;
+  /* width: 95%; */
   margin-top: 10vh;
 }
 .why-choose-macer-con-element {
   padding-top: 50px;
-  font-size: 4rem;
+  font-size: 3rem;
   padding-bottom: 50px;
-  padding-left: 80px;
+  /* padding-left: 80px; */
   text-transform: uppercase;
 }
 .uncompromissing-quality {
@@ -93,6 +93,12 @@ body {
   font-size: 2rem;
 }
 .innovation-design-paragraph {
+  font-size: 20px;
+}
+.expert-help-desk-h1{
+  font-size: 2rem;
+}
+.expert-help-desk-text-paragraph{
   font-size: 20px;
 }
 .akko-image {
@@ -175,8 +181,109 @@ body {
   font-weight: 800;
   margin-left: 20px;
 }
+.image-icon{
+  width: 60px;
+}
 /* responsive of about */
-@media (max-width:850px) {
+@media (max-width:1270px) {
+  .con-element{
+    margin-top: 10vh;
+  }
+  .about-us{
+    font-size: 3rem;
+  }
+  .about-macer-keyboard{
+    width: 75vh;
+    font-size: 15px;
+    padding-top: 10px;
+  }
+  .why-choose-macer-main-element{
+    margin-top: 5vh;
+  }
+  .why-choose-macer-con-element{
+    font-size: 3rem;
+  }
+  .uncompromissing-quality, .customer-centric-approach, .innovation-design-h3, .expert-help-desk-h1, .contact-us-h1{
+    font-size: 25px;
+  }
+  .uncompromissing-quality-paragraph, .customer-centric-approach-paragraph, .innovation-design-paragraph{
+    font-size: 15px;
+  }
+  .expert-help-desk-text-paragraph{
+    font-size: 15px;
+  }
+  .contact-us-h1{
+    font-size: 2rem;
+  }
+  .image-icon{
+    width: 40px;
+  }
+  .paragraph-in-li{
+    font-size: 17px;
+  }
+  .about-icon{
+    height: 55px;
+    border-radius: 5px;
+  }
+}
+
+
+@media (max-width:1040px) {
+  .con-element{
+    margin-top: 5vh;
+  }
+  .about-us{
+    font-size: 3rem;
+  }
+  .about-macer-keyboard{
+    width: 65vh;
+    font-size: 15px;
+    padding-top: 10px;
+  }
+  .why-choose-macer-main-element{
+    margin-top: 5vh;
+  }
+  .why-choose-macer-con-element{
+    font-size: 3rem;
+  }
+  .kon-section-one{
+    width: 61vh;
+  }
+  .kon-section-two{
+    width: 61vh;
+  }
+  .uncompromissing-quality, .customer-centric-approach, .innovation-design-h3, .expert-help-desk-h1, .contact-us-h1{
+    font-size: 30px;
+  }
+  .uncompromissing-quality-paragraph, .customer-centric-approach-paragraph, .innovation-design-paragraph{
+    font-size: 20px;
+  }
+  .expert-help-desk-text-paragraph{
+    font-size: 15px;
+  }
+  .footer-of-section{
+    font-size: 25px;
+  }
+  .main-element-ruler-footer{
+    width: 60vh;
+  }
+  .contact-us-h1{
+    font-size: 2rem;
+  }
+  .image-icon{
+    width: 40px;
+  }
+  .paragraph-in-li{
+    font-size: 17px;
+  }
+  .about-icon{
+    height: 55px;
+    border-radius: 5px;
+  }
+}
+
+/* --------- */
+@media (max-width:854px) {
   .con-element{
     margin-top: 5vh;
   }
@@ -201,21 +308,92 @@ body {
     padding-left: 0;
     text-align: center;
   }
-  /* .kon-section-one{
-    width: 40vh;
-  }
-  .kon-section-two{
-    width: 40vh;
-  } */
   .footer-of-section{
     font-size: 14px;
   }
   .main-element-ruler-footer{
-    width: 45vh;
+    width: 65vh;
   }
   .about-footer{
     margin-top: 40px;
   }
 }
+
+/* ----------- */
+
+@media (max-width:440px) {
+  .con-element{
+    margin-top: 3vh;
+  }
+  .about-us{
+    font-size: 2rem;
+  }
+  .about-macer-keyboard{
+    font-size: 11px;
+    padding-top: 10px;
+    width: 40vh;
+  }
+  .why-choose-macer-main-element{
+    margin-top: 3.5vh;
+  }
+  .why-choose-macer-con-element{
+    padding-top: 0;
+    font-size: 24px;
+    padding-bottom: 30px;
+  }
+  .kon-section-one{
+    width: 35vh;
+  }
+  .kon-section-two{
+    width: 35vh;
+  }
+  .uncompromissing-quality, .customer-centric-approach, .innovation-design-h3, .expert-help-desk-h1{
+    font-size: 18px;
+  }
+  .uncompromissing-quality-paragraph, .customer-centric-approach-paragraph, .innovation-design-paragraph{
+    font-size: 10px;
+  }
+  .footer-of-section{
+    margin: 0;
+    font-size: 12px;
+  }
+  .main-element-ruler-footer{
+    width: 42vh;
+    margin-top: 20px;
+  }
+  .contact-us-h1{
+    font-size: 20px;
+  }
+  .about-icon{
+    height: 40px;
+    width: 200px;
+    padding-left: 10px;
+    border-radius: 3px;
+  }
+  .image-icon{
+    width: 25px;
+  }
+  .paragraph-in-li{
+    font-weight: 600;
+  }
+}
+/* -------- */
+
+@media (max-width:350px) {
+  .about-us{
+    font-size: 20px;
+  }
+  .about-macer-keyboard{
+    font-size: 12px;
+    width: 33vh;
+  }
+  .why-choose-macer-con-element{
+    font-size: 20px;
+  }
+  .main-element-ruler-footer{
+    width: 35vh;
+  }
+}
+
 /* responsive of about */
 
