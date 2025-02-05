@@ -3,24 +3,26 @@
     font-family: 'Montserrat', sans-serif;
 }
 body{
-    height: 100vh;
+    /* height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; */
 }
 .main-element-of-footer{
     background-color: rgb(41, 41, 41);
-    height: 80vh;
+    height: 60vh;
 }
 .con-element-of-footer{
     display: flex;
-    justify-content: center;
-    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 .kon-element-of-footer{
+    width: 90%;
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    padding-top: 45px;
 }
 .main-element-of-ul-footer-with-logo{
     padding-left: 0;
@@ -84,4 +86,20 @@ body{
 }
 .footer-li{
     font-size: 14px;
+}
+.copy-right-main-element{
+    margin-top: 70px;
+    width: 100%;
+    list-style: none;
+    color: rgb(130, 130, 130);
+    font-size: 18px;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ruler-in-footer{
+    height: 1px;
+    background-color: white;
+    width: 89.5%;
 }
