@@ -10,7 +10,7 @@ body{
 }
 .main-element-of-footer{
     background-color: rgb(41, 41, 41);
-    height: 60vh;
+    height: auto;
 }
 .con-element-of-footer{
     display: flex;
@@ -21,6 +21,7 @@ body{
 .kon-element-of-footer{
     width: 90%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding-top: 45px;
 }
@@ -83,6 +84,7 @@ body{
     letter-spacing: 2px;
     text-transform: uppercase;
     font-size: 14px;
+    width: max-content;
 }
 .footer-li{
     font-size: 14px;
@@ -102,4 +104,31 @@ body{
     height: 1px;
     background-color: white;
     width: 89.5%;
+}
+/* ---------hover underline------- */
+
+.footer-li-h3 h3 {
+    position: relative; 
+    margin-bottom: 35px;
+}
+.footer-li-h3 h3:after{
+    content: "";
+    position: absolute;
+    background-color: white;
+    height: 1px;
+    width: 100%;
+    left: 0;
+    bottom: -8px;
+}
+
+/* ---------end hover undrline------- */
+@media (max-width:1025px) {
+    .copyright-paragraph{
+        font-size: 20px;
+    }
+}
+@media (max-width:415px) {
+    .copyright-paragraph{
+        font-size: 12px;
+    }
 }

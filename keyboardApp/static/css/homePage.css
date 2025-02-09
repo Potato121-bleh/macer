@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Lexend:wght@100..900&family=Montserrat:wght@100..900&family=Parkinsans:wght@300..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-body{
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Lexend:wght@100..900&family=Montserrat:wght@100..900&family=Parkinsans:wght@300..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+body {
   background-color: black;
 }
-.container-body{
+.container-body {
   position: relative;
   height: 100vh;
   /* transform: translateY(-52px); */
 }
-.container-banner-one{
-  height:100%;
+.container-banner-one {
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 0px;
 }
-.article-in-first-page{
+.article-in-first-page {
   font-family: "Montserrat", serif;
   text-align: center;
   margin: 0;
@@ -23,10 +23,10 @@ body{
   justify-content: center;
   align-items: center;
 }
-.choose-your-favorite-main-element{
+.choose-your-favorite-main-element {
   line-height: 0.9;
 }
-.mechanical-text{
+.mechanical-text {
   text-transform: uppercase;
   font-size: 40px;
   margin-bottom: 50px;
@@ -34,7 +34,7 @@ body{
   font-weight: 700;
   margin: 0;
 }
-.gaming-keybaord-switches{
+.gaming-keybaord-switches {
   text-transform: uppercase;
   font-size: 40px;
   margin-bottom: 50px;
@@ -42,22 +42,22 @@ body{
   font-weight: 700;
   margin: 0;
 }
-.paragraph-under-choose-main-element{
-  width: 70vh;
+.paragraph-under-choose-main-element {
+  width: 60vh;
   font-size: 12px;
   margin-top: 20px;
   color: rgb(241, 241, 241);
 }
-.paragraph-under-choose-main-element .paragrah-under-choose{
+.paragraph-under-choose-main-element .paragrah-under-choose {
   margin: 0;
 }
-.macerbranding{
+.macerbranding {
   margin: 0;
   color: rgb(223, 223, 223);
   font-size: 25vw;
   text-transform: uppercase;
 }
-.background-clip{
+.background-clip {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -65,23 +65,22 @@ body{
   z-index: -1;
   top: 0;
 }
-.container-banner-two{
+.container-banner-two {
   background-color: rgb(105, 70, 81);
 }
 /* ----------second page of home---------------- */
 
-
-.container-body-two{
+.container-body-two {
   height: 100vh;
   margin-top: 400px;
 }
-.container-banner{
+.container-banner {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
-.macer-top-logo{
+.macer-top-logo {
   margin-left: 13px;
   color: rgb(0, 0, 0);
   font-size: 1.5vw;
@@ -90,7 +89,7 @@ body{
   text-transform: uppercase;
   margin: 0;
 }
-.keyboard-console h1{
+.keyboard-console h1 {
   text-transform: uppercase;
   font-size: 4vw;
   margin-bottom: 10px;
@@ -98,13 +97,13 @@ body{
   font-weight: 700;
   margin: 0;
 }
-.paragraph-under-keyboard-console p{
+.paragraph-under-keyboard-console p {
   margin: 0;
   font-size: 1vw;
   color: rgb(0, 0, 0);
 }
-.macerbranding{
-  position:absolute;
+.macerbranding {
+  position: absolute;
   z-index: -1;
   left: 0;
   top: 0;
@@ -113,66 +112,126 @@ body{
   text-transform: uppercase;
 }
 /* ----------second page----------- */
-.main-element-under-first-page{
+.main-element-under-first-page {
   position: relative;
-  height: 100vh;
+  height: 65vh;
   display: flex;
   justify-content: center;
 }
-.con-element-under-first-page{
+.con-element-under-first-page {
   height: 100%;
   display: flex;
   width: 90%;
 }
-.dark-bk{
+.dark-bk {
   position: absolute;
-  z-index: -1;
+  z-index: -2;
   top: 0;
-  height: 70%;
-  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
-.article-in-second-page{
+.dark-bk-2{
+  position: absolute;
+  z-index: -3;
+  top: 0;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width:1010px) {
+  .dark-bk-2{
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.article-in-second-page {
   /* border: solid white; */
   width: 60vh;
+  padding-top: 145px;
 }
-.h1-in-second-page{
+.h1-in-second-page {
   color: white;
-  margin: 0; 
+  margin: 0;
   line-height: 1;
   font-size: 3rem;
   text-transform: uppercase;
   text-align: start;
 }
-.paragrah-in-second-page{
+.ruler-in-second-page{
+  background-color: white;
+  height: 3px;
+  width: 21vh;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.paragrah-in-second-page {
+  margin: 0;
   text-align: start;
+  font-size: 13px;
+  width: 40vh;
 }
-/* ------------about css----------------- */
-.about-in-home-page-main-element{
-  /* border: 10px solid rgb(88, 88, 255); */
-  background-color: rgb(0, 0, 0);
-  height: 100vh;
+/* ------------third page----------------- */
+.third-page-home-page-main-element {
+  padding-bottom: 80px;
 }
-.about-in-home-page-con-element{
-  /* border: 2px solid white; */
+.third-page-in-home-page-kon1-element {
   display: flex;
   justify-content: center;
+}
+.third-page-in-home-page-kon2-element {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
-.about-in-home-page-kon-element{
-  /* border: 4px solid yellowgreen; */
-  width: 70%;
+.header-of-ul-with-icon-image-element {
+  /* background: #ffffff; */
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  /* box-shadow: rgb(0 0 0 / 25%) 0px 2px 5px -1px, rgb(0 0 0) 0px 1px 3px -1px; */
+  /* box-shadow: rgb(0 0 0 / 11%) -1px 6px 5px 0px, rgb(0 0 0 / 21%) 0px 3px 7px -3px; */
+}
+.third-page-in-home-page-main-element-of-ul{
+  display: flex;
+  width: 60%;
   justify-content: center;
 }
-.ul-in-about-element{
-  /* border: solid rgb(255, 107, 107); */
-  /* padding-left: 0; */
-  width: 250px;
-  margin: 0;
+.third-page-in-home-page-kon-element-of-ul{
+  display: flex;
+  justify-content: space-around;
+  /* width: 980px; */
+  flex-wrap: wrap;
+}
+.macer-offer-header-of-ul-with-icon-image-element {
+  font-size: 30px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.ul-with-icon-imgae-element-in-third-page {
+  width: 300px;
+  height: 285px;
   list-style: none;
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding-left: 0;
+  color: white;
+  margin: 30px;
+  /* background: #084870; */
+  border-radius: 10px;
+  box-shadow: rgb(1 1 1 / 6%) 0px 4px 12px;
+}
+.h3-in-ul-in-third-page {
+  font-size: 12px;
+}
+.paragraph-in-list-for-third-page {
+  font-size: 13px;
+  text-align: center;
+  width: 90%;
 }

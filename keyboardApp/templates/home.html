@@ -9,6 +9,7 @@
       rel="stylesheet"
       type="text/css"
       href="{% static 'css/homePage.css' %}" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body style="position: relative; overflow-x: hidden">
     {% include 'navigation/testheader.html' %}
@@ -16,13 +17,24 @@
       <div class="container-banner-one">
         <article class="article-in-first-page">
           <div class="choose-your-favorite-main-element">
-            <h1 class="mechanical-text">mechanical</h1>
-            <h1 class="gaming-keybaord-switches">
+            <h1
+              data-aos="fade-up"
+              data-aos-duration="1400"
+              class="mechanical-text">
+              mechanical
+            </h1>
+            <h1
+              data-aos="fade-up"
+              data-aos-duration="1700"
+              class="gaming-keybaord-switches">
               gaming keyboard <br />switches
             </h1>
           </div>
           <div class="paragraph-under-choose-main-element">
-            <p class="paragrah-under-choose">
+            <p
+              data-aos="fade-up"
+              data-aos-duration="2100"
+              class="paragrah-under-choose">
               Shop wired, wireless keyboards and consoles. Choose from the
               mechanical, ergonomic, comfort, portable, Bluetooth®,
               multi-device, and multi-OS product range.Delivering performance,
@@ -41,64 +53,165 @@
     <div class="main-element-under-first-page">
       <div class="con-element-under-first-page">
         <article class="article-in-second-page">
-          <h1 class="h1-in-second-page">Macer</h1>
-          <h1 class="h1-in-second-page">keyboard</h1>
-          <p class="paragrah-in-second-page" style="color: white;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit earum doloribus ut nemo ex, consequatur totam quasi cumque perspiciatis sint?</p>
+          <h1
+            data-aos="fade-right"
+            data-aos-duration="1400"
+            class="h1-in-second-page">
+            Macer
+          </h1>
+          <h1
+            data-aos="fade-right"
+            data-aos-duration="3000"
+            class="h1-in-second-page">
+            keyboard
+          </h1>
+          <div
+            data-aos="fade-left"
+            data-aos-duration="2400"
+            class="ruler-in-second-page"></div>
+          <p
+            data-aos="fade-up"
+            data-aos-duration="1900"
+            class="paragrah-in-second-page"
+            style="color: white">
+            Compare the force profiles and actuation characteristics of three
+            distinct switch options: Romer-G Tactile, Romer-G Linear and GX
+            Blue.
+          </p>
         </article>
+        <!-- <article class="second-article-in-second-page">
+          <p class="paragrah-in-second-article-in-second-page" style="color: white;">
+            The best for user as Gaming, Working and Studying.
+          </p>
+        </article> -->
       </div>
-        <img class="dark-bk" src="{% static 'img/home-img/dark-bk.jpg' %}" alt="">
+      <img
+        class="dark-bk"
+        src="{% static 'img/home-img/dark-bk.jpg' %}"
+        alt="" />
+        <img class="dark-bk-2" src="{% static 'img/home-img/dark-bk-2.jpg' %}" alt="">
     </div>
-    <div class="about-in-home-page-main-element">
-      <div class="about-in-home-page-con-element">
-        <div class="about-in-home-page-kon-element">
-          <ul class="ul-in-about-element">
-            <li class="icon-for-about">
-              <img src="{% static 'img/free-shipping-icon.webp' %}" alt="" />
-            </li>
-            <li class="paragraph-in-about" style="color: white;">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Perspiciatis ratione distinctio ducimus rem est aspernatur.
-            </li>
-          </ul>
-          <ul class="ul-in-about-element">
-            <li class="icon-for-about">
-              <img src="{% static 'img/free-shipping-icon.webp' %}" alt="" />
-            </li>
-            <li class="paragraph-in-about" style="color: white;">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Perspiciatis ratione distinctio ducimus rem est aspernatur.
-            </li>
-          </ul>
-          <ul class="ul-in-about-element">
-            <li class="icon-for-about">
-              <img src="{% static 'img/free-shipping-icon.webp' %}" alt="" />
-            </li>
-            <li class="paragraph-in-about" style="color: white;">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Perspiciatis ratione distinctio ducimus rem est aspernatur.
-            </li>
-          </ul>
-          <ul class="ul-in-about-element">
-            <li class="icon-for-about">
-              <img src="{% static 'img/free-shipping-icon.webp' %}" alt="" />
-            </li>
-            <li class="paragraph-in-about" style="color: white;">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Perspiciatis ratione distinctio ducimus rem est aspernatur.
-            </li>
-          </ul>
-          <ul class="ul-in-about-element">
-            <li class="icon-for-about">
-              <img src="{% static 'img/free-shipping-icon.webp' %}" alt="" />
-            </li>
-            <li class="paragraph-in-about" style="color: white;">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Perspiciatis ratione distinctio ducimus rem est aspernatur.
-            </li>
-          </ul>
+    <div class="third-page-home-page-main-element">
+      <div class="third-page-home-page-con-element">
+        <div class="third-page-in-home-page-kon1-element">
+          <div class="third-page-in-home-page-kon2-element">
+            <div class="header-of-ul-with-icon-image-element">
+              <h1 data-aos="fade-up"
+              data-aos-duration="1400"
+                class="macer-offer-header-of-ul-with-icon-image-element"
+                style="color: white">
+                Macer Offers
+              </h1>
+            </div>
+            <div class="third-page-in-home-page-main-element-of-ul">
+              <div class="third-page-in-home-page-kon-element-of-ul">
+                <ul
+                  class="ul-with-icon-imgae-element-in-third-page"
+                  style="list-style: none">
+                  <li class="list-in-third-page">
+                    <img  data-aos="fade-up"
+                    data-aos-duration="1400"
+                      class="icon-image-in-list-in-third-page"
+                      src="{% static 'img/home-img/customer-service-icon.webp' %}"
+                      alt="" />
+                  </li>
+                  <li class="list-in-third-page">
+                    <h3  data-aos="fade-up"
+                    data-aos-duration="1400" class="h3-in-ul-in-third-page" style="color: white">
+                      24/7 CUSTOMER SERVICE.
+                    </h3>
+                  </li>
+                  <li  data-aos="fade-up"
+                  data-aos-duration="1400"
+                    class="paragraph-in-list-for-third-page"
+                    style="color: white">
+                    We're here for you whenever you need. Reach us via chat,
+                    phone or email for your convenience.
+                  </li>
+                </ul>
+                <ul
+                  class="ul-with-icon-imgae-element-in-third-page"
+                  style="list-style: none">
+                  <li class="list-in-third-page">
+                    <img  data-aos="fade-up"
+                    data-aos-duration="1400"
+                      class="icon-image-in-list-in-third-page"
+                      src="{% static 'img/home-img/free-shipping-icon.webp' %}"
+                      alt="" />
+                  </li>
+                  <li class="list-in-third-page">
+                    <h3 data-aos="fade-up"
+                    data-aos-duration="1400" class="h3-in-ul-in-third-page" style="color: white">
+                      24/7 CUSTOMER SERVICE.
+                    </h3>
+                  </li>
+                  <li data-aos="fade-up"
+                  data-aos-duration="1400"
+                    class="paragraph-in-list-for-third-page"
+                    style="color: white">
+                    You could be eligible for free shipping for your Logitech
+                    product on orders over $29. Check your region to see if you
+                    qualify.
+                  </li>
+                </ul>
+                <ul
+                  class="ul-with-icon-imgae-element-in-third-page"
+                  style="list-style: none">
+                  <li class="list-in-third-page">
+                    <img data-aos="fade-up"
+                    data-aos-duration="1400"
+                      class="icon-image-in-list-in-third-page"
+                      src="{% static 'img/home-img/easy-returns-icon.webp' %}"
+                      alt="" />
+                  </li>
+                  <li class="list-in-third-page">
+                    <h3 data-aos="fade-up"
+                    data-aos-duration="1400" class="h3-in-ul-in-third-page" style="color: white">
+                      24/7 CUSTOMER SERVICE.
+                    </h3>
+                  </li>
+                  <li data-aos="fade-up"
+                  data-aos-duration="1400"
+                    class="paragraph-in-list-for-third-page"
+                    style="color: white">
+                    We're here for you whenever you need. Reach us via chat,
+                    phone or email for your convenience.
+                  </li>
+                </ul>
+                <ul
+                  class="ul-with-icon-imgae-element-in-third-page"
+                  style="list-style: none">
+                  <li class="list-in-third-page">
+                    <img data-aos="fade-up"
+                    data-aos-duration="1400"
+                      class="icon-image-in-list-in-third-page"
+                      src="{% static 'img/home-img/exclusive-offers.webp' %}"
+                      alt="" />
+                  </li>
+                  <li class="list-in-third-page">
+                    <h3 data-aos="fade-up"
+                    data-aos-duration="1400" class="h3-in-ul-in-third-page" style="color: white">
+                      24/7 CUSTOMER SERVICE.
+                    </h3>
+                  </li>
+                  <li data-aos="fade-up"
+                  data-aos-duration="1400"
+                    class="paragraph-in-list-for-third-page"
+                    style="color: white">
+                    30 day money back guarantee for select regions. Check our
+                    return policy for details.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     {% include 'navigation/footer.html' %}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
