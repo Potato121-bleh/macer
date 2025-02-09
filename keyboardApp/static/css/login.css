@@ -21,6 +21,21 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+.login-back-btn-con {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 30px;
+}
+
+.login-back-btn {
+    padding: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
 .wrapper{
     border-radius: 15px;
     background-color: rgba(14, 14, 14, 0.181);

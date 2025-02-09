@@ -56,9 +56,13 @@
                     )
                     console.log(err)
                 }
-                
             }
         </script>
+        <div class="login-back-btn-con">
+            <button class="login-back-btn" onclick="handleRoute('home')">
+                Back
+            </button>
+        </div>
         <div class="wrapper">
             <div>
                 {% csrf_token %}
@@ -80,18 +84,26 @@
                 <div class="under-thing">
                     <button class="btn" onclick="userAuth()">Login</button>
                     <div class="remember-forgot">
-                        <a href="#">Forgot passowrd?</a>
+                        <a href="#" style="cursor: pointer">Forgot passowrd?</a>
                     </div>
                     <div class="register-link">
                         <p>
                             Don't have an account?
-                            <a href="./signup">Sign Up</a>
+                            <a href="./signup" style="cursor: pointer"
+                                >Sign Up</a
+                            >
                         </p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <script></script>
+        <script>
+            const handleRoute = (route) => {
+                let prepRoute = './' + route
+                console.log('Route triggered')
+                window.location.href = prepRoute
+            }
+        </script>
     </body>
 </html>

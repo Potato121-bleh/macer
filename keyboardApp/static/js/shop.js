@@ -14,11 +14,15 @@ const toggleCheckoutDialog = (flag) => {
     let checkoutDialogEle = document.getElementById(
         'checkout-dialog-main-con-id'
     )
+    let cartIconHover = document.getElementById('cart-hover-con-id')
     if (flag) {
         checkoutDialogEle.style.display = 'flex'
+        cartIconHover.style.display = 'block'
+
         checkoutDialogEle.addEventListener('click', function closeDialog(e) {
-            console.log(e.target)
-            console.log(e.currentTarget)
+            console.log(e.target) // current target we clicked on rn
+            console.log(e.currentTarget) // the current target we attach to
+
             if (e.target === e.currentTarget) {
                 let infoWrapperEle = document.getElementById(
                     'checkout-dialog-your-info-wrapper-id'
@@ -27,6 +31,7 @@ const toggleCheckoutDialog = (flag) => {
                     'checkout-dialog-cart-content-id'
                 )
                 checkoutDialogEle.style.display = 'none'
+                cartIconHover.style.display = 'none'
                 infoWrapperEle.innerHTML = ''
                 cartWrapperEle.innerHTML = ''
                 checkoutInfoDetail = []
@@ -37,6 +42,7 @@ const toggleCheckoutDialog = (flag) => {
         })
     } else {
         checkoutDialogEle.style.display = 'none'
+        cartIconHover.style.display = 'none'
     }
 }
 
@@ -231,7 +237,7 @@ handleItemData('alpha')
 
 // This function trigger when user click on cart
 const handleCartCheckout = async () => {
-    console.log('IT CLICK')
+    console.log('IT CLICK ON CART')
     try {
         userInfo = await handleQueryData()
         const itemDataResp = await fetch(

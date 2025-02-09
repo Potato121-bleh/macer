@@ -13,6 +13,11 @@
         />
     </head>
     <body>
+        <div class="signup-back-btn-con">
+            <button class="signup-back-btn" onclick="handleRoute('home')">
+                Back
+            </button>
+        </div>
         <form>
             <!-- <h1 class="background-h1">MYKEYBOARD</h1> -->
             <!-- <img src="/macerShop/frontendApp/static/img/keyboard.jpeg" alt=""> -->
@@ -43,5 +48,12 @@
                 </div>
             </div>
         </form>
+        <script>
+            const handleRoute = (route) => {
+                let prepRoute = './' + route
+                console.log('Route triggered')
+                window.location.href = prepRoute
+            }
+        </script>
     </body>
 </html>

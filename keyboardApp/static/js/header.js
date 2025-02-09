@@ -49,6 +49,7 @@ dialogSignupBtnEle.onclick = () => {
  *
  */
 const handleToggleMenu = () => {
+    console.log('THIS HAS BEEN TRIGGERED')
     let menuEle = document.getElementById('header-dialog-main-con-id')
     let menuHoverBoard = document.getElementById(
         'header-menu-icon-hoverboard-id'
@@ -125,4 +126,10 @@ const handleLogout = async () => {
         console.log(err)
         alert('Failed to log out, Please try again')
     }
+}
+
+const handleRoute = (route) => {
+    let prepRoute = './' + route
+    console.log('Route triggered')
+    window.location.href = prepRoute
 }

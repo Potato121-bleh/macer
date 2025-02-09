@@ -121,6 +121,24 @@ body{
     bottom: -8px;
 }
 
+@media (max-width: 1275px) {
+    .footer-li-h3 {
+        font-size: 10px;
+    }
+    .footer-li {
+        font-size: 11px;
+    }
+    .main-element-of-ul-footer-with-logo-paragraph {
+        font-size: 10px;
+    }
+    .find-us-on h3 {
+        font-size: 15px;
+    }
+    .copyright-paragraph {
+        font-size: 10px;
+    }
+}
+
 /* ---------end hover undrline------- */
 @media (max-width:1025px) {
     .copyright-paragraph{

@@ -22,7 +22,7 @@
         />
     </head>
     <body style="position: relative; overflow-x: hidden">
-        {% csrf_token %} {% include 'navigation/testheader.html' %}
+        {% csrf_token %} {% include 'navigation/header.html' %}
         <ul class="shop-sidebar-main-con">
             <li class="shop-sidebar-element-con">
                 <button
@@ -68,10 +68,7 @@
             </div>
         </div>
 
-        <section
-            class="checkout-dialog-main-con"
-            id="checkout-dialog-main-con-id"
-        >
+        <div class="checkout-dialog-main-con" id="checkout-dialog-main-con-id">
             <div class="checkout-dialog-sub-con">
                 <h1 class="checkout-dialog-title">Checkout</h1>
                 <ul class="checkout-dialog-content-con">
@@ -102,7 +99,7 @@
                     </div>
                 </ul>
             </div>
-        </section>
+        </div>
 
         {% include 'navigation/footer.html' %}
 
