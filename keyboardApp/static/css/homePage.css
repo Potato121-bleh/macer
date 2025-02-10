@@ -235,3 +235,42 @@ body {
   text-align: center;
   width: 90%;
 }
+@media (max-width:500px) {
+  .mechanical-text{
+    font-size: 30px;
+  }
+  .gaming-keybaord-switches{
+    font-size: 30px;
+  }
+  .paragraph-under-choose-main-element{
+    width: 40vh;
+    margin-top: 10px;
+  }
+  .container-body{
+    height: 60vh;
+  }
+  .main-element-under-first-page{
+    height: 45vh;
+  }
+  .article-in-second-page{
+    padding-top: 30px;
+    padding-left: 30px;
+  }
+  .h1-in-second-page{
+    font-size: 30px;
+  }
+  .con-element-under-first-page{
+    width: 100%;
+    display: flex;
+  }
+  .paragrah-in-second-page{
+    font-size: 11px;
+    width: 30vh;
+  }
+  .copy-right-main-element{
+    margin-top: 50px;
+  }
+  .copyright-paragraph{
+    font-size: 15px; 
+  }
+}
