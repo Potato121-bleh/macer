@@ -3,10 +3,10 @@ from django.db import models
 # Create your models here.
 class User_info(models.Model):
     user_id         = models.AutoField(primary_key=True)
-    user_name       = models.CharField(max_length=50, unique=True)
-    user_nickname   = models.CharField(max_length=50)
+    user_name       = models.CharField(max_length=12, unique=True)
+    user_nickname   = models.CharField(max_length=12)
     user_password   = models.TextField()
-    user_balance    = models.DecimalField(max_digits=10, decimal_places=2)
+    user_balance    = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
         return f"User_info(user_id: {self.user_id}, user_name: {self.user_name}, user_nickname: {self.user_nickname}, user_password: {self.user_password}, user_balance: {self.user_balance})"

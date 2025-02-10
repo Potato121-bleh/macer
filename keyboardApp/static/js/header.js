@@ -78,6 +78,15 @@ const handleToggleMenu = () => {
 
 const handleQueryData = async () => {
     let userNicknameTextEle = document.getElementById('usernickname-text-id')
+    let userDialogNicknameTextELe = document.getElementById(
+        'dialog-usernickname-text-id'
+    )
+    let userDialogUsernameTextEle = document.getElementById(
+        'dialog-username-text-id'
+    )
+    let userDialogBalanceTextEle = document.getElementById(
+        'dialog-balance-text-id'
+    )
     try {
         const resp = await fetch(
             'http://127.0.0.1:8000/api/keyboardApp/auth/validation',
@@ -93,6 +102,9 @@ const handleQueryData = async () => {
         userData = await resp.json()
 
         userNicknameTextEle.innerText = userData.Data.user_nickname
+        userDialogNicknameTextELe.innerText = userData.Data.user_nickname
+        userDialogBalanceTextEle.innerText = userData.Data.user_balance + ' $'
+        userDialogUsernameTextEle.innerText = userData.Data.user_name
         logoutBtnEle.style.display = 'flex'
         loginBtnEle.style.display = 'none'
         signupBtnEle.style.display = 'none'

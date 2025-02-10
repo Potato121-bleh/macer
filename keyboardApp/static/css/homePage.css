@@ -186,6 +186,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
 .header-of-ul-with-icon-image-element {
   /* background: #ffffff; */
   width: 100%;
@@ -194,23 +195,27 @@ body {
   justify-content: center;
   margin-bottom: 50px;
 }
+
 .third-page-in-home-page-main-element-of-ul{
   display: flex;
   width: 60%;
   justify-content: center;
 }
+
 .third-page-in-home-page-kon-element-of-ul{
   display: flex;
   justify-content: space-around;
   /* width: 980px; */
   flex-wrap: wrap;
 }
+
 .macer-offer-header-of-ul-with-icon-image-element {
   font-size: 30px;
   letter-spacing: 4px;
   text-transform: uppercase;
   font-weight: 700;
 }
+
 .ul-with-icon-imgae-element-in-third-page {
   width: 300px;
   height: 285px;
