@@ -7,7 +7,7 @@
         <title>Document</title>
         <link
             rel="stylesheet"
-            href="{% static 'css/navigationCss/testheader.css' %}"
+            href="{% static 'css/navigationCss/header.css' %}"
         />
     </head>
     <body>
@@ -15,13 +15,13 @@
             <nav class="header-navbar-sub-con">
                 <ul class="header-navbar-left-con">
                     <li>
-                        <h2 class="guest-nav" id="usernickname-text-id">Guest</h2>
+                        <h2 class="guest-nav" id="usernickname-text-id">
+                            Guest
+                        </h2>
                     </li>
-                    <li class="stand-ruler">
-                        |
-                    </li>
+                    <li class="stand-ruler">|</li>
                     <li class="logo-image">
-                        <img src="{% static 'img/macer-logo.png' %}" alt="">
+                        <img src="{% static 'img/macer-logo.png' %}" alt="" />
                     </li>
                 </ul>
 
@@ -30,18 +30,24 @@
                         <li
                             class="navbar-page-element"
                             id="navbar-home-label-id"
+                            role="button"
+                            onclick="handleRoute('home')"
                         >
                             Home
                         </li>
                         <li
                             class="navbar-page-element"
                             id="navbar-shop-label-id"
+                            role="button"
+                            onclick="handleRoute('shop')"
                         >
                             Shop
                         </li>
                         <li
                             class="navbar-page-element navbar-about-element"
                             id="navbar-aboutus-label-id"
+                            role="button"
+                            onclick="handleRoute('about')"
                         >
                             About Us
                         </li>
@@ -94,6 +100,10 @@
                         <div class="cart-counter-con">
                             <p id="cart-counter-id">0</p>
                         </div>
+                        <div
+                            class="cart-hover-con"
+                            id="cart-hover-con-id"
+                        ></div>
                     </li>
                 </ul>
 
@@ -102,15 +112,24 @@
                     class="header-dialog-main-con"
                     id="header-dialog-main-con-id"
                 >
-                    <ul class="header-dialog-sub-con">
+                    <ul
+                        class="header-dialog-sub-con"
+                        id="header-dialog-sub-con-id"
+                    >
                         <li class="header-dialog-title">
                             Hello,
                             <span id="dialog-usernickname-text-id">Guest</span>
                         </li>
                         <ul class="header-dialog-navigation-con">
-                            <li>Home</li>
-                            <li>Shop</li>
-                            <li>About Us</li>
+                            <li role="button" onclick="handleRoute('home')">
+                                Home
+                            </li>
+                            <li role="button" onclick="handleRoute('shop')">
+                                Shop
+                            </li>
+                            <li role="button" onclick="handleRoute('about')">
+                                About Us
+                            </li>
                         </ul>
 
                         <ul class="header-dialog-account-con">

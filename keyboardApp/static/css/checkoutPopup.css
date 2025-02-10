@@ -90,3 +90,60 @@
     margin-top: 20px;
     margin-left: 75%;
 }
+
+
+@media (max-width: 550px) {
+  
+    .checkout-dialog-main-con {
+      top: 25px;
+    }
+  
+    .checkout-dialog-sub-con {
+      width: 280px;
+      font-size: 10px;
+      height: auto;
+    }
+  
+    .checkout-dialog-content-con {
+      height: auto;
+    }
+  
+    .checkout-dialog-info-title {
+      font-size: 10px;
+      margin: 0;
+    }
+
+    .checkout-transaction-info-main-con p {
+        font-size: 	8px;
+        margin: 0;
+    }
+    
+    .checkout-dialog-divider {
+        height: 200px;
+        margin-top: 0px;
+    }
+
+    .checkout-dialog-info {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .checkout-dialog-info-title {
+        font-size: 10px;
+        margin: 0;
+    }
+
+
+    .checkout-dialog-cart-content {
+        padding: 0;
+        height: 155px;
+    }
+
+    .checkout-dialog-order-btn {
+        margin-left: 45%;
+        font-size: 10px;
+    }
+  
+  }
+
+

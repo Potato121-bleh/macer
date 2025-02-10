@@ -66,6 +66,7 @@ body{
   justify-content: center;
   margin-right: 10px;
   margin-left: 10px;
+  cursor: pointer;
 }
 .navbar-page-con .navbar-page-element:hover{
   background-color: rgb(57, 57, 57);
@@ -83,6 +84,7 @@ body{
     margin-left: 10px;
     display: flex
 ;
+cursor: pointer;
     margin-right: 10px;
 }
 
@@ -106,6 +108,7 @@ body{
 }
 
 .icon-add-cart{
+  position: relative;
   margin-right: 20px;
   background-color: white;
   border-radius: 5px;
@@ -284,7 +287,13 @@ body{
   margin-bottom: 3px;
 }
 
-/* transform: translateX(230px); */
+.cart-hover-con {
+  position: absolute;
+  display: none;
+  background: #8080809c;
+  width: 100%;
+  height: 100%;
+}
 
 
 /* FOR ADD ON  */
@@ -304,5 +313,18 @@ body{
     display: block;
   }
 
-  
 }
+
+@media (max-width: 550px) {
+
+  .guest-nav {
+    font-size: 7px;
+    margin-left: 10px;
+  }
+
+  .logo-image img {
+    width: 50px;
+  }
+}
+
+
