@@ -62,7 +62,7 @@
         <div class="wrapper">
             <div>
                 {% csrf_token %}
-                <h1>Login</h1>
+                <h1 class="login">Login</h1>
                 <div class="input-box">
                     <input
                         type="text"
@@ -80,18 +80,18 @@
                 <div class="under-thing">
                     <button class="btn" onclick="userAuth()">Login</button>
                     <div class="remember-forgot">
-                        <a href="#">Forgot passowrd?</a>
+                        <a class="forgot-password" href="#">Forgot passowrd?</a>
                     </div>
                     <div class="register-link">
-                        <p>
+                        <p class="do-not-have-acc">
                             Don't have an account?
-                            <a href="./signup">Sign Up</a>
+                            <a class="signup" href="./signup">Sign Up</a>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-
+        
         <script></script>
     </body>
 </html>

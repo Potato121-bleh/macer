@@ -30,11 +30,28 @@ body{
     backdrop-filter: blur(5px);
     box-shadow: 0 0 40px rgba(255, 253, 253, 0.34);
 }
+@media (max-width:380px) {
+    .wrapper{
+        width: 300px;
+    }
+    .login{
+        font-size: 22px;
+    }
+    .input-box{
+        margin: 20px 0px;
+    }
+    .register-link{
+        font-size: 10px;
+    }
+    .input{
+        height: 40px;
+    }
+}
 form{
     width: 100%;
     /* border: solid whitesmoke; */
 }
-.wrapper h1{
+.wrapper .login{
     font-family: 'Montserrat', sans-serif;
     color: white;
     font-size: 30px;
@@ -42,13 +59,12 @@ form{
     text-align: center;
     /* margin-top: 10px; */
 }
-.wrapper .input-box{
+.input-box{
     /* width: 100%; */
     /* height: 50px; */
     margin: 29px 0px;
 }
-.input-box input{
-    margin-left: 10px;
+input{
     width: 95%;
     height: 45px;
     background: transparent;
@@ -58,10 +74,10 @@ form{
     border-radius: 20px;
     padding: 20px 20px 20px;
 }
-.input-box input{
+input{
     color: white;
 }
-.input-box input::placeholder {
+input::placeholder {
     color: white;
 }
 .wrapper .box-icon{
@@ -84,13 +100,11 @@ form{
     margin-left: 10px;
 }
 .remember-forgot a:hover{
-
     text-decoration: underline;
 }
 .wrapper .register-link{
     color: rgb(255, 255, 255);
     text-align: center;
-    font-size: 14px;
 }
 .wrapper .btn{
     font-weight: 900;
@@ -110,7 +124,7 @@ form{
     margin-bottom: 10px;
     font-size: 14px;
 }
-.register-link p a{
+.signup{
     color: white;
     font-size: 14px;
 }
@@ -119,4 +133,7 @@ form{
 }
 .under-thing{
     margin-bottom: 5px;
+}
+.do-not-have-acc{
+    font-size: 12px;
 }
