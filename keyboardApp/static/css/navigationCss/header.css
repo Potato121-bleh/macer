@@ -154,9 +154,9 @@ cursor: pointer;
   padding: 15px;
   top: 67px;
   right: 18px;
+  left: 100%;
   border-radius: 10px;
   background-color: #8c8c8c5c;
-  transform: translateX(230px);
   transition: all 500ms ease-in-out;
   backdrop-filter: blur(9px);
 }
@@ -298,19 +298,18 @@ cursor: pointer;
 
 /* FOR ADD ON  */
 .open-menu-dialog {
-  transform: translateX(0px);
+  left: unset;
+  display: block;
+  /* transform: translateX(0px); */
 }
 
 @media (max-width: 950px) {
   .navbar-page-con {
     display: none
   }
+
   .header-menu-icon-con {
     display: flex;
-  }
-
-  .header-dialog-main-con {
-    display: block;
   }
 
 }
