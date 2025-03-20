@@ -3,6 +3,7 @@ let checkoutTransactionDetial = []
 let cartArr = [] // [1, 30]  [2, 35]
 let cartRenderArr = []
 let queryParameter = new URLSearchParams(window.location.search)
+let item_price = 0
 
 const getCSRFToken = () => {
     return document.querySelector('[name=csrfmiddlewaretoken]').value
@@ -46,24 +47,28 @@ const toggleCheckoutDialog = (flag) => {
     }
 }
 
-const assignDynamicData = (userInfo) => {
+// we make them accept discout value
+const assignDynamicData = async (userInfo, discountVal, userBalance) => {
     let itemPrice = 0
-    let discountVal = 0
     for (let i in cartArr) {
         itemPrice += cartArr[i][1]
     }
-    let totalBillUSD = itemPrice - discountVal
+
+    // try {
+
+    // }
+
+    let discountAmount = itemPrice * (discountVal / 100)
+    let totalBillUSD = itemPrice - discountAmount
     let totalBillKHR = totalBillUSD * 4050
+    item_price = totalBillUSD
     checkoutInfoDetail.push(['Name:', userInfo.user_nickname])
-    checkoutInfoDetail.push([
-        'Current Balance:',
-        userInfo.user_balance + ' USD',
-    ])
+    checkoutInfoDetail.push(['Current Balance:', userBalance + ' USD'])
 
     checkoutTransactionDetial.push(['Payer:', userInfo.user_nickname])
     checkoutTransactionDetial.push(['Total Item:', cartArr.length])
     checkoutTransactionDetial.push(['Price:', itemPrice])
-    checkoutTransactionDetial.push(['Discount:', `${discountVal}` + ' USD'])
+    checkoutTransactionDetial.push(['Discount:', `${discountAmount}` + ' USD'])
     checkoutTransactionDetial.push(['Total Price:', `${totalBillUSD}` + ' USD'])
     checkoutTransactionDetial.push(['', `${totalBillKHR}` + ' KHR'])
 }
@@ -238,6 +243,39 @@ handleItemData('alpha')
 // This function trigger when user click on cart
 const handleCartCheckout = async () => {
     console.log('IT CLICK ON CART')
+    let discountVal = 0
+
+    // we add alert asking user the discount code
+    // then we can assign discount values as we queried from database if not found we reject.
+    // if it has then we retireve the values and calculate and assign them into
+    // let discountFlag = alert('Any discount coupon? Please insert code below')
+
+    let userDiscountInput = window.prompt('Type here')
+    if (userDiscountInput !== '') {
+        try {
+            let queriedResp = await fetch(
+                'http://127.0.0.1:8000/api/keyboardApp/retrieve-discount-code',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': getCSRFToken(),
+                    },
+                    body: JSON.stringify({ discountCode: userDiscountInput }),
+                    credentials: 'same-origin',
+                }
+            )
+            if (queriedResp.ok && queriedResp.status === 200) {
+                let data = await queriedResp.json()
+                console.log(data)
+                discountVal = data.item_data.discount_percentage
+            }
+        } catch (e) {
+            console.log(e)
+        }
+        // query discount code for validation then fetch their value
+    }
+
     try {
         userInfo = await handleQueryData()
         const itemDataResp = await fetch(
@@ -284,7 +322,21 @@ const handleCartCheckout = async () => {
         .join('')
     cartInfoEle.innerHTML = dynamicCartInfo
 
-    assignDynamicData(userInfo)
+    // query user balance
+    try {
+        let queryBalance = await fetch(
+            'http://127.0.0.1:8000/api/keyboardApp/retrieve-user-balance',
+            {
+                method: 'GET',
+            }
+        )
+        let userBalance = await queryBalance.json()
+        console.log(userBalance.item_data[0])
+        assignDynamicData(userInfo, discountVal, userBalance.item_data[0])
+    } catch (e) {
+        window.alert('failed to query user balance')
+        console.log(e)
+    }
 
     let transactionInfoEle = document.getElementById(
         'checkout-dialog-transaction-wrapper-id'
@@ -338,6 +390,7 @@ const handleTransaction = async () => {
                 },
                 body: JSON.stringify({
                     item_data: cartArr,
+                    item_price: item_price,
                 }),
                 credentials: 'same-origin',
             }
@@ -349,6 +402,7 @@ const handleTransaction = async () => {
         }
 
         alert('Transaction complete')
+        window.location.reload()
     } catch (err) {
         alert(
             'Transaction failed, Make sure your balance is met the requirement'
@@ -383,3 +437,19 @@ const handleDetailSwitchAnimate = (id, slideFlag) => {
         boxEle.classList.remove('toggle-scale-card-detail')
     }
 }
+
+// we can use this to get user info of your cookie
+// try {
+//     console.log('ABOUT TO START')
+//     const resp = await fetch(
+//         'http://127.0.0.1:8000/api/keyboardApp/auth/validation',
+//         {
+//             method: 'GET',
+//             credentials: 'same-origin',
+//         }
+//     )
+//     if (resp.status !== 200) {
+//         throw new Error('failed to validate the user')
+//     }
+
+//     userData = await resp.json()

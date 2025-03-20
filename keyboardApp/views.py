@@ -15,3 +15,5 @@ def about_page(request):
     return render(request, 'about.html')
 def footer_page(request):
     return render(request, 'navigation/footer.html')
+def checkout_page(request):
+    return render(request, 'checkout.html')

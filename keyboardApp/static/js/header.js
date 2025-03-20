@@ -88,6 +88,7 @@ const handleQueryData = async () => {
         'dialog-balance-text-id'
     )
     try {
+        console.log('ABOUT TO START')
         const resp = await fetch(
             'http://127.0.0.1:8000/api/keyboardApp/auth/validation',
             {
@@ -113,6 +114,7 @@ const handleQueryData = async () => {
         dialogSignupBtnEle.style.display = 'none'
         return userData.Data
     } catch (err) {
+        console.log('IT ERROR')
         alert('Please login to use locked feature')
         console.log(err)
         loginBtnEle.style.display = 'flex'
