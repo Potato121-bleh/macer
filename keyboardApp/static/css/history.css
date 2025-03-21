@@ -89,17 +89,17 @@ main{
 .select-li{
     display: flex;
     align-items: center;
-    margin-right: 45px;
+    margin-right: 10px;
 }
 .select-items{
     border-radius: 5px;
     color: white;
     height: 30px;
-    width: 80px;
+    width: 60px;
     background-color: grey;
     border: none;
     padding-left: 4px;
-    padding-right: 4px;
+    padding-right: 9px;
 }
 .btn-submit{
     border-radius: 5px;

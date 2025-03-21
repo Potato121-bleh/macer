@@ -7,8 +7,8 @@ def login_page(request):
     return render(request, 'login.html')
 def signup_page(request):
     return render(request, 'signup.html')
-def testheader(request):
-    return render(request, 'navigation/testheader.html')
+def header_page(request):
+    return render(request, 'navigation/header.html')
 def home_page(request):
     return render(request, 'home.html')
 def about_page(request):
