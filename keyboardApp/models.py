@@ -7,7 +7,7 @@ class User_info(models.Model):
     user_name       = models.CharField(max_length=12, unique=True)
     user_nickname   = models.CharField(max_length=12)
     user_password   = models.TextField()
-    user_balance    = models.DecimalField(max_digits=6, decimal_places=2)
+    user_balance    = models.DecimalField(max_digits=6, decimal_places=2, default=0.00)
 
     def __str__(self):
         return f"User_info(user_id: {self.user_id}, user_name: {self.user_name}, user_nickname: {self.user_nickname}, user_password: {self.user_password}, user_balance: {self.user_balance})"
@@ -40,12 +40,6 @@ class Transaction(models.Model):
     transaction_user    = models.ForeignKey("User_info", on_delete=models.CASCADE, related_name="user_transaction" )
     item                = models.ForeignKey("Store_item", on_delete=models.CASCADE, related_name="bought_by")
     transaction_date = models.DateTimeField(auto_now_add=True)
-
-    # check and make sure it valid as user call this method
-    # def is_valid(self):
-    #     if self.transaction_date >= timezone.now():
-    #         return False
-    #     return True
     
     def to_json(self):
         return {
