@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History</title>
+    <link rel="stylesheet" href="{% static 'css/history.css' %}" />
+  </head>
+  <body>
+    {% include 'navigation/header.html' %}
+    <main>
+      <div class="con-element">
+        <h1 class="history-text">History</h1>
+        <div class="history-box">
+          <ul class="ul-one">
+            <li class="keyboard-name-one-main">
+              <h4 class="keyboard-name-one-con">Keyboard name 1</h4>
+            </li>
+            <li class="date-of-buy-main">
+              <p class="date-of-buy-con">20/12/2025</p>
+            </li>
+          </ul>
+          <div class="below-keyboard-name">
+              <div class="price-element-one">
+                <ul class="ul-two">
+                  <li class="price-li">
+                    <p class="price-text">Price:</p>
+                  </li>
+                  <li class="dollar-number">
+                    <p class="dollar">35$</p>
+                  </li>
+                </ul>
+              </div>
+              <ul class="ul-three">
+                <li class="select-li">
+                    <form>
+                        <select class="select-items">
+                            <option value="select-one">Select1</option>
+                            <option value="select-one">Select1</option>
+                            <option value="select-one">Select1</option>
+                            <option value="select-one">Select1</option>
+                        </select>
+                    </form>
+                </li>
+                <li class="submit-li">
+                    <button class="btn-submit">Submit</button>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

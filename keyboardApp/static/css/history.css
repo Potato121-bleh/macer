@@ -1,0 +1,111 @@
+main{
+    /* border: solid blue; */
+    display: flex;
+    justify-content: center;
+}
+.con-element{
+    /* border: solid yellow; */
+    width: 400px;
+}
+.history-box{
+    height: 80px;
+    border-radius: 10px;
+    background-color: rgb(223, 223, 223);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.ul-one{
+    display: flex;
+    justify-content: space-between;
+    /* border: solid; */
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.keyboard-name-one-con{
+    margin: 0;
+}
+.date-of-buy-con{
+    margin: 0;
+}
+.history-text{
+    font-weight: 700;
+    font-size: 25px;
+}
+.keyboard-name-one-main{
+    padding-top: 10px;
+    padding-left: 15px;
+}
+.date-of-buy-main{
+    padding-top: 10px;
+    padding-right: 15px;
+}
+.ul-two{
+    display: flex;
+    justify-content: space-between;
+    /* border: solid; */
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    width: 100%;
+}
+.price-li{
+    display: flex;
+    align-items: center;
+}
+.price-text{
+    margin: 0;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+.dollar-number{
+    display: flex;
+    align-items: center;
+}
+.dollar{
+    margin: 0;
+    font-weight: 500;
+}
+.price-element-one{
+    width: 65px;
+    margin-left: 15px;
+    /* margin-bottom: 13px; */
+    display: flex;
+    justify-content: space-between;
+}
+.below-keyboard-name{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7.5px
+}
+.ul-three{
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 15px;
+    display: flex;
+}
+.select-li{
+    display: flex;
+    align-items: center;
+    margin-right: 45px;
+}
+.select-items{
+    border-radius: 5px;
+    color: white;
+    height: 30px;
+    width: 80px;
+    background-color: grey;
+    border: none;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+.btn-submit{
+    border-radius: 5px;
+    color: white;
+    height: 30px;
+    width: 70px;
+    background-color: grey;
+    border: none;
+}
