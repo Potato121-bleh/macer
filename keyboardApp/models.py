@@ -58,13 +58,15 @@ class Transaction(models.Model):
     transaction_user    = models.ForeignKey("User_info", on_delete=models.CASCADE, related_name="user_transaction" )
     item                = models.ForeignKey("Store_item", on_delete=models.CASCADE, related_name="bought_by")
     transaction_date = models.DateTimeField(auto_now_add=True)
+    reviewed_flag = models.IntegerField(default=0)
     
     def to_json(self):
         return {
             "transaction_id": self.transaction_id,
             "transaction_user": self.transaction_user,
             "item": self.item,
-            "transaction_date": self.transaction_date
+            "transaction_date": self.transaction_date,
+            "reviewed_flag": self.reviewed_flag
         }
 
     # def __str__(self):

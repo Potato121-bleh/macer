@@ -100,11 +100,19 @@ const handleQueryData = async () => {
             throw new Error('failed to validate the user')
         }
 
+        const userBalanceResp = await fetch(
+            'http://127.0.0.1:8000/api/keyboardApp/retrieve-user-balance'
+        )
+        let userBalance
+        if (userBalanceResp.ok && userBalanceResp.status === 200) {
+            userBalance = await userBalanceResp.json()
+        }
+
         userData = await resp.json()
 
         userNicknameTextEle.innerText = userData.Data.user_nickname
         userDialogNicknameTextELe.innerText = userData.Data.user_nickname
-        userDialogBalanceTextEle.innerText = userData.Data.user_balance + ' $'
+        userDialogBalanceTextEle.innerText = userBalance.item_data[0] + ' $'
         userDialogUsernameTextEle.innerText = userData.Data.user_name
         logoutBtnEle.style.display = 'flex'
         loginBtnEle.style.display = 'none'
@@ -115,7 +123,7 @@ const handleQueryData = async () => {
         return userData.Data
     } catch (err) {
         console.log('IT ERROR')
-        alert('Please login to use locked feature')
+        // alert('Please login to use locked feature')
         console.log(err)
         loginBtnEle.style.display = 'flex'
         signupBtnEle.style.display = 'flex'
@@ -142,7 +150,22 @@ const handleLogout = async () => {
     }
 }
 
-const handleRoute = (route) => {
+const handleRoute = async (route) => {
+    if (route === 'history') {
+        try {
+            let fetchUserResp = await fetch(
+                'http://127.0.0.1:8000/api/keyboardApp/auth/validation'
+            )
+            if (!fetchUserResp.ok || fetchUserResp.status !== 200) {
+                throw new Error(
+                    'Unable to open the page, Please login to use this feature'
+                )
+            }
+        } catch (e) {
+            alert('Unable to open the page, Please login to use this feature')
+            return
+        }
+    }
     let prepRoute = './' + route
     console.log('Route triggered')
     window.location.href = prepRoute

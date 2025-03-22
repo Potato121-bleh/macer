@@ -4,9 +4,9 @@ const getCSRFToken = () => {
     return document.querySelector('[name=csrfmiddlewaretoken]').value
 }
 
-const handleSubmitReview = async (itemId, transactionCounter) => {
+const handleSubmitReview = async (itemId, transactionId) => {
     let selectedUserId = 0
-    let selectedEleId = `select_review_rate-id-${transactionCounter}`
+    let selectedEleId = `select_review_rate-id-${transactionId}`
     let selectedRate = document.getElementById(selectedEleId)
     let selectedRateTem = selectedRate?.value
     let userReview = window.prompt('Write your Review here', 'N/A')
@@ -37,12 +37,14 @@ const handleSubmitReview = async (itemId, transactionCounter) => {
                     storeItemId: itemId,
                     rating: selectedRateTem,
                     reviewText: userReview,
+                    txId: transactionId,
                 }),
             }
         )
         if (submitReview.ok && submitReview.status === 200) {
             let respMessage = await submitReview.json()
             alert(respMessage['Message'])
+            window.location.reload()
         }
     } catch (e) {
         alert('failed to submit review, Please check the console for Error')
@@ -66,11 +68,9 @@ const renderHistory = async () => {
         console.log(e)
         return
     }
-    let transactionCounter = 0
     let dynamicTransactionRender = queriedTransaction
         .map((element) => {
-            transactionCounter++
-            return `<li class="history-box">
+            let mainSection = `<li class="history-box">
                     <ul class="ul-one">
                         <li class="keyboard-name-one-main">
                             <h4 class="keyboard-name-one-con">
@@ -92,38 +92,81 @@ const renderHistory = async () => {
                                 </li>
                             </ul>
                         </div>
-                        <ul class="ul-three">
-                        <li class="rating-text" >Rate Us</li>
-                            <li class="select-li">
-                                <select
-                                    class="select-items"
-                                    id="select_review_rate-id-${transactionCounter}"
-                                >
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </li>
-                            <li class="submit-li">
-                                <button
-                                    class="btn-submit"
-                                    onclick="
-                                    handleSubmitReview(${element.item.item_id}, ${transactionCounter})"
-                                    style="cursor: pointer"
-                                >
-                                    Submit
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </li>`
+                `
+            let reviewSection
+            let footerSection = `</div></li> `
+
+            // validate to make sure it not display to input review
+            if (element.reviewed_flag !== 1) {
+                reviewSection = `<ul class="ul-three">
+<li class="rating-text" >Rate Us</li>
+<li class="select-li">
+    <select
+        class="select-items"
+        id="select_review_rate-id-${element.transaction_id}"
+    >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+</li>
+<li class="submit-li">
+    <button
+        class="btn-submit"
+        onclick="
+        handleSubmitReview(${element.item.item_id}, ${element.transaction_id})"
+        style="cursor: pointer"
+    >
+        Submit
+    </button>
+</li>
+</ul>`
+            } else {
+                reviewSection = `<ul class="ul-three">
+<li class="rating-text" >Reviewed</li>
+</ul>`
+            }
+
+            let finalRenderData = mainSection + reviewSection + footerSection
+            return finalRenderData
         })
         .join('')
     historyCon.innerHTML = dynamicTransactionRender
 }
 renderHistory()
+
+{
+    /* <ul class="ul-three">
+<li class="rating-text" >Rate Us</li>
+<li class="select-li">
+    <select
+        class="select-items"
+        id="select_review_rate-id-${element.transaction_id}"
+    >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+</li>
+<li class="submit-li">
+    <button
+        class="btn-submit"
+        onclick="
+        handleSubmitReview(${element.item.item_id}, ${element.transaction_id})"
+        style="cursor: pointer"
+    >
+        Submit
+    </button>
+</li>
+</ul>
+// </div>
+// </li> 
+*/
+}
 
 {
     /* <div class="history-box">
@@ -172,7 +215,8 @@ renderHistory()
                             </li>
                         </ul>
                     </div>
-                </div> */
+                </div> 
+                */
 }
 
 // #  jwtPayload = {

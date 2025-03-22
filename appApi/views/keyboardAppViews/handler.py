@@ -8,13 +8,6 @@ from keyboardApp.models import User_info, Transaction, Store_item, Discount_code
 import json
 
 
-# incoming data should look like this:
-    # {
-    #     item_data = [
-    #         [1, 20],
-    #         [2, 19]
-    #         ]
-    # }
 @require_http_methods(["POST", "OPTIONS"])
 @Cookie_validation_middleware
 def user_transaction(request: HttpRequest):
@@ -25,25 +18,21 @@ def user_transaction(request: HttpRequest):
     request_data = json.loads(request.body)
     jwt_payload = getattr(request, "user_info")
 
-    sql_statement = "INSERT INTO keyboardApp_transaction (transaction_user_id, item_id, transaction_date) VALUES "
-
-    # check whether the price is met the requirement
+    sql_statement = "INSERT INTO keyboardApp_transaction (transaction_user_id, item_id, transaction_date, reviewed_flag) VALUES "
 
     # NOTE: This code below is trying to get the transaction price to do another validation based on item that been sent
     #       So it not accurate as we also have discount, by this we don't do total price from backend, we do it from frontend
     #       FOR ANOTHER SECURITY REASON: we can ask frontend to return discount code too if we worried of security risk
     #       Where backend can take that code to validate again with server to ensure the total price of user purchase are perfectly good enough for transaction
     transaction_price = request_data["item_price"]
-    # transaction_price = 0
-    # for i in request_data["item_data"]:
-    #     transaction_price += i[1]
+
 
     try:
         user_balance_query = User_info.objects.raw("SELECT * FROM keyboardApp_user_info WHERE user_id=%s", [jwt_payload["user_id"]])
-        user_balance = user_balance_query[0].user_balance
-        print(user_balance)
+        user_balance = float(user_balance_query[0].user_balance)
         if user_balance < transaction_price:
             return JsonResponse({"Error_Message": "Insufficient balance"}, status=400)
+        
         user_balance -= transaction_price
     except Exception as err:
         return JsonResponse({"Error_Message": "Something went wrong", "Dev_Message": err})
@@ -52,25 +41,18 @@ def user_transaction(request: HttpRequest):
 
     print(request_data)
     for i in request_data["item_data"]:
-        prep_str = "( " + str(jwt_payload["user_id"]) + " , " + str(i[0]) + " , %s ) ,"
-        print(prep_str)
+        prep_str = "( " + str(jwt_payload["user_id"]) + " , " + str(i[0]) + " , %s , 0 ) ,"
         sql_statement += prep_str
     sql_statement_arr = sql_statement.split(" ")
-    print("BEFORE POP")
-    print(sql_statement_arr)
-    popped_val = sql_statement_arr.pop()
-    print("PPPPPPPPPPPPPPPPPPP")
-    print(sql_statement)
-    print(popped_val)
-    print(sql_statement_arr)
-    sql_statement_format = " ".join(sql_statement_arr)
-    print("It DONE")
+    sql_statement_format = " ".join(sql_statement_arr)[:-1]
     print(sql_statement_format)
     try:
         with connections["keyboardAppDB"].cursor() as db_cursor:
             transaction.set_autocommit(autocommit=False)
 
-            db_cursor.execute(sql_statement_format, [timezone.now()] * len(request_data["item_data"]))
+            print("---------- if it 0 u dead lol -------------")
+            print(len(request_data["item_data"]))
+            db_cursor.execute(sql_statement_format, [timezone.localtime(timezone.now())] * len(request_data["item_data"]))
             print("ROW COUNT")
             print(db_cursor.rowcount)
             print(len(request_data["item_data"]))
@@ -146,20 +128,26 @@ def submit_review(request: HttpRequest):
     print("IT DONE")
     req_body["userId"]
     print("CHECK DONE")
-    if not req_body["userId"] or not req_body["storeItemId"] or not req_body["rating"] or not req_body["reviewText"] :
+    if not req_body["userId"] or not req_body["storeItemId"] or not req_body["rating"] or not req_body["reviewText"] or not req_body["txId"] :
         return JsonResponse({"Error_Message": "failed to validate http request, Please make sure to submit all required field"}, status=400)
     try:
         with connections["keyboardAppDB"].cursor() as con:
             transaction.set_autocommit(False)
             con.execute("INSERT INTO keyboardApp_reviews (user_id_id, store_item_id_id, rating, review_text, created_at) VALUES (%s, %s, %s, %s, %s)", 
-                        [req_body["userId"], req_body["storeItemId"], req_body["rating"], req_body["reviewText"], timezone.now()])
+                        [req_body["userId"], req_body["storeItemId"], req_body["rating"], req_body["reviewText"], timezone.localtime(timezone.now())])
             if con.rowcount != 1:
                 transaction.rollback()
-                raise Exception("unexpected row affected")
+                raise Exception("unexpected review insert row affected")
+            print("About to update")
+            con.execute("UPDATE keyboardApp_transaction SET reviewed_flag = 1 WHERE transaction_id = %s", [req_body["txId"]])
+            if con.rowcount != 1:
+                transaction.rollback()
+                raise Exception("unexpected tx updation row affected")
+            print("done update")
             transaction.commit()
     except Exception as e:
         transaction.rollback()
-        err_resp = f"failed to submit the review, Please try again later {str(e)}"
+        err_resp = f"failed to submit the review, Please try again later: {str(e)}"
         return JsonResponse({"Error_Message": str(err_resp)}, status=500)
     finally:
         transaction.set_autocommit(True)
@@ -193,7 +181,7 @@ def retrieve_user_balance(request: HttpRequest):
 def retrieve_user_transaction(request: HttpRequest):
     jwt_payload = getattr(request, "user_info")
     try:
-        queried_transaction = Transaction.objects.raw("SELECT * FROM keyboardApp_transaction WHERE transaction_user_id = %s", [jwt_payload["user_id"]])
+        queried_transaction = Transaction.objects.raw("SELECT * FROM keyboardApp_transaction WHERE transaction_user_id = %s ORDER BY transaction_date DESC", [jwt_payload["user_id"]])
         
         transactionCollection = []
         for user_transaction in queried_transaction:

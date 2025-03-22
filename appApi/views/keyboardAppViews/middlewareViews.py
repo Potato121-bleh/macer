@@ -5,7 +5,7 @@ from keyboardApp.models import User_info as keyboardApp_user_info
 from appApi.util.retrieveKey import get_JWT_key
 
 
-# 
+
 def Crediential_validate_middleware(view_func):
     """
     Validate whether the user crediential is match what inside the database or not.
@@ -21,10 +21,6 @@ def Crediential_validate_middleware(view_func):
             # perform database query
             queried_user = keyboardApp_user_info.objects.filter(user_name=requestData["username"])
             if queried_user:
-                print("username: " + queried_user[0].user_name)
-                print("password: " + queried_user[0].user_password)
-                #validate the user password
-                print("INPUT password: " + requestData["password"])
                 if requestData["password"] != queried_user[0].user_password:
                     return JsonResponse({"Error_Message": "something went wrong, Username / password is incorrect"}, status=401)
                 request.user_info = queried_user[0]
@@ -46,8 +42,6 @@ def Cookie_validation_middleware(view_func):
     """
     def validate_the_cookie(request: HttpRequest):
         jwt_token = request.COOKIES.get("auth_token")
-        print("------------------------------------------------------------")
-        print(jwt_token)
         if not jwt_token:
             return JsonResponse({"Error_Message": "cookie not found"}, status=401)
         try:

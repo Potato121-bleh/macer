@@ -249,6 +249,19 @@ const handleCartCheckout = async () => {
     // then we can assign discount values as we queried from database if not found we reject.
     // if it has then we retireve the values and calculate and assign them into
     // let discountFlag = alert('Any discount coupon? Please insert code below')
+    try {
+        let fetchUserResp = await fetch(
+            'http://127.0.0.1:8000/api/keyboardApp/auth/validation'
+        )
+        if (!fetchUserResp.ok || fetchUserResp.status !== 200) {
+            throw new Error(
+                'Unable to open continue, Please login to use this feature'
+            )
+        }
+    } catch (e) {
+        alert('Unable to continue, Please login to use this feature')
+        return
+    }
 
     let userDiscountInput = window.prompt('Type here')
     if (userDiscountInput !== '') {
