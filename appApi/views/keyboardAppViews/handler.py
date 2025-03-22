@@ -137,17 +137,22 @@ def retrieve_discount(request: HttpRequest):
     except Exception as e:
         return JsonResponse({"Error_Message": e})
 
+@require_http_methods(["POST", "OPTIONS"])
+@Cookie_validation_middleware  
 def submit_review(request: HttpRequest):
     # we accept user id, selected item, review star, review text from frontend
-    req_body = json.load(request.body)
+    print("IT ABOUT TO PARSE JSON")
+    req_body = json.loads(request.body)
+    print("IT DONE")
     req_body["userId"]
-    if req_body["userId"] or req_body["storeItemId"] or req_body["rating"] or req_body["reviewText"] == "" :
+    print("CHECK DONE")
+    if not req_body["userId"] or not req_body["storeItemId"] or not req_body["rating"] or not req_body["reviewText"] :
         return JsonResponse({"Error_Message": "failed to validate http request, Please make sure to submit all required field"}, status=400)
     try:
         with connections["keyboardAppDB"].cursor() as con:
             transaction.set_autocommit(False)
-            con.execute("INSERT INTO keyboardApp_reviews (user_id_id, store_item_id_id, rating, review_text) VALUES (%s, %s, %s, %s)", 
-                        [req_body["userId"], req_body["storeItemId"], req_body["rating"], req_body["reviewText"]])
+            con.execute("INSERT INTO keyboardApp_reviews (user_id_id, store_item_id_id, rating, review_text, created_at) VALUES (%s, %s, %s, %s, %s)", 
+                        [req_body["userId"], req_body["storeItemId"], req_body["rating"], req_body["reviewText"], timezone.now()])
             if con.rowcount != 1:
                 transaction.rollback()
                 raise Exception("unexpected row affected")
@@ -155,7 +160,7 @@ def submit_review(request: HttpRequest):
     except Exception as e:
         transaction.rollback()
         err_resp = f"failed to submit the review, Please try again later {str(e)}"
-        return JsonResponse({"Error_Message": err_resp}, status=500)
+        return JsonResponse({"Error_Message": str(err_resp)}, status=500)
     finally:
         transaction.set_autocommit(True)
     return JsonResponse({"Message": "review has submitted"}, status=200)
@@ -184,6 +189,25 @@ def retrieve_user_balance(request: HttpRequest):
     except Exception as e:
         return JsonResponse({"Error_Message": f"failed to retrieve user_balance: ERROR ({str(e)})"}, status=500)
 
+@Cookie_validation_middleware 
+def retrieve_user_transaction(request: HttpRequest):
+    jwt_payload = getattr(request, "user_info")
+    try:
+        queried_transaction = Transaction.objects.raw("SELECT * FROM keyboardApp_transaction WHERE transaction_user_id = %s", [jwt_payload["user_id"]])
+        
+        transactionCollection = []
+        for user_transaction in queried_transaction:
+            transactionCollection.append(user_transaction.to_json())
+        # print(transactionCollection)
+        for ele in transactionCollection:
+            ele["transaction_user"] = ele["transaction_user"].tojson()
+        for ele in transactionCollection:
+            ele["item"] = ele["item"].tojson()
+        return JsonResponse({"item_data": transactionCollection}, status=200)
+    except Exception as e:
+        print(e)
+        return JsonResponse({"Error_Message": "failed to retrieve user transaction: " + str(e)}, status=500)
+            
 
 #  jwtPayload = {
 #             "user_id": queried_user.user_id,

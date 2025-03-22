@@ -1,7 +1,6 @@
 // let usernameInput = document.getElementById('username-input-id')
 // let nicknameInput = document.getElementById('nickname-input-id')
 // let passwordInput = document.getElementById('password-input-id')
-
 const getCSRFToken = () => {
     return document.querySelector('[name=csrfmiddlewaretoken]').value
 }
@@ -11,14 +10,6 @@ const handleRoute = (route) => {
     window.location.href = prepRoute
 }
 
-// const handleTest = () => {
-//     console.log('it triggered test')
-//     console.log(usernameInput.value)
-//     console.log(nicknameInput)
-//     console.log(passwordInput)
-//     // alert('NICE')
-// }
-
 const handleSignup = async () => {
     let usernameInput = document.getElementById('username-input-id')
     let nicknameInput = document.getElementById('nickname-input-id')
@@ -27,7 +18,6 @@ const handleSignup = async () => {
     let userNameTem = usernameInput?.value.trim()
     let nickNameTem = nicknameInput?.value.trim()
     let passwordTem = passwordInput?.value.trim()
-    // TypeError: Cannot read properties of null (reading 'value')
     if (!userNameTem || !nickNameTem || !passwordTem) {
         alert('Please fill all required field to continue')
         return
@@ -53,7 +43,6 @@ const handleSignup = async () => {
             throw new Error('unexpected response status')
         }
         let data = await signUpResp.json()
-        console.log(data)
         alert(data['Message'])
         handleRoute('home')
     } catch (e) {

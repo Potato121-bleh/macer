@@ -9,6 +9,15 @@ class User_info(models.Model):
     user_password   = models.TextField()
     user_balance    = models.DecimalField(max_digits=6, decimal_places=2, default=0.00)
 
+    def tojson(self):
+        return {
+            "user_id": int(self.user_id), 
+            "user_name": str(self.user_name), 
+            "item_user_nickname": str(self.user_nickname), 
+            "item_user_password": str(self.user_password), 
+            "item_user_balance": float(self.user_balance),
+        }
+
     def __str__(self):
         return f"User_info(user_id: {self.user_id}, user_name: {self.user_name}, user_nickname: {self.user_nickname}, user_password: {self.user_password}, user_balance: {self.user_balance})"
 
@@ -21,9 +30,18 @@ class Store_item(models.Model):
     item_price  = models.DecimalField(max_digits=10, decimal_places=2)
     item_brand = models.CharField(max_length=50, default="N/A")
 
-    def __str__(self):
-        return f"Store_item(item_id: {self.item_id}, item_name: {self.item_name}, item_description: {self.item_description}, item_key_color: {self.item_key_color}, item_price: {self.item_price}, item_brand: {self.item_brand} )"
-    
+    # def __str__(self):
+    #     return f"Store_item(item_id: {self.item_id}, item_name: {self.item_name}, item_description: {self.item_description}, item_key_color: {self.item_key_color}, item_price: {self.item_price}, item_brand: {self.item_brand} )"
+    # def __init__(self):
+    #     return {
+    #             "item_id": int(self.item_id), 
+    #             "item_name": str(self.item_name), 
+    #             "item_description": str(self.item_description), 
+    #             "item_key_color": str(self.item_key_color), 
+    #             "item_price": float(self.item_price),
+    #             "item_brand": str(self.item_brand)
+    #         }
+
     def tojson(self):
         return {
             "item_id": int(self.item_id), 
@@ -58,7 +76,7 @@ class Reviews(models.Model):
     user_id = models.ForeignKey("User_info", on_delete=models.CASCADE, related_name="user_review")
     store_item_id = models.ForeignKey("Store_item", on_delete=models.CASCADE, related_name="user_review_item")
     rating = models.IntegerField()
-    review_text = models.TextField()
+    review_text = models.TextField(default="N/A")
     created_at = models.DateTimeField(auto_now_add=True)
 
     def to_json(self):

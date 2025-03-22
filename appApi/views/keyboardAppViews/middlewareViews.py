@@ -60,4 +60,5 @@ def Cookie_validation_middleware(view_func):
         except Exception as err:
             return JsonResponse({"Error_Message": "token not valid", "Dev_Message": str(err)}, status=401)
         return view_func(request)
+    
     return validate_the_cookie
