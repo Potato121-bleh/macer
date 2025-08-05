@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Lexend:wght@100..900&family=Montserrat:wght@100..900&family=Parkinsans:wght@300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    /* height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+}
+.main-element-of-footer{
+    background-color: rgb(41, 41, 41);
+    height: auto;
+}
+.con-element-of-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.kon-element-of-footer{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 45px;
+}
+.main-element-of-ul-footer-with-logo{
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+    /* color: rgb(125, 125, 125); */
+    width: 190px;
+    display: flex;
+    flex-direction: column;
+}
+.main-element-of-ul-footer-with-logo-paragraph{
+    color: rgb(125, 125, 125);
+    font-size: 15px;
+    text-align: center;
+    line-height: 17px;
+    margin: 0;
+}
+.contact-us-h3{
+    color: white;
+}
+.find-us-on h3{
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.main-element-of-ul-footer-with-logo-macer-paragraph-image-icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-element-of-ul-footer-with-logo-icon{
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.icon-for-footer img{
+    width: 20px;
+}
+.main-element-of-ul-footer-one{
+    list-style: none;
+    color: white;
+    padding-left: 0;
+    width: 190px;
+}
+.main-element-of-ul-footer{
+    list-style: none;
+    color: white;
+    padding-left: 0;
+    width: 190px;
+}
+.macer-logo-in-list{
+    width: 190px;
+    /* border: solid white; */
+}
+.footer-li-h3{
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 14px;
+    width: max-content;
+}
+.footer-li{
+    font-size: 14px;
+}
+.copy-right-main-element{
+    margin-top: 70px;
+    width: 100%;
+    list-style: none;
+    color: rgb(130, 130, 130);
+    font-size: 18px;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ruler-in-footer{
+    height: 1px;
+    background-color: white;
+    width: 89.5%;
+}
+/* ---------hover underline------- */
+
+.footer-li-h3 h3 {
+    position: relative; 
+    margin-bottom: 35px;
+}
+.footer-li-h3 h3:after{
+    content: "";
+    position: absolute;
+    background-color: white;
+    height: 1px;
+    width: 100%;
+    left: 0;
+    bottom: -8px;
+}
+
+@media (max-width: 1275px) {
+    .footer-li-h3 {
+        font-size: 10px;
+    }
+    .footer-li {
+        font-size: 11px;
+    }
+    .main-element-of-ul-footer-with-logo-paragraph {
+        font-size: 10px;
+    }
+    .find-us-on h3 {
+        font-size: 15px;
+    }
+    .copyright-paragraph {
+        font-size: 10px;
+    }
+}
+
+/* ---------end hover undrline------- */
+@media (max-width:1025px) {
+    .copyright-paragraph{
+        font-size: 20px;
+    }
+}
+@media (max-width:415px) {
+    .copyright-paragraph{
+        font-size: 12px;
+    }
+}

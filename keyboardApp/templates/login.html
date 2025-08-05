@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/login.css' %}"
+    />
+  </head>
+
+  <body>
+    <script>
+      console.log("JS is done");
+      function getCSRFToken() {
+        return document.querySelector("[name=csrfmiddlewaretoken]").value;
+      }
+
+      async function userAuth() {
+        let usernameInputElement = document.getElementById(
+          "userinput-username-id"
+        );
+        let userpasswordInputElement = document.getElementById(
+          "userinput-password-id"
+        );
+        console.log();
+        console.log("TEST");
+        console.log({
+          username: usernameInputElement.value,
+          password: userpasswordInputElement.value,
+        });
+        try {
+          let resp = await fetch(
+            "http://127.0.0.1:8000/api/keyboardApp/auth/login",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": getCSRFToken(),
+              },
+              body: JSON.stringify({
+                username: usernameInputElement.value,
+                password: userpasswordInputElement.value,
+              }),
+            }
+          );
+          let data = await resp.json();
+          if (data.redirect_url) {
+            window.location.href = data.redirect_url;
+          } else {
+            alert("Login succeeded but no redirect was provided.");
+          }
+
+          //   window.location.href = "/keyboardApp/home";
+        } catch (err) {
+          alert(
+            "Something went wrong, failed to validate your crediential, Please try again"
+          );
+          console.log(err);
+        }
+      }
+    </script>
+    <div class="login-back-btn-con">
+      <button class="login-back-btn" onclick="handleRoute('home')">Back</button>
+    </div>
+    <div class="wrapper">
+      <div>
+        {% csrf_token %}
+        <h1 class="login">Login</h1>
+        <div class="input-box">
+          <input
+            type="text"
+            placeholder="Username"
+            id="userinput-username-id"
+          />
+        </div>
+        <div class="input-box">
+          <input
+            type="password"
+            placeholder="Passowrd"
+            id="userinput-password-id"
+          />
+        </div>
+        <div class="under-thing">
+          <button class="btn" onclick="userAuth()">Login</button>
+          <div class="remember-forgot">
+            <a href="#" style="cursor: pointer">Forgot passowrd?</a>
+          </div>
+          <div class="register-link">
+            <p class="do-not-have-acc">
+              Don't have an account?
+              <a href="./signup" style="cursor: pointer">Sign Up</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const handleRoute = (route) => {
+        let prepRoute = "./" + route;
+        console.log("Route triggered");
+        window.location.href = prepRoute;
+      };
+    </script>
+  </body>
+</html>

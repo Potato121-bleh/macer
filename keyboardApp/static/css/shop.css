@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.checkout-transaction-info-main-con p {
+  font-size: 12px;
+  margin: 0;
+}
+
+.brand-img {
+  width: 40%;
+}
+
+.container {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+  justify-content: center;
+}
+.container p,
+h1,
+h2 {
+  margin: 0;
+}
+.container-grid {
+  width: 89%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 250px;
+  height: 250px;
+  border: 1px solid rgb(218, 217, 217);
+  background-color: rgb(255, 254, 254);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 15px;
+  box-shadow: rgba(0, 0, 0, 0.159) 0px 5px 8px;
+  /* border: solid goldenrod; */
+}
+.box .shape-in-Grid {
+  /* border: solid yellow; */
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shape-in-Grid .keyboard-pic {
+  width: 210px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  box-shadow: rgba(0, 0, 0, 0.194) 0px 4px 12px;
+}
+.series-one-x-Universal {
+  font-size: 15px;
+  font-weight: 780;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+}
+.box .series-one-x-kuromi {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 780;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(0, 0, 0);
+}
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: solid black; */
+  height: 100%;
+  width: 90%;
+  position: relative;
+  /* margin: 10px; */
+}
+.detail-container .long-ph {
+  font-size: 11px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-weight: 800;
+}
+.price-head {
+  /* border: solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 40%;
+  width: 100%;
+}
+.detail-price {
+  display: flex;
+  /* border: solid black; */
+}
+.detail-price .price {
+  font-size: 15px;
+}
+.price-dollars {
+  font-size: 15px;
+  padding-left: 5px;
+  color: rgb(211, 0, 0);
+  font-weight: bolder;
+}
+.detail-color .rgb-color {
+  /* font-weight: bold; */
+  font-size: 15px;
+}
+
+.rgb {
+  color: rgb(33, 33, 33);
+  font-size: 15px;
+  font-weight: bolder;
+  padding-left: 5px;
+}
+.detail-color {
+  display: flex;
+  /* border: solid yellow; */
+}
+
+.brand-logo h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  position: absolute;
+  left: 0px;
+  bottom: 11px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+#logo-img-con-id {
+  display: flex;
+  justify-content: center;
+}
+
+.shop-sidebar-main-con {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+}
+
+.shop-sidebar-element-con {
+  margin: 10px;
+}
+
+.brand-option-btn {
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: none;
+  border-radius: 10px;
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+}
+
+.brand-option-btn:hover {
+  transform: scale(1.04);
+  background: #b1b1b161;
+}
+
+/* bottom card section  */
+
+.detail-bottom-section {
+  width: 100%;
+  margin-top: 15px;
+  display: flex;
+  padding: 0;
+  list-style: none;
+  justify-content: space-between;
+}
+
+.detail-bottom-btn {
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.main-box-con {
+  margin-bottom: 10%;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  transition: all 700ms ease-in-out;
+}
+
+.box-sub-con {
+  transition: all 700ms ease-in-out;
+  display: flex;
+}
+
+.box-left-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  height: auto;
+  padding: 0;
+}
+
+.box-right-con {
+  list-style: none;
+  padding: 15px;
+  width: 250px;
+  color: gray;
+}
+
+.box-right-title {
+  font-weight: bold;
+  color: black;
+}
+
+.box-right-description {
+  margin-top: 7px;
+  margin-bottom: 7px;
+  font-size: 12px;
+}
+
+.box-right-price {
+  font-weight: bold;
+  color: green;
+}
+
+.box-right-availability-span {
+  font-weight: bold;
+  color: green;
+}
+
+.box-right-span {
+  font-weight: bold;
+  color: black;
+}
+
+.box-right-back-btn {
+  margin-top: 15px;
+  padding: 2px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+/* Class for toggle */
+
+.toggle-slide-card-detail {
+  transform: translateX(-250px);
+}
+
+.toggle-scale-card-detail {
+  z-index: 3;
+  transform: scale(1.2);
+}
