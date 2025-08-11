@@ -1,19 +1,19 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>History</title>
-        <link rel="stylesheet" href="{% static 'css/history.css' %}" />
-    </head>
-    <body>
-        {% include 'navigation/header.html' %} {% csrf_token %}
-        <main>
-            <div class="con-element">
-                <h1 class="history-text">History</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History</title>
+    <link rel="stylesheet" href="{% static 'css/history.css' %}" />
+  </head>
+  <body>
+    {% include 'navigation/header.html' %} {% csrf_token %}
+    <main>
+      <div class="con-element">
+        <h1 class="history-text">History</h1>
 
-                <!-- <div class="history-box">
+        <!-- <div class="history-box">
                     <ul class="ul-one">
                         <li class="keyboard-name-one-main">
                             <h4 class="keyboard-name-one-con">
@@ -61,9 +61,11 @@
                     </div>
                 </div> -->
 
-                <ul id="history-container-id"></ul>
-            </div>
-        </main>
-        <script src="{% static 'js/history.js' %}"></script>
-    </body>
+        <ul id="history-container-id"></ul>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="{% static 'js/history.js' %}"></script>
+  </body>
 </html>

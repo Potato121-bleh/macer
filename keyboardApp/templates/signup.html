@@ -1,68 +1,56 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Sign Up</title>
-        <!-- <link rel="stylesheet" href="/macer/keyboardApp/templates/signup.html"> -->
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="{% static 'css/signup.css' %}"
-        />
-    </head>
-    <body>
-        {% csrf_token %}
-        <div class="signup-back-btn-con">
-            <button class="signup-back-btn" onclick="handleRoute('home')">
-                Back
-            </button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <!-- <link rel="stylesheet" href="/macer/keyboardApp/templates/signup.html"> -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/signup.css' %}"
+    />
+  </head>
+  <body>
+    {% csrf_token %}
+    <div class="signup-back-btn-con">
+      <button class="signup-back-btn" onclick="handleRoute('home')">
+        Back
+      </button>
+    </div>
+    <div>
+      <!-- <h1 class="background-h1">MYKEYBOARD</h1> -->
+      <!-- <img src="/macerShop/frontendApp/static/img/keyboard.jpeg" alt=""> -->
+      <div class="container">
+        <div class="form-signup">
+          <h1>Sign Up</h1>
+          <div class="input-box">
+            <label>Username</label>
+            <input type="text" placeholder="" required id="username-input-id" />
+          </div>
+          <div class="input-box">
+            <label>NickName</label>
+            <input type="text" placeholder="" id="nickname-input-id" />
+          </div>
+          <div class="input-box">
+            <label class="password">Password</label>
+            <input type="text" placeholder="" required id="password-input-id" />
+          </div>
+          <div class="btn-signup">
+            <button onclick="handleSignup()">Sign Up</button>
+          </div>
+          <div class="already-haveacc">
+            <p>
+              Already have account?
+              <a href="./login">Login</a>
+            </p>
+          </div>
         </div>
-        <div>
-            <!-- <h1 class="background-h1">MYKEYBOARD</h1> -->
-            <!-- <img src="/macerShop/frontendApp/static/img/keyboard.jpeg" alt=""> -->
-            <div class="container">
-                <div class="form-signup">
-                    <h1>Sign Up</h1>
-                    <div class="input-box">
-                        <label>Username</label>
-                        <input
-                            type="text"
-                            placeholder=""
-                            required
-                            id="username-input-id"
-                        />
-                    </div>
-                    <div class="input-box">
-                        <label>NickName</label>
-                        <input
-                            type="text"
-                            placeholder=""
-                            id="nickname-input-id"
-                        />
-                    </div>
-                    <div class="input-box">
-                        <label class="password">Password</label>
-                        <input
-                            type="text"
-                            placeholder=""
-                            required
-                            id="password-input-id"
-                        />
-                    </div>
-                    <div class="btn-signup">
-                        <button onclick="handleSignup()">Sign Up</button>
-                    </div>
-                    <div class="already-haveacc">
-                        <p>
-                            Already have account?
-                            <a href="./login">Login</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="{% static 'js/signup.js' %}" defer></script>
-    </body>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="{% static 'js/signup.js' %}" defer></script>
+  </body>
 </html>

@@ -3,7 +3,7 @@ from rest_framework import viewsets
 from .models import *
 from .serializers import *
 from appApi.views.keyboardAppViews.middlewareViews import Cookie_validation_middleware
-from appApi.views.keyboardAppViews.authViews import admin_only_view, user_only_view
+from appApi.views.keyboardAppViews.authViews import admin_only_view, user_only_view, user_or_guest_view
 from rest_framework.parsers import MultiPartParser, FormParser
 from django.conf import settings
 import os
@@ -13,8 +13,7 @@ import os
 
 
 # Create your views here.
-
-@user_only_view
+@user_or_guest_view
 def shop_page(request):
     return render(request, 'shop.html')
 
@@ -23,16 +22,16 @@ def login_page(request):
 
 def signup_page(request):
     return render(request, 'signup.html')
-@user_only_view
+
 def header_page(request):
     return render(request, 'navigation/header.html')
 
 def home_page(request):
     return render(request, 'home.html')
-@user_only_view
+@user_or_guest_view
 def about_page(request):
     return render(request, 'about.html')
-@user_only_view
+
 def footer_page(request):
     return render(request, 'navigation/footer.html')
 @user_only_view
@@ -42,7 +41,8 @@ def checkout_page(request):
 def history_page(request):
     return render(request, 'history.html')
 
-
+def forbidden_430_view(request):
+    return render(request, '430.html')
 
 
 class ItemView(viewsets.ModelViewSet):

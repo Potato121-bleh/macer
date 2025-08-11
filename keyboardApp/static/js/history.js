@@ -1,76 +1,112 @@
 // api: "http://127.0.0.1:8000/api/keyboardApp/retrieve-transaction"
 
 const getCSRFToken = () => {
-    return document.querySelector('[name=csrfmiddlewaretoken]').value
-}
+  return document.querySelector("[name=csrfmiddlewaretoken]").value;
+};
 
 const handleSubmitReview = async (itemId, transactionId) => {
-    let selectedUserId = 0
-    let selectedEleId = `select_review_rate-id-${transactionId}`
-    let selectedRate = document.getElementById(selectedEleId)
-    let selectedRateTem = selectedRate?.value
-    let userReview = window.prompt('Write your Review here', 'N/A')
+  let selectedUserId = 0;
+  let selectedEleId = `select_review_rate-id-${transactionId}`;
+  let selectedRate = document.getElementById(selectedEleId);
+  let selectedRateTem = selectedRate?.value;
+  //   let userReview = window.prompt("Write your Review here", "N/A");
 
-    try {
-        let fetchUserResp = await fetch(
-            'http://127.0.0.1:8000/api/keyboardApp/auth/validation'
-        )
-        if (fetchUserResp.ok && fetchUserResp.status === 200) {
-            let respData = await fetchUserResp.json()
-            console.log(respData)
-            selectedUserId = respData.Data['user_id']
-        }
-
-        console.log(selectedUserId)
-        console.log(selectedRateTem)
-
-        let submitReview = await fetch(
-            'http://127.0.0.1:8000/api/keyboardApp/submit_review',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': getCSRFToken(),
-                },
-                body: JSON.stringify({
-                    userId: selectedUserId,
-                    storeItemId: itemId,
-                    rating: selectedRateTem,
-                    reviewText: userReview,
-                    txId: transactionId,
-                }),
-            }
-        )
-        if (submitReview.ok && submitReview.status === 200) {
-            let respMessage = await submitReview.json()
-            alert(respMessage['Message'])
-            window.location.reload()
-        }
-    } catch (e) {
-        alert('failed to submit review, Please check the console for Error')
-        console.log(e)
+  try {
+    let fetchUserResp = await fetch(
+      "http://127.0.0.1:8000/api/keyboardApp/auth/validation"
+    );
+    if (fetchUserResp.ok && fetchUserResp.status === 200) {
+      let respData = await fetchUserResp.json();
+      console.log(respData);
+      selectedUserId = respData.Data["user_id"];
     }
-}
+
+    const { value: userReview } = await Swal.fire({
+      title: "Write your Review",
+      input: "textarea",
+      inputLabel: "Your review",
+      inputPlaceholder: "Type your review here...",
+      inputValue: "N/A",
+      showCancelButton: true,
+      inputValidator: (value) => {
+        if (!value) {
+          return "Review cannot be empty!";
+        }
+      },
+    });
+    if (!userReview) {
+      userReview = "N/A";
+      return;
+    }
+
+    console.log(selectedUserId);
+    console.log(selectedRateTem);
+
+    let submitReview = await fetch(
+      "http://127.0.0.1:8000/api/keyboardApp/submit_review",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": getCSRFToken(),
+        },
+        body: JSON.stringify({
+          userId: selectedUserId,
+          storeItemId: itemId,
+          rating: selectedRateTem,
+          reviewText: userReview,
+          txId: transactionId,
+        }),
+      }
+    );
+    if (submitReview.ok && submitReview.status === 200) {
+      let respMessage = await submitReview.json();
+      //   alert(respMessage["Message"]);
+      Swal.fire({
+        toast: true,
+        position: "top-end",
+        icon: "success",
+        text: respMessage["Message"],
+        showConfirmButton: false,
+        timer: 1500,
+        width: "auto",
+        customClass: {
+          popup: "cart-alert",
+        },
+      }).then(() => {
+        window.location.reload();
+      });
+    }
+  } catch (e) {
+    // alert("failed to submit review, Please check the console for Error");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Failed to submit review, please check console for details.",
+    });
+    console.log(e);
+  }
+};
 
 const renderHistory = async () => {
-    let historyCon = document.getElementById('history-container-id')
-    let queriedTransaction
-    try {
-        let userTransactionResp = await fetch(
-            'http://127.0.0.1:8000/api/keyboardApp/retrieve-transaction'
-        )
-        if (userTransactionResp.ok && userTransactionResp.status === 200) {
-            let data = await userTransactionResp.json()
-            queriedTransaction = data.item_data
-        }
-    } catch (e) {
-        alert('failed to retrieve user history transaction')
-        console.log(e)
-        return
+  let historyCon = document.getElementById("history-container-id");
+  let queriedTransaction;
+  try {
+    let userTransactionResp = await fetch(
+      "http://127.0.0.1:8000/api/keyboardApp/retrieve-transaction"
+    );
+    if (userTransactionResp.ok && userTransactionResp.status === 200) {
+      let data = await userTransactionResp.json();
+      queriedTransaction = data.item_data;
     }
-    let dynamicTransactionRender = queriedTransaction
-        .map((element) => {
-            let mainSection = `<li class="history-box">
+  } catch (e) {
+    alert("failed to retrieve user history transaction");
+    console.log(e);
+    return;
+  }
+  let dynamicTransactionRender = queriedTransaction
+    .map((element) => {
+      let mainSection = `<li class="history-box">
                     <ul class="ul-one">
                         <li class="keyboard-name-one-main">
                             <h4 class="keyboard-name-one-con">
@@ -92,13 +128,13 @@ const renderHistory = async () => {
                                 </li>
                             </ul>
                         </div>
-                `
-            let reviewSection
-            let footerSection = `</div></li> `
+                `;
+      let reviewSection;
+      let footerSection = `</div></li> `;
 
-            // validate to make sure it not display to input review
-            if (element.reviewed_flag !== 1) {
-                reviewSection = `<ul class="ul-three">
+      // validate to make sure it not display to input review
+      if (element.reviewed_flag !== 1) {
+        reviewSection = `<ul class="ul-three">
 <li class="rating-text" >Rate Us</li>
 <li class="select-li">
     <select
@@ -122,23 +158,23 @@ const renderHistory = async () => {
         Submit
     </button>
 </li>
-</ul>`
-            } else {
-                reviewSection = `<ul class="ul-three">
+</ul>`;
+      } else {
+        reviewSection = `<ul class="ul-three">
 <li class="rating-text" >Reviewed</li>
-</ul>`
-            }
+</ul>`;
+      }
 
-            let finalRenderData = mainSection + reviewSection + footerSection
-            return finalRenderData
-        })
-        .join('')
-    historyCon.innerHTML = dynamicTransactionRender
-}
-renderHistory()
+      let finalRenderData = mainSection + reviewSection + footerSection;
+      return finalRenderData;
+    })
+    .join("");
+  historyCon.innerHTML = dynamicTransactionRender;
+};
+renderHistory();
 
 {
-    /* <ul class="ul-three">
+  /* <ul class="ul-three">
 <li class="rating-text" >Rate Us</li>
 <li class="select-li">
     <select
@@ -169,7 +205,7 @@ renderHistory()
 }
 
 {
-    /* <div class="history-box">
+  /* <div class="history-box">
                     <ul class="ul-one">
                         <li class="keyboard-name-one-main">
                             <h4 class="keyboard-name-one-con">

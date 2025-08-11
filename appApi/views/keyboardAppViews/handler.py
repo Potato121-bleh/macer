@@ -73,8 +73,7 @@ def user_transaction(request: HttpRequest):
 
     return JsonResponse({"Message": "Transaction complete", "flag": "1"}, status=200)
 
-
-@require_http_methods(["GET", "OPTIONS"])
+@require_http_methods(["GET", "POST", "OPTIONS"])
 def retrieve_item_info(request):
     try:
         retireve_item = Store_item.objects.all()
@@ -114,8 +113,8 @@ def retrieve_discount(request: HttpRequest):
                 else:
                     raise Exception("discount coupon is invalid")
             else:
-                raise Exception("failed to query discout from server")
-        
+                raise Exception("failed to query discount from server")
+        return JsonResponse({"Error_Message": "discount code not found"}, status=404)
     except Exception as e:
         return JsonResponse({"Error_Message": e})
 

@@ -2,7 +2,7 @@ import base64
 import datetime
 import os
 from django.db import connections, transaction
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse, HttpRequest
 from django.views.decorators.http import require_http_methods
 from keyboardApp.models import User_info
@@ -92,7 +92,7 @@ def auth_signUp(request: HttpRequest):
     try:
         with transaction.atomic():
             with connections["keyboardAppDB"].cursor() as con:
-                con.execute("INSERT INTO keyboardApp_user_info (user_name, user_nickname, user_password, user_balance) VALUES (%s, %s, %s, 0.00)", [req_data["username"], req_data["nickname"], req_data["password"]])
+                con.execute("INSERT INTO keyboardApp_user_info (user_name, user_nickname, user_password, user_balance, user_role) VALUES (%s, %s, %s, 0.00, %s)", [req_data["username"], req_data["nickname"], req_data["password"], "user"])
                 if con.rowcount != 1:
                     raise Exception("unexpected row affect on insert user")
     except Exception as e:
@@ -121,33 +121,34 @@ def admin_only_view(view_func):
 
         user_role = payload.get("user_role")
         if user_role != "admin":
-            return JsonResponse({"error": "Forbidden: Admins only"}, status=403)
+            return redirect('forbidden') 
+            # return JsonResponse({"error": "Forbidden: Admins only"}, status=403)
 
         # Attach payload info to request if needed
         request.user_info = payload
         return view_func(request, *args, **kwargs)
     return wrapper
 
-@require_GET
-def user_only_view(request: HttpRequest):
-    token = request.COOKIES.get("auth_token")
-    if not token:
-        return JsonResponse({"error": "Authentication required"}, status=401)
+# @require_GET
+# def user_only_view(request: HttpRequest):
+#     token = request.COOKIES.get("auth_token")
+#     if not token:
+#         return JsonResponse({"error": "Authentication required"}, status=401)
     
-    try:
-        payload = jwt.decode(token, get_JWT_key("public_key"), algorithms=["RS256"])
-    except Exception:
-        return JsonResponse({"error": "Invalid token"}, status=401)
+#     try:
+#         payload = jwt.decode(token, get_JWT_key("public_key"), algorithms=["RS256"])
+#     except Exception:
+#         return JsonResponse({"error": "Invalid token"}, status=401)
 
-    user_role = payload.get("user_role")
-    if user_role != "user":
-        return JsonResponse({"error": "Forbidden: Users only"}, status=403)
+#     user_role = payload.get("user_role")
+#     if user_role != "user":
+#         return JsonResponse({"error": "Forbidden: Users only"}, status=403)
 
-    data = {
-        "message": "Welcome user!",
-        "user": payload.get("user_name")
-    }
-    return JsonResponse(data)
+#     data = {
+#         "message": "Welcome user!",
+#         "user": payload.get("user_name")
+#     }
+#     return JsonResponse(data)
 
 
 
@@ -168,4 +169,34 @@ def user_only_view(view_func):
 
         request.user_info = payload
         return view_func(request, *args, **kwargs)
+    return wrapper
+
+
+
+def user_or_guest_view(view_func):
+    @wraps(view_func)
+    def wrapper(request, *args, **kwargs):
+        token = request.COOKIES.get("auth_token")
+
+        if token:
+            try:
+                payload = jwt.decode(token, get_JWT_key("public_key"), algorithms=["RS256"])
+                user_role = payload.get("user_role")
+
+                #  Block only admin
+                if user_role == "admin":
+                    return JsonResponse({"error": "Admins are not allowed"}, status=403)
+
+                #  Save user info to request (optional)
+                request.user_info = payload
+
+            except Exception:
+                return JsonResponse({"error": "Invalid token"}, status=401)
+
+        else:
+            # No token (guest) → allow
+            request.user_info = None
+
+        return view_func(request, *args, **kwargs)
+
     return wrapper

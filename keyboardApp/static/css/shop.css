@@ -40,7 +40,7 @@ h2 {
 
 .box {
   width: 250px;
-  height: 250px;
+  height: 300px;
   border: 1px solid rgb(218, 217, 217);
   background-color: rgb(255, 254, 254);
   display: flex;
@@ -270,4 +270,10 @@ h2 {
 .toggle-scale-card-detail {
   z-index: 3;
   transform: scale(1.2);
+}
+
+.cart-alert {
+  padding: 5px 5px !important; /* less padding */
+  font-size: 14px; /* smaller text */
+  margin-top: 50px;
 }

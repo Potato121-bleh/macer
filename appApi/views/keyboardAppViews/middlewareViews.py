@@ -3,6 +3,7 @@ import jwt
 from django.http import HttpRequest, JsonResponse
 from keyboardApp.models import User_info as keyboardApp_user_info
 from appApi.util.retrieveKey import get_JWT_key
+from django.shortcuts import redirect
 
 
 
@@ -43,7 +44,7 @@ def Cookie_validation_middleware(view_func):
     def validate_the_cookie(request: HttpRequest):
         jwt_token = request.COOKIES.get("auth_token")
         if not jwt_token:
-            return JsonResponse({"Error_Message": "cookie not found"}, status=401)
+            return JsonResponse({"Error_Message": "cookie not found"}, status=401)        
         try:
             jwt_payload = jwt.decode(
                 jwt=jwt_token,

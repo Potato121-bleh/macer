@@ -1,188 +1,156 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link
-            rel="stylesheet"
-            href="{% static 'css/navigationCss/header.css' %}"
-        />
-    </head>
-    <body>
-        <header class="header-navbar-main-con" id="header-navbar-main-con-id">
-            <nav class="header-navbar-sub-con">
-                <ul class="header-navbar-left-con">
-                    <li>
-                        <h2 class="guest-nav" id="usernickname-text-id">
-                            Guest
-                        </h2>
-                    </li>
-                    <li class="stand-ruler">|</li>
-                    <li class="logo-image">
-                        <img src="{% static 'img/macer-logo.png' %}" alt="" />
-                    </li>
-                </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/navigationCss/header.css' %}" />
+  </head>
+  <body>
+    <header class="header-navbar-main-con" id="header-navbar-main-con-id">
+      <nav class="header-navbar-sub-con">
+        <ul class="header-navbar-left-con">
+          <li>
+            <h2 class="guest-nav" id="usernickname-text-id">Guest</h2>
+          </li>
+          <li class="stand-ruler">|</li>
+          <li class="logo-image">
+            <img src="{% static 'img/macer-logo.png' %}" alt="" />
+          </li>
+        </ul>
 
-                <ul class="header-navbar-right-con">
-                    <ul class="navbar-page-con" id="navbar-page-con-id">
-                        <li
-                            class="navbar-page-element"
-                            id="navbar-home-label-id"
-                            role="button"
-                            onclick="handleRoute('home')"
-                        >
-                            Home
-                        </li>
-                        <li
-                            class="navbar-page-element"
-                            id="navbar-shop-label-id"
-                            role="button"
-                            onclick="handleRoute('shop')"
-                        >
-                            Shop
-                        </li>
-                        <li
-                            class="navbar-page-element"
-                            role="button"
-                            onclick="handleRoute('history')"
-                        >
-                            History
-                        </li>
-                        <li
-                            class="navbar-page-element navbar-about-element"
-                            id="navbar-aboutus-label-id"
-                            role="button"
-                            onclick="handleRoute('about')"
-                        >
-                            About Us
-                        </li>
+        <ul class="header-navbar-right-con">
+          <ul class="navbar-page-con" id="navbar-page-con-id">
+            <li
+              class="navbar-page-element"
+              id="navbar-home-label-id"
+              role="button"
+              onclick="handleRoute('home')"
+            >
+              Home
+            </li>
+            <li
+              class="navbar-page-element"
+              id="navbar-shop-label-id"
+              role="button"
+              onclick="handleRoute('shop')"
+            >
+              Shop
+            </li>
+            <li
+              class="navbar-page-element"
+              role="button"
+              onclick="handleRoute('history')"
+            >
+              History
+            </li>
+            <li
+              class="navbar-page-element navbar-about-element"
+              id="navbar-aboutus-label-id"
+              role="button"
+              onclick="handleRoute('about')"
+            >
+              About Us
+            </li>
 
-                        <li class="li-login" id="login-btn-id">
-                            <a href="./login"> Login</a>
-                        </li>
-                        <li class="li-signup" id="signup-btn-id">
-                            <a href="./signup">Sign Up</a>
-                        </li>
-                        <li class="li-signup" id="logout-btn-id">
-                            <a onclick="handleLogout()">Logout</a>
-                        </li>
-                    </ul>
+            <li class="li-login" id="login-btn-id">
+              <a href="./login"> Login</a>
+            </li>
+            <li class="li-signup" id="signup-btn-id">
+              <a href="./signup">Sign Up</a>
+            </li>
+            <li class="li-signup" id="logout-btn-id">
+              <a onclick="handleLogout()">Logout</a>
+            </li>
+          </ul>
 
-                    <ul class="header-menu-icon-con">
-                        <ul
-                            class="header-navbar-custom-burger-icon-con"
-                            role="button"
-                            onclick="handleToggleMenu()"
-                            id="pizza-icon-id"
-                        >
-                            <li
-                                class="header-navbar-custom-burger-icon-element"
-                                onclick="handleToggleMenu()"
-                            ></li>
-                            <li
-                                class="header-navbar-custom-burger-icon-element"
-                                onclick="handleToggleMenu()"
-                            ></li>
-                            <li
-                                class="header-navbar-custom-burger-icon-element"
-                                onclick="handleToggleMenu()"
-                            ></li>
-                        </ul>
-                        <li
-                            class="header-menu-icon-hoverboard"
-                            id="header-menu-icon-hoverboard-id"
-                        ></li>
-                    </ul>
+          <ul class="header-menu-icon-con">
+            <ul
+              class="header-navbar-custom-burger-icon-con"
+              role="button"
+              onclick="handleToggleMenu()"
+              id="pizza-icon-id"
+            >
+              <li
+                class="header-navbar-custom-burger-icon-element"
+                onclick="handleToggleMenu()"
+              ></li>
+              <li
+                class="header-navbar-custom-burger-icon-element"
+                onclick="handleToggleMenu()"
+              ></li>
+              <li
+                class="header-navbar-custom-burger-icon-element"
+                onclick="handleToggleMenu()"
+              ></li>
+            </ul>
+            <li
+              class="header-menu-icon-hoverboard"
+              id="header-menu-icon-hoverboard-id"
+            ></li>
+          </ul>
 
-                    <li class="icon-add-cart">
-                        <img
-                            class="icon-shopping"
-                            src="{% static 'img/shopping-cart2.png' %}"
-                            alt=""
-                            role="button"
-                            onclick="handleCartCheckout()"
-                        />
-                        <div class="cart-counter-con">
-                            <p id="cart-counter-id">0</p>
-                        </div>
-                        <div
-                            class="cart-hover-con"
-                            id="cart-hover-con-id"
-                        ></div>
-                    </li>
-                </ul>
+          <li class="icon-add-cart">
+            <img
+              class="icon-shopping"
+              src="{% static 'img/shopping-cart2.png' %}"
+              alt=""
+              role="button"
+              onclick="handleCartCheckout()"
+            />
+            <div class="cart-counter-con">
+              <p id="cart-counter-id">0</p>
+            </div>
+            <div class="cart-hover-con" id="cart-hover-con-id"></div>
+          </li>
+        </ul>
 
-                <!-- Menu Dialog -->
-                <div
-                    class="header-dialog-main-con"
-                    id="header-dialog-main-con-id"
-                >
-                    <ul
-                        class="header-dialog-sub-con"
-                        id="header-dialog-sub-con-id"
-                    >
-                        <li class="header-dialog-title">
-                            Hello,
-                            <span id="dialog-usernickname-text-id">Guest</span>
-                        </li>
-                        <ul class="header-dialog-navigation-con">
-                            <li role="button" onclick="handleRoute('home')">
-                                Home
-                            </li>
-                            <li role="button" onclick="handleRoute('shop')">
-                                Shop
-                            </li>
-                            <li role="button" onclick="handleRoute('history')">
-                                History
-                            </li>
-                            <li role="button" onclick="handleRoute('about')">
-                                About Us
-                            </li>
-                        </ul>
+        <!-- Menu Dialog -->
+        <div class="header-dialog-main-con" id="header-dialog-main-con-id">
+          <ul class="header-dialog-sub-con" id="header-dialog-sub-con-id">
+            <li class="header-dialog-title">
+              Hello,
+              <span id="dialog-usernickname-text-id">Guest</span>
+            </li>
+            <ul class="header-dialog-navigation-con">
+              <li role="button" onclick="handleRoute('home')">Home</li>
+              <li role="button" onclick="handleRoute('shop')">Shop</li>
+              <li role="button" onclick="handleRoute('history')">History</li>
+              <li role="button" onclick="handleRoute('about')">About Us</li>
+            </ul>
 
-                        <ul class="header-dialog-account-con">
-                            <li class="header-dialog-account-title">
-                                Your Account:
-                            </li>
-                            <ul class="header-dialog-account-detail-con">
-                                <li class="header-dialog-account-left-con">
-                                    <i
-                                        class="fa-solid fa-user"
-                                        id="header-dialog-user-icon"
-                                    ></i>
-                                    <p id="dialog-username-text-id">Guest-id</p>
-                                </li>
-                                <li id="dialog-balance-text-id">00$</li>
-                            </ul>
-                        </ul>
+            <ul class="header-dialog-account-con">
+              <li class="header-dialog-account-title">Your Account:</li>
+              <ul class="header-dialog-account-detail-con">
+                <li class="header-dialog-account-left-con">
+                  <i class="fa-solid fa-user" id="header-dialog-user-icon"></i>
+                  <p id="dialog-username-text-id">Guest-id</p>
+                </li>
+                <li id="dialog-balance-text-id">00$</li>
+              </ul>
+            </ul>
 
-                        <ul class="header-dialog-auth-control-con">
-                            <li class="li-login" id="dialog-login-btn-id">
-                                Login
-                            </li>
-                            <li
-                                class="li-signup"
-                                id="dialog-signup-btn-id"
-                                role="button"
-                            >
-                                Sign Up
-                            </li>
-                            <li
-                                class="li-signup"
-                                id="dialog-logout-btn-id"
-                                role="button"
-                                onclick="handleLogout()"
-                            >
-                                Logout
-                            </li>
-                        </ul>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+            <ul class="header-dialog-auth-control-con">
+              <li class="li-login" id="dialog-login-btn-id">Login</li>
+              <li class="li-signup" id="dialog-signup-btn-id" role="button">
+                Sign Up
+              </li>
+              <li
+                class="li-signup"
+                id="dialog-logout-btn-id"
+                role="button"
+                onclick="handleLogout()"
+              >
+                Logout
+              </li>
+            </ul>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        <script src="{% static 'js/header.js' %}"></script>
-    </body>
+    <script src="{% static 'js/header.js' %}"></script>
+  </body>
 </html>
